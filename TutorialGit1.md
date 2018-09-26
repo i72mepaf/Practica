@@ -50,3 +50,8 @@ git commit -m "Mensaje"
 ## Comandos básicos IV
 ### Deshacer cambios con git:
 `git checkout -- nombre_fichero`
+### Retirar archivos del *staging*:
+`git reset HEAD nombre_fichero`
+### Complementar último committ:
+`git commit --amend -m "Mensaje"`
+### Recuperar version de un chero de commit antiguo:

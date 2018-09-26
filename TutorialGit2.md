@@ -62,3 +62,15 @@
 *Crear una rama y moverse en un paso:*
 
 `git  checkout  -b nombre_rama`
+
+*Comparar ramas:*
+
+`git  diff  nombre_rama .. nombre_rama`
+
+*Ver ramas identicas a la actual:*
+
+`git  branch  --merged`
+
+*Renombrar ramas:*
+
+`git  branch  -m nombre_antiguo  nombre_nuevo`

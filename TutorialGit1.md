@@ -55,3 +55,6 @@ git commit -m "Mensaje"
 ### Complementar último committ:
 `git commit --amend -m "Mensaje"`
 ### Recuperar version de un chero de commit antiguo:
+`git checkout <id_commit > -- nombre_archivo`
+### Revertir un commit:
+`git revert <id_commit >`

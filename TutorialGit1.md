@@ -8,3 +8,8 @@
 `git config --global core.editor "atom"`
 ### Color de la interfaz:
 `git config --global color.ui true`
+### Listado de la configuración:
+`git config --list`
+## Comandos básicos I
+### Iniciar repositorio en un directorio
+`git init`

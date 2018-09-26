@@ -28,3 +28,13 @@
 `git log -n 5`
 ### Listar los commits desde una fecha:
 `git log --since =2018-09-25`
+### Listar los commits por autor:
+`git log --author ="Felipe"`
+### Ver cambios en el directorio:
+`git status`
+## Comandos básicos III
+### Ver diferencia entre ficheros en el directorio y el repositorio de git:
+`git diff`
+### Ver diferencia entre ficheros en el *staging* y el repositorio:
+`git diff --staged`
+### Eliminar archivos

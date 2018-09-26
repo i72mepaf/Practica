@@ -1,4 +1,0 @@
-*.o
-prueba.o
-log/
-!log/archivonuevo.txt

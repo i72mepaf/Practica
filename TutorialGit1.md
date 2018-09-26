@@ -44,3 +44,9 @@ git commit -m "Mensaje"
 ~~~
 ### Mover o renombrar archivos
 ~~~
+git mv Antiguo Nuevo
+git commit -m "Mensaje"
+~~~
+## Comandos básicos IV
+### Deshacer cambios con git:
+`git checkout -- nombre_fichero`

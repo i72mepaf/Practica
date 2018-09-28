@@ -144,3 +144,10 @@ git commit -m "Mensaje"
 *Integrar ramas a la actual:*
 
 `git  merge  nombre_rama`
+
+# Tutorial de Git parte 3
+## Resto de comandos en las ramas y comandos en GitHub
+
+1.**Almacenar cambios temporales**
+
+* `git stash save "Mensaje"`

@@ -194,3 +194,12 @@ git commit -m "Mensaje"
 6.**Ver branches remotos**
 
 * `git branch -r`
+
+7.**Ver todos los branches**
+
+* `git branch -a`
+
+8.**Clonar un repositorio**
+
+* `git clone url`
+

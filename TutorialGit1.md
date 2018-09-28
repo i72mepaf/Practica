@@ -58,3 +58,13 @@ git commit -m "Mensaje"
 `git checkout <id_commit > -- nombre_archivo`
 ### Revertir un commit:
 `git revert <id_commit >`
+
+# Comandos basicos V
+
+*Deshacer multiples cambios en el repositorio:*
+
+`git  reset  --soft <id_commit >`
+
+`git  reset  --mixed  <id_commit >`
+
+`git  reset  --hard <id_commit >`

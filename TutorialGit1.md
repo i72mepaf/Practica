@@ -100,3 +100,19 @@ git commit -m "Mensaje"
 *Comparar un commit con el actual:*
 
 `git  diff <id > nombre_archivo`
+
+*Comparar dos commits:*
+
+`git  diff id..id  nombre_archivo`
+
+# Comandos Ramas I
+
+*Ver listado de ramas:*
+
+`git  branch`
+
+*Crear una rama:*
+
+`git  branch  nombre_rama`
+
+*Cambiarnos a una rama:*

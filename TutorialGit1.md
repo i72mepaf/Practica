@@ -203,3 +203,15 @@ git commit -m "Mensaje"
 
 * `git clone url`
 
+> Branches remotos
+
+**De un branch local a uno remoto**
+
+*`git push`
+
+**De un branch remoto a uno local**
+
+*`git fetch origin`
+
+*`git merge origin/master`
+

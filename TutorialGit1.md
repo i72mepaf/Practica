@@ -182,3 +182,15 @@ git commit -m "Mensaje"
 3.**Eliminar repositorio remoto**
 
 * `git remote rm origin`
+
+4.**Añadir cambios del repositorio local al remoto**
+
+* `git push -u origin master`
+
+5.**Añadir cambios del repositorio remoto al local**
+
+* `git pull`
+
+6.**Ver branches remotos**
+
+* `git branch -r`

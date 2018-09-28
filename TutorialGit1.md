@@ -226,3 +226,7 @@ git commit -m "Mensaje"
 **Copiar**
 
 *`git checkout -b local remoto`
+
+**Eliminar**
+
+*`git push origin --delete branch_remoto`

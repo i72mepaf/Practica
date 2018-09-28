@@ -170,3 +170,15 @@ git commit -m "Mensaje"
 * `git stash pop nombre_stash`
 
 > A partir de ahora veremos comandos de GitHub
+
+1.**Añadir repositorio remoto**
+
+* `git remote add origin url`
+
+2.**Ver repositorios remotos**
+
+* `git remote -v`
+
+3.**Eliminar repositorio remoto**
+
+* `git remote rm origin`

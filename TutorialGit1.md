@@ -163,3 +163,10 @@ git commit -m "Mensaje"
 4.**Eliminar un cambio temporal**
 
 * `git stash drop nombre_stash`
+
+5.**Aplicar cambio del stash**
+
+* `git stash apply nombre_stash`
+* `git stash pop nombre_stash`
+
+> A partir de ahora veremos comandos de GitHub

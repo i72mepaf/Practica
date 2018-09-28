@@ -215,3 +215,14 @@ git commit -m "Mensaje"
 
 *`git merge origin/master`
 
+> En un solo comando
+
+ *`git pull`
+
+**Creacion de un branch local**
+
+*`git push -u origin branch_remoto`
+
+**Copiar**
+
+*`git checkout -b local remoto`

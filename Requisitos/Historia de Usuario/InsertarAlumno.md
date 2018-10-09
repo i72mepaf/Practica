@@ -14,4 +14,4 @@ Como usuario quiero poder insertar los datos de un alumno en la base de datos
 
   2.Se debe de insertar opcionalmente si es lider de su grupo o no 
 
-  3.Se comprobara si existe el alumno y si existe se proporcionara un mensage de error
+  3.Se comprobara si existe el alumno y si existe se proporcionara un mensaje de error

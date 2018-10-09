@@ -1,4 +1,4 @@
-#(Anverso)
+(Anverso)
 ---
 **ID** :001  **Insertar Alumno**
 ---
@@ -8,7 +8,7 @@ Como usuario quiero poder insertar los datos de un alumno en la base de datos
 **Prioridad** 
 
 
-#(Reverso)
+(Reverso)
 ---
   1.Quiero poder insertar todos los datos de los alumnos
 

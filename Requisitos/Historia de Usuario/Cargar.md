@@ -11,4 +11,5 @@ actuando como una base de datos del mismo.
 ---
 ## **(REVERSO)**
 * Quiero poder cargar los datos de los alumnos de un fichero binario.
+* En el fichero binario solo podrán existir como máximo 150 alumnos.
 * Quiero que me muestre un mensaje de error si el archivo binario no existe.

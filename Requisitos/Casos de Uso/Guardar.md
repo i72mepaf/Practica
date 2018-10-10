@@ -1,12 +1,12 @@
 # Guardar datos en un fichero binario
 
-**ID:** 
+**ID:** 008
 
-**Breve descripción:**
- 
-**Actores principales:** 
+**Breve descripción:** El sistema guarda la base de datos de los alumnos en un fichero binario.
 
-**Actores secundarios:** 
+**Actores principales:** Profesor.
+
+**Actores secundarios:** Alumnos.
 
 **Precondiciones:**
 

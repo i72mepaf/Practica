@@ -2,7 +2,7 @@
 
 **ID:** 007
 
-**Breve descripción:** El sistema carga los datos de un fichero binario.
+**Breve descripción:** El sistema carga los datos de los alumnos de un fichero binario.
 
 **Actores principales:** Profesor.
 

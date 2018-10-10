@@ -18,8 +18,12 @@
 
 1. El caso de uso empieza cuando el sistema necesita cargar los datos de los alumnos de un fichero.
 2. El sistema pregunta al usuario el nombre del fichero binario a cargar.
-3. El sistema carga los datos del fichero en el sistema.
+3. El sistema carga los datos del fichero binario en el sistema.
 
 **Postcondiciones:**
 
-* Una vez cargados
+* Una vez cargado el fichero, el sistema tiene la base de datos de los alumnos del fichero binario cargado.
+
+**Flujos alternativos:**
+
+2.a. Si el fichero binario a cargar no existe, muestra un mensaje de error.

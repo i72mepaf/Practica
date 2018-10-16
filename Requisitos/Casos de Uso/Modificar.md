@@ -1,31 +1,29 @@
-# **Modificar alumno**
+# Modificar alumno
 
- **ID:** 002
+**ID:** 002
  
- **Breve descripción:** El sistema permite la modificacion de los datos de un alumno 
+**Breve descripción:** El sistema permite la modificación de los datos de un alumno.
 
- **Actores principales:** Profesor
+**Actores principales:** Profesor.
 
- **Actores secundarios:** Alumnos
+**Actores secundarios:** Alumnos.
 
- **Precondiciones**
+**Precondiciones:**
 
-	 1.El alumno de existir en la base de datos
+1. El alumno de existir en la base de datos.
 
- **Flujo principal:**
+**Flujo principal:**
 	
-	 1. El caso de uso empieza cuando el profesor quiera modificar los datos del un alumno.
+1. El caso de uso empieza cuando el profesor quiera modificar los datos del un alumno.
+2. El sistema pedirá que el profesor introduzca el apellido del alumno a modificar, en caso de haber alumnos con el mismo apellido el sistema solicitara el DNI al profesor que deberá introducirlo.
+3. Una vez se tenga el alumno a modificar el sistema preguntara que dato se modificara y una vez hecho el sistema solicitará la modificación del dato al usuario que deberá introducirla.
 
-	 2. El sistema pedira que el profesor introduzca el apellido del alumno a modificar, en caso de haber alumnos con el mismo apellido el sistema solicitara el DNI al profesor que debera introducirlo.
-
-	 3. Una vez se tenga el alummno a modificar el sistema preguntara que dato se modificara y una vez hecho el sistema solicitara la modificacion del dato al usuario que debera introducirla
-
- **Postcondiciones:**
+**Postcondiciones:**
 	
-	 El sistema machaca los datos a modificar por los datos nuevos
+* El sistema machaca los datos a modificar por los datos nuevos.
 
+**Flujos alternativos:**
 
- **Flujo alternativos:**
-	Si el alumno no existe, el sistema muestra un mensaje de error.
+2.a. Si el alumno no existe, el sistema muestra un mensaje de error.
 
 

@@ -25,7 +25,3 @@
 **Flujos alternativos:**
 
 2.a. Si existe el alumno se muestra un mensaje de error.
-
-
-
-

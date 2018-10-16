@@ -25,4 +25,5 @@
 **Flujos alternativos :**
 
 2.a. Si al introducir los apellidos hay varios alumnos con los mismos se requerirá buscar por DNI.
+
 3.a. Si no existe el alumno se muestra un mensaje de error.

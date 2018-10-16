@@ -23,8 +23,3 @@
 **Flujo alternativos:**
 
 1.a. Si no hay alumnos en la base de datos, el sistema mostrara un mensaje de error.
-
-
-
-
-

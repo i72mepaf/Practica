@@ -5,7 +5,7 @@
 
 Como usuario quiero poder buscar un alumno de la base de datos 
 
-**Prioridad** 
+**Prioridad:** 3
 
 
 (Reverso)

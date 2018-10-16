@@ -5,7 +5,7 @@
 
 Como usuario quiero poder borrar los datos de un alumno de la base de datos
 
-**Prioridad** 
+**Prioridad:** 4
 
 
 (Reverso)

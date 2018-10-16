@@ -6,7 +6,7 @@ Como usuario quiero poder cargar datos de los alumnos de un fichero binario
 
 actuando como una base de datos del mismo.
 
-**Prioridad:** 
+**Prioridad:** 2
 
 ---
 ## **(REVERSO)**

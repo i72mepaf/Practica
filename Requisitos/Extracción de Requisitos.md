@@ -1,7 +1,7 @@
 # Documento de extracción de requisitos
 
 
-## **Partes Interesadas**
+## Partes Interesadas
 
 Las partes interesadas de nuestro sistema seran los profesorea que utilizen el programa para el almacenamiento de datos de los alumnos
 

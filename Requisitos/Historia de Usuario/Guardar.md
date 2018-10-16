@@ -11,7 +11,7 @@ dejarlos registrados en el mismo.
 **Prioridad:** 2
 
 ---
-## **(REVERSO)**
+## (REVERSO)
 * Quiero poder hacer una copia de seguridad de los datos de los alumnos en un fichero binario.
 * Quiero poder introducir el nombre del fichero binario a crear.
 * Si el fichero ya existe, quiero que me pregunte si quiero sobrescribirlo o no.

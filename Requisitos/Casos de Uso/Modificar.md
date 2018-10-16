@@ -1,9 +1,11 @@
 # **Modificar alumno**
 
  **ID:** 002
+ 
  **Breve descripción:** El sistema permite la modificacion de los datos de un alumno 
 
  **Actores principales:** Profesor
+
  **Actores secundarios:** Alumnos
 
  **Precondiciones**

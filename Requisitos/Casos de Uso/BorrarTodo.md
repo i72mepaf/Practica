@@ -1,9 +1,11 @@
 # **Borrar a todos los alumnos de la base de datos**
 
  **ID:** 006
+
  **Breve descripción:** El sistema permite borrar a todos los alumnos de la base de datos 
 
  **Actores principales:** Profesor
+ 
  **Actores secundarios:** Alumnos
 
  **Precondiciones**

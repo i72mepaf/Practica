@@ -1,9 +1,11 @@
 # **Mostrar alumno**
 
  **ID:** 004
+ 
  **Breve descripción:** El sistema muestra los datos de un alumno, de todos los alumnos o de los alumnos de un grupo.
 
  **Actores principales:** Profesor
+ 
  **Actores secundarios:** Alumnos
 
  **Precondiciones**

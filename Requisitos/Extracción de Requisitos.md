@@ -46,7 +46,7 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 	·Se ordenara alfabeticamente de forma ascendente o descendente
 	·Se permite cambiar, borrar y asignar al lider de un grupo
 
-## **Priorizacion de Requistos:PRIORIZACIÓN DE REQUISITOS:**
+## **Priorizacion de Requistos:**
 ### **Prioridad. Requisito**
 	1. Insertar Alumno
 	2. Cargar copia de seguridad de un fichero binario

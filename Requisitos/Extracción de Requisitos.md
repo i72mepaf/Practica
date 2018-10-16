@@ -1,4 +1,4 @@
-#**Documento de extracción de requisitos
+#**Documento de extracción de requisitos**
 
 
 ##**Partes Interesadas**

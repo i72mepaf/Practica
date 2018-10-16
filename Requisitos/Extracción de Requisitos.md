@@ -47,12 +47,12 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 * Se permite cambiar, borrar y asignar al lider de un grupo
 
 ## Priorizacion de Requistos:
-### Prioridad. Requisito
-1. Insertar Alumno
-2. Cargar copia de seguridad de un fichero binario
-2. Guardar copia de seguridad en un fichero binario
-3. Buscar Alumno
-4. Mostrar Alumno
-4. Eliminar Alumno
-4. Modificar Alumno
-5. Eliminar base de datos de los alumnos
+### Prioridad: Requisito
+Prioridad 1. Insertar Alumno
+Prioridad 2. Cargar copia de seguridad de un fichero binario
+Prioridad 2. Guardar copia de seguridad en un fichero binario
+Prioridad 3. Buscar Alumno
+Prioridad 4. Mostrar Alumno
+Prioridad 4. Eliminar Alumno
+Prioridad 4. Modificar Alumno
+Prioridad 5. Eliminar base de datos de los alumnos

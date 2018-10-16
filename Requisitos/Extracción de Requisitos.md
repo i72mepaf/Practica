@@ -19,3 +19,30 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 	8.Fecha de nacimiento
 	9.Número de grupo
 	10.Si es lider de su grupo o no
+
+
+## **Requisitos funcionales:** 
+	·Insertar alumno
+	·Buscar alumno
+	·Mostrar alumno 
+	·Cargar datos de un fichero binario
+	·Guardar datos en un fichero binario
+	·Eliminar alumno
+	·Modificar alumno
+	·Eliminar a todos los alumnos de la base de datos
+
+
+## **Requisitos no funcionales:**
+	·Lenguaje de programacion:C++.
+	·Documentacion en Markdown.
+	·IDE Eclipse
+	·Uso de commits
+	·Se utilizará Git y como repositorio remoto GitHub.
+	·La aplicación se utilizara en Linux
+	·Se podran almacenar como maximo 150 alumnos
+	·Solamente habra 1 lider por grupo
+	·Los alumnos se mostraran en formato HTML o Markdown
+	·Como criterio de ordenación y busqueda se utilizara DNI, Apellido, Curso más alto en el que el alumno esta matriculado.
+	·Se ordenara alfabeticamente de forma ascendente o descendente
+	·Se permite cambiar, borrar y asignar al lider de un grupo
+

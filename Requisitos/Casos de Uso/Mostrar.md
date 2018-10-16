@@ -10,19 +10,19 @@
 
  **Precondiciones**
 
-	### 1.El alumno debe estar en la base de datos
+	1.El alumno debe estar en la base de datos
 
  **Flujo principal:**
 	
-	### 1. El caso de uso empieza cuando el profesor quiera ver los datos de un alumno, de todos los alumnos o de los alumnos de un grupo.
+	1. El caso de uso empieza cuando el profesor quiera ver los datos de un alumno, de todos los alumnos o de los alumnos de un grupo.
 
-	### 2. El sistema mostrara un menu en el que muestra las opciones de muestra mostrar datos de un alumno, todos los alumnos o de los alumnos de un grupo.
+	2. El sistema mostrara un menu en el que muestra las opciones de muestra mostrar datos de un alumno, todos los alumnos o de los alumnos de un grupo.
 
-	### 3. El sistema muestra otro menu en el que el profesor selecciona si se muestra por DNI, por apellido, curso mas alto matriculado y si se muestra por ordenacion ascendente o descendente.
+	3. El sistema muestra otro menu en el que el profesor selecciona si se muestra por DNI, por apellido, curso mas alto matriculado y si se muestra por ordenacion ascendente o descendente.
 
  **Postcondiciones:**
 	
-	### El sistema muestra los datos de lo solicitado alfabeticamente y mostrara si el alumno es lider de algun grupo.
+	El sistema muestra los datos de lo solicitado alfabeticamente y mostrara si el alumno es lider de algun grupo.
 
 
  **Flujo alternativos:**

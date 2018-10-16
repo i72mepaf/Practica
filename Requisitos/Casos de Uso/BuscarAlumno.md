@@ -29,6 +29,6 @@
 
 **Flujos alternativos :**
 
-	2.a. Si no existe el alumno se muestra un mensaje de error
+	2.a. Si al introducir los apellidos hay varios alumnos con los mismos se requerira buscar por dni
 
-	2.b. Si al introducir los apellidos hay varios alumnos con los mismos se requerira buscar por dni
+	3.a. Si no existe el alumno se muestra un mensaje de error

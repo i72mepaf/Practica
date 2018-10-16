@@ -7,7 +7,7 @@ Las partes interesadas de nuestro sistema seran los profesorea que utilizen el p
 
 ## **Datos a almacenar**
 
-Los datos que introduce el profesor,que se guardaran en un fichero binario,seran los siguientes :
+Los datos que introduce el profesor,que se guardan en un fichero binario,seran los siguientes :
 
 	1.DNI
 	2.Nombre

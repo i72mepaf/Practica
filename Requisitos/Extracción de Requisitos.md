@@ -3,11 +3,11 @@
 
 ## Partes Interesadas
 
-Las partes interesadas de nuestro sistema seran los profesorea que utilizen el programa para el almacenamiento de datos de los alumnos
+Las partes interesadas de nuestro sistema serán los profesores que utilicen el programa para el almacenamiento de datos de los alumnos
 
 ## Datos a almacenar
 
-Los datos que introduce el profesor,que se guardan en un fichero binario,seran los siguientes :
+Los datos que introduce el profesor, que se guardan en un fichero binario, serán los siguientes:
 
 1. DNI
 2. Nombre
@@ -15,10 +15,10 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 4. Teléfono
 5. Email
 6. Dirección postal
-7. Curso mas alto matriculado
+7. Curso más alto matriculado
 8. Fecha de nacimiento
 9. Número de grupo
-10. Si es lider de su grupo o no
+10. Si es líder de su grupo o no
 
 
 ## Requisitos funcionales:
@@ -33,8 +33,8 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 
 
 ## Requisitos no funcionales:
-* Lenguaje de programacion:C++.
-* Documentacion en Markdown.
+* Lenguaje de programación: C++.
+* Documentación en Markdown.
 * IDE Eclipse
 * Uso de commits
 * Se utilizará Git y como repositorio remoto GitHub.
@@ -47,7 +47,7 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 * Se permite cambiar, borrar y asignar al lider de un grupo
 
 ## Priorizacion de Requistos:
-### Prioridad: Requisito
+### Nº de Prioridad: Requisito
 Prioridad 1: Insertar Alumno
 
 Prioridad 2: Cargar copia de seguridad de un fichero binario

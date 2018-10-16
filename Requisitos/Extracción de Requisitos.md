@@ -49,10 +49,17 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 ## Priorizacion de Requistos:
 ### Prioridad: Requisito
 Prioridad 1. Insertar Alumno
+
 Prioridad 2. Cargar copia de seguridad de un fichero binario
+
 Prioridad 2. Guardar copia de seguridad en un fichero binario
+
 Prioridad 3. Buscar Alumno
+
 Prioridad 4. Mostrar Alumno
+
 Prioridad 4. Eliminar Alumno
+
 Prioridad 4. Modificar Alumno
+
 Prioridad 5. Eliminar base de datos de los alumnos

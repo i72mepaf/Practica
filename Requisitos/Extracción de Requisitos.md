@@ -34,18 +34,18 @@ Los datos que introduce el profesor, que se guardan en un fichero binario, será
 * Lenguaje de programación: C++.
 * Documentación en Markdown.
 * IDE Eclipse.
-* Uso de commits.
+* Uso de Commits.
 * Se utilizará Git y como repositorio remoto GitHub.
-* La aplicación se utilizara en Linux.
+* La aplicación se utilizará en Linux.
 * Se podrán almacenar como máximo 150 alumnos.
-* Solamente habra 1 lider por grupo.
-* Los alumnos se mostraran en formato HTML o Markdown.
-* Como criterio de ordenación y busqueda se utilizara DNI, Apellido, Curso más alto en el que el alumno esta matriculado.
-* Se ordenara alfabeticamente de forma ascendente o descendente.
-* Se permite cambiar, borrar y asignar al lider de un grupo.
+* Solamente habrá 1 líder por grupo.
+* Los alumnos se mostrarán en formato HTML o Markdown.
+* Como criterio de ordenación y búsqueda se utilizará DNI, Apellido, Curso más alto en el que el alumno está matriculado.
+* Se ordenará alfabéticamente de forma ascendente o descendente.
+* Se permite cambiar, borrar y asignar al líder de un grupo.
 
-## Priorizacion de Requistos:
-### Nº de Prioridad: Requisito
+## Priorización de Requisitos:
+### N.º de Prioridad: Requisito
 Prioridad 1: Insertar alumno.
 
 Prioridad 2: Cargar copia de seguridad de un fichero binario.

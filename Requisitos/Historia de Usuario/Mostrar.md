@@ -2,6 +2,7 @@
 # **Mostrar Alumnos**
 # *ID:004*
 ## Como usuario queremos ver los alumnos
+**Prioridad:** 4
 ----------
 # **(Reverso)**
 ## Quiero mostrar todos los datos de los alumnos(DNI, Nombre, Apellidos, telefono, correo UCO, Direccion postal, Curso mas alto que estas matriculado, fecha de nacimiento,numero equipo del alumno, ¿lider?)

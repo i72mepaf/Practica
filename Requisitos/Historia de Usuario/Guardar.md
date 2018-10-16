@@ -8,7 +8,7 @@ los datos de los alumnos en un fichero binario para así
 
 dejarlos registrados en el mismo.
 
-**Prioridad:** 
+**Prioridad:** 2
 
 ---
 ## **(REVERSO)**

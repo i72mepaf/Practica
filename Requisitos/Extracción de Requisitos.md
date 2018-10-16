@@ -5,7 +5,7 @@
 
 Las partes interesadas de nuestro sistema seran los profesorea que utilizen el programa para el almacenamiento de datos de los alumnos
 
-## **Datos a almacenar**
+## Datos a almacenar
 
 Los datos que introduce el profesor,que se guardan en un fichero binario,seran los siguientes :
 
@@ -21,7 +21,7 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 10. Si es lider de su grupo o no
 
 
-## **Requisitos funcionales:** 
+## Requisitos funcionales:
 * Insertar alumno
 * Buscar alumno
 * Mostrar alumno 
@@ -32,7 +32,7 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 * Eliminar a todos los alumnos de la base de datos
 
 
-## **Requisitos no funcionales:**
+## Requisitos no funcionales:
 * Lenguaje de programacion:C++.
 * Documentacion en Markdown.
 * IDE Eclipse
@@ -46,8 +46,8 @@ Los datos que introduce el profesor,que se guardan en un fichero binario,seran l
 * Se ordenara alfabeticamente de forma ascendente o descendente
 * Se permite cambiar, borrar y asignar al lider de un grupo
 
-## **Priorizacion de Requistos:**
-### **Prioridad. Requisito**
+## Priorizacion de Requistos:
+### Prioridad. Requisito
 1. Insertar Alumno
 2. Cargar copia de seguridad de un fichero binario
 2. Guardar copia de seguridad en un fichero binario

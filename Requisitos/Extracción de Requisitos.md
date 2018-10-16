@@ -1,11 +1,10 @@
 # Documento de Extracción de Requisitos
 
-
-## Partes Interesadas
+## Partes Interesadas:
 
 Las partes interesadas de nuestro sistema serán los profesores que utilicen el programa para el almacenamiento de datos de los alumnos.
 
-## Datos a almacenar
+## Datos a almacenar:
 
 Los datos que introduce el profesor, que se guardan en un fichero binario, serán los siguientes:
 

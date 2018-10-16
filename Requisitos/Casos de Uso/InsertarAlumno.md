@@ -11,7 +11,7 @@
 
 **Precondiciones :** 
 
-	1. El alumno de debe existir
+	1. El alumno no debe existir
 
 
 **Flujo principal :**
@@ -24,7 +24,7 @@
 **Postcondiciones :**
 
 	1.Si no existe el alumno se inserta en la base de datos
-	
+
 
 **Flujos alternativos :**
 

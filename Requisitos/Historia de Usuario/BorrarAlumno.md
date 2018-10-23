@@ -1,17 +1,13 @@
-(Anverso)
----
-**ID** :005  **Insertar Alumno**
+## (ANVERSO)
+### ID: 005 Borrar Alumno
 ---
 
-Como usuario quiero poder borrar los datos de un alumno de la base de datos
+Como usuario quiero poder borrar los datos de un alumno de la base de datos.
 
 **Prioridad:** 4
 
-
-(Reverso)
 ---
-  1.Quiero poder borrar todos los datos de un alumno.
-
-  2.Se podra buscar el alumno usando la funcionalidad correspondiente mediante los apellidos.
-
-  3.Si existen varios alumnos con los mismo apellidos se le pedira al usuario que se busque por DNI el alumno a borrar. 
+## (REVERSO)
+* Quiero poder borrar todos los datos de un alumno.
+* Quiero poder buscar el alumno a eliminar por los apellidos.
+* Si existen varios alumnos con los mismos apellidos, quiero poder buscar por el DNI el alumno a borrar. 

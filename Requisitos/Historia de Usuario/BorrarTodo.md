@@ -1,8 +1,11 @@
-# **(Anverso)**
-# **Eliminar la base de datos de los alumnos**
-# **ID:006**
-## Como usario queremos borrar a todos los alumnos de la base de datos
+## (ANVERSO)
+### ID: 006 Eliminar la base de datos de los alumnos
+---
+
+Como usuario quiero poder borrar a todos los alumnos de la base de datos.
+
 **Prioridad:** 5
------------------------------------
-# **(Reverso)**
-## Quiero borrar a todos los alumnos de la base de datos
+
+---
+## (REVERSO)
+* Quiero poder borrar a todos los alumnos de la base de datos.

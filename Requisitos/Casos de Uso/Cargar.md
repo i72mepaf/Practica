@@ -16,8 +16,8 @@
 
 **Flujo principal:**
 
-1. El caso de uso empieza cuando el sistema necesita cargar los datos de los alumnos de un fichero.
-2. El sistema pregunta al usuario el nombre del fichero binario a cargar.
+1. El caso de uso empieza cuando el profesor necesita cargar los datos de los alumnos de un fichero binario.
+2. El sistema pregunta al profesor el nombre del fichero binario a cargar.
 3. El sistema carga los datos del fichero binario en el sistema.
 
 **Postcondiciones:**

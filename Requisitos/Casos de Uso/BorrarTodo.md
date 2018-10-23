@@ -1,30 +1,25 @@
-# **Borrar a todos los alumnos de la base de datos**
+# Borrar a todos los alumnos de la base de datos
 
- **ID:** 006
+**ID:** 006
 
- **Breve descripción:** El sistema permite borrar a todos los alumnos de la base de datos 
+**Breve descripción:** El sistema permite borrar a todos los alumnos de la base de datos.
 
- **Actores principales:** Profesor
+**Actores principales:** Profesor.
  
- **Actores secundarios:** Alumnos
+**Actores secundarios:** Alumnos.
 
- **Precondiciones**
+**Precondiciones**
 
-	 1.Deben de haber alumnos en la base de datos
+1. Deben de haber alumnos en la base de datos.
 
- **Flujo principal:**
+**Flujo principal:**
 	
-	 1. El caso de uso empieza cuando el profesor quiera borrar a todos los alumnos de la base de datos
+1. El caso de uso empieza cuando el profesor quiera borrar a todos los alumnos de la base de datos.
 
- **Postcondiciones:**
+**Postcondiciones:**
 	
-	 El sistema borra a todos los alumnos de la base de datos
+* El sistema borra a todos los alumnos de la base de datos.
 
+**Flujo alternativos:**
 
- **Flujo alternativos:**
-	 Si no hay alumnos en la base de datos, el sistema mostrara un mensaje de error
-
-
-
-
-
+1.a. Si no hay alumnos en la base de datos, el sistema mostrara un mensaje de error.

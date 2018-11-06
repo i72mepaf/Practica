@@ -1,10 +1,9 @@
 # Explicación del Diagrama de Clase
-Como podemos observar, nuestro diagrama de clase está compuesto por
-
-varias clases:
+Como podemos observar, nuestro diagrama de clase está compuesto por 3 clases
+diferentes, estas son:
 
 ## Clases
-### Profesor
+### Profesor Coordinador
 
 #### Atributos
 
@@ -12,6 +11,14 @@ varias clases:
 
 #### Operaciones
 
+
+### Profesor Ayudante
+
+#### Atributos
+
+
+
+#### Operaciones
 
 ### Alumno
 

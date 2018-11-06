@@ -11,7 +11,7 @@ Los datos que introduce el profesor para registrarse/identificarse en/con el arc
 1. DNI.
 2. Contraseña.
 
-#### Base de Datos de los Alumnos
+#### Base de Datos de los Alumnos:
 Los datos que introduce el profesor, que se guardan en un fichero binario, que hará de base de datos de los alumnos, serán los siguientes:
 
 1. DNI.

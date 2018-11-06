@@ -32,12 +32,12 @@
 1.a. Si el archivo de credenciales está vacio, el sistema obligará al profesor registrarse.
 
 1.b. El sistema volvera al punto 3 del flujo principal.
-
+---
 
 3.a. Si al marcar una de las dos opciones, el archivo de credenciales está lleno en la elección, es decir, un profesor coordinador o 5 profesores ayudantes, saltará un mensaje diciendo que el archivo de credenciales respecto a ese tipo de profesor está lleno.
 
 3.b. El sistema volverá al punto 2 del flujo principal.
-
+---
 
 4.a. A la hora de registrarse, si el dni introducido ya existe, saltará un mensaje de error diciendo que el dni ya existe en el archivo de credenciales.
 

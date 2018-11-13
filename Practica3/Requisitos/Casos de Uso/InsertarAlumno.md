@@ -17,13 +17,17 @@
 **Flujo principal:**
 
 1. El caso de uso empieza cuando el profesor quiere introducir un alumno a la base de datos.
-
-2. El sistema recibe los datos del alumno por teclado.
+2. El sistema pedirá los datos obligatorios al profesor.
+3. El sistema pedirá los datos opcionales al profesor.
+4. El sistema mostrará un mensaje diciendo que el alumno ha sido introducido correctamente.
 
 **Postcondiciones:**
 
 * Si no existe el alumno se inserta en la base de datos.
+* Los datos opcionales al no ser introducidos se les asignará los valores por defecto (Nº equipo: 0 y Lider: No)
 
 **Flujos alternativos:**
 
-2.a. Si existe el alumno se muestra un mensaje de error.
+2.a. Si el DNI o el e-mail introducidos son iguales a otro ya en la base de datos, se da la opción de volver a introducir el dato o de parar de introducir el alumno y no introducir nada.
+
+4.a. En caso de haber un error, se mostrará un mensaje diciendo que no se ha introducido correctamente.

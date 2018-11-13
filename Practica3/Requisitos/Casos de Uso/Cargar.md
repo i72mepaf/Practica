@@ -27,3 +27,4 @@
 **Flujos alternativos:**
 
 2.a. Si el fichero binario a cargar no existe, muestra un mensaje de error.
+2.b. El sistema preguntará si quiere volver a buscar con otro nombre el fichero binario a cargar.

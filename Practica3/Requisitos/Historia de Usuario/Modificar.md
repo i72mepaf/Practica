@@ -9,4 +9,4 @@ Como usuario quiero poder modificar los datos de un alumno.
 ---
 ## (REVERSO)
 * Quiero poder modificar los datos del alumno.
-* A la hora de asginar el líder del grupo, solamente puede haber un líder por grupo.
+* A la hora de asignar el líder del grupo, solamente puede haber un líder por grupo.

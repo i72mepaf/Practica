@@ -19,7 +19,7 @@
 1. El caso de uso empieza cuando el sistema necesita identificar al profesor al inciar.
 2. El sistema pregunta si quiere identificarse o registrarse.
 3. El sistema pregunta al profesor si es profesor coordinador o ayudante.
-4. El sistema pedirá el dni y la contraseña del profesor.
+4. El sistema pedirá el dni del profesor.
 5. El sistema identificará/registrará al profesor con/en el archivo de credendicales.
 
 **Postcondiciones:**

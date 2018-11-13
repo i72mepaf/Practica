@@ -5,8 +5,14 @@
 Las partes interesadas de nuestro sistema serán los profesores que utilicen el programa para el almacenamiento de datos de los alumnos.
 
 ## Datos a almacenar:
+#### Archivo de Credenciales:
+Los datos que introduce el profesor para registrarse/identificarse en/con el archivo de credenciales son los siguientes:
 
-Los datos que introduce el profesor, que se guardan en un fichero binario, serán los siguientes:
+1. DNI.
+2. Contraseña.
+
+#### Base de Datos de los Alumnos:
+Los datos que introduce el profesor, que se guardan en un fichero binario, que hará de base de datos de los alumnos, serán los siguientes:
 
 1. DNI.
 2. Nombre.
@@ -20,6 +26,7 @@ Los datos que introduce el profesor, que se guardan en un fichero binario, será
 10. Si es líder de su grupo o no.
 
 ## Requisitos funcionales:
+* Identificar profesor.
 * Insertar alumno.
 * Buscar alumno.
 * Mostrar alumno.
@@ -38,6 +45,7 @@ Los datos que introduce el profesor, que se guardan en un fichero binario, será
 * La aplicación se utilizará en Linux.
 * Se podrán almacenar como máximo 150 alumnos.
 * Solamente habrá 1 líder por grupo.
+* Se podrá almacenar en el archivo de credenciales como máximo un profesor coordinador y 5 profesores ayudantes.
 * Los alumnos se mostrarán en formato HTML o Markdown.
 * Como criterio de ordenación y búsqueda se utilizará DNI, Apellido, Curso más alto en el que el alumno está matriculado.
 * Se ordenará alfabéticamente de forma ascendente o descendente.
@@ -45,6 +53,8 @@ Los datos que introduce el profesor, que se guardan en un fichero binario, será
 
 ## Priorización de Requisitos:
 ### N.º de Prioridad: Requisito
+Prioridad 1: Identificar profesor.
+
 Prioridad 1: Insertar alumno.
 
 Prioridad 2: Cargar copia de seguridad de un fichero binario.

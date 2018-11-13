@@ -8,15 +8,17 @@
 
 **Actores secundarios:** Alumnos.
 
-**Precondiciones:** 
+**Precondiciones:**
 
 1. El alumno no debe existir.
+2. Los datos obligatorios a introducir son: DNI, Nombre, Apellidos, Tlf., e-mail corporativo(UCO), dirección postal, curso más alto en el que está matriculado y Fecha de Nacimiento.
+3. Los datos opcionales a introducir son: Número del equipo que pertenece y si es Lider del grupo o no.
 
 **Flujo principal:**
 
 1. El caso de uso empieza cuando el profesor quiere introducir un alumno a la base de datos.
 
-2. El sistema recibe los datos del alumno.
+2. El sistema recibe los datos del alumno por teclado.
 
 **Postcondiciones:**
 

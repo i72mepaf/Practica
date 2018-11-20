@@ -35,6 +35,10 @@
 
 ---
 
+2.a Si se elige la acción de identificarse el sistema saltará al punto 4.
+
+---
+
 3.a. Si al marcar una de las dos opciones, el archivo de credenciales está lleno en la elección, es decir, un profesor coordinador o 5 profesores ayudantes, saltará un mensaje diciendo que el archivo de credenciales respecto a ese tipo de profesor está lleno.
 
 3.b. El sistema volverá al punto 2 del flujo principal.

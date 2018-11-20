@@ -10,4 +10,4 @@ Como usuario quiero poder identificarme como profesor coordinador o ayudante.
 ## (REVERSO)
 * Quiero poder identificarme como coordinador o ayudante.
 * Quiero poder identificarme o registrarme.
-* Para identificarme quiero que me pregunte si soy profesor coordinador o ayudante y mi DNI.
+* Para identificarme quiero que me pregunte mi DNI.

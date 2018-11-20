@@ -1,6 +1,5 @@
 # Explicación del Diagrama de Clase
-Como podemos observar, nuestro diagrama de clase está compuesto por 4 clases
-diferentes, estas son:
+Como podemos observar, nuestro diagrama de clase está compuesto por **4 clases** diferentes, estas son:
 1. **Alumno**
 2. **Base de Datos**
 3. **Profesor**
@@ -10,15 +9,16 @@ A continuación se van a ir **desarrollando cada una de las clases** que contien
 ### Alumno
 La **clase Alumno** representa al alumno y todos sus datos.
 #### Atributos
-Sus atributos son:
-1. **Nombre**: Representa el nombre del alumno. Es un atributo de tipo string.
-2. **Apellidos**: Representa los apellidos del alumno. Es un atributo de tipo string.
+Cabe resaltar que **todos sus atributos son privados**, estos son:
+1. **Nombre**: Representa el nombre del alumno. Es un atributo de tipo *string*.
+2. **Apellidos**: Representa los apellidos del alumno. Es un atributo de tipo *string*.
 3. **DNI**: Representa el DNI del alumno. Es un atributo de tipo string.
-4. **Correo**: Representa el correo del alumno. Es un atributo de tipo string.
+4. **Correo**: Representa el correo del alumno. Es un atributo de tipo *string*.
 5. **Dirección**: Representa la dirección del alumno. Es un atributo de tipo string.
-6. **Telefono**: Representa el número de teléfono del alumno. Es un atributo de tipo int.
-7. **Dirección Postal**: Representa el número de dirección postal del alumno. Es un atributo de tipo int.
-
+6. **Telefono**: Representa el número de teléfono del alumno. Es un atributo de tipo *int*.
+7. **Dirección Postal**: Representa el número de dirección postal del alumno. Es un atributo de tipo *int*.
+8. **Curso más alto matriculado**: Representa el curso más alto matriculado del alumno. Es un atributo de tipo *int*.
+9. **Fecha nacimiento**: Representa la fecha de nacimiento del alumno. Es un atributo de tipo *int*.
 
 
 

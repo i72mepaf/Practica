@@ -4,6 +4,7 @@ Como podemos observar, nuestro diagrama de clase está compuesto por **4 clases*
 2. **Base de Datos**
 3. **Profesor**
 4. **Base de Datos de los Profesores**
+
 También esta formado por **3 relaciones** diferentes, estas son:
 1. **Relación Alumno - Base de Datos**
 2. **Relación Base de Datos - Profesor**
@@ -30,7 +31,9 @@ Cabe resaltar que **todos sus atributos son privados**, estos son:
 
 A la hora de crear un alumno, estos dos últimos atributos son los únicos que pueden tomar valores *NULL*.
 #### Operaciones
-A continuación se describirán todas las operaciones de la clase Alumno:
+A continuación se describirán todas las operaciones de la clase Alumno.
+
+
 Cabe resaltar que **todas sus operaciones son públicas**, estas se pueden catalogar en dos tipos:
 1. **Modificadores (set)**:
 Son operaciones que, con el valor pasado, **modifican el atributo** correspondiente.
@@ -65,6 +68,7 @@ Cabe destacar que **todos sus atributos son privados**, estos son:
 3. **Rol**: Representa el tipo del profesor, es decir, si es Profesor Coordinador o Profesor Ayudante. Es un atributo de tipo *string*.
 #### Operaciones
 A continuación se describirán todas las operaciones de la clase Profesor.
+
 Cabe resaltar que **todas sus operaciones son públicas**, estas son:
 1. **eliminarBaseAlumno()**: Se encarga de **eliminar la base de datos** de los alumnos completamente. Es de tipo *void*.
 2. **cargarFichero()**: Se encarga de **cargar una copia de seguridad** de la base de datos de los alumnos guardada en un fichero binario. Es de tipo *void*.
@@ -79,7 +83,7 @@ Representa el archivo de credenciales con los datos de los alumnos registrados.
 #### Atributos
 Su único atributo es **Lista Profesores** el cual representa la lista de todos los profesores registrados en el archivo de crendenciales. Es una **lista** de tipo *Profesor*, es decir, es una lista de elementos de la **clase Profesor**. El atributo es de tipo **privado**, ya que si no lo fuera se puede vulnerar la seguridad de la base de datos.
 #### Operaciones
-Esta clase no contiene ninguna operación.
+Esta clase **no contiene ninguna operación**.
 ## Relaciones entre las Clases
 A continuación se van a ir **desarrollando cada una de las relaciones entre clases** que contiene nuestro diagrama:
 ### Relación Alumno - Base de Datos

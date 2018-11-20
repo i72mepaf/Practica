@@ -8,7 +8,7 @@
 
 **Actores secundarios:** Alumnos.
 
-**Precondiciones:** 
+**Precondiciones:**
 
 1. El alumno debe existir
 

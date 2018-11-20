@@ -26,4 +26,6 @@
 
 2.a. Si al introducir los apellidos hay varios alumnos con los mismos se requerirá buscar por DNI.
 
+2.a.1. Si el DNI introducido no está en la base de datos se muestra un mensaje de error.
+
 3.a. Si no existe el alumno se muestra un mensaje de error.

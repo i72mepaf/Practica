@@ -27,7 +27,7 @@ A la hora de crear un alumno, estos dos últimos atributos son los únicos que p
 #### Operaciones
 A continuación se describirán todas las operaciones de la clase Alumno:
 Cabe resaltar que **todas sus operaciones son públicas**, estas se pueden catalogar en dos tipos:
-##### Modificadores (set)
+1. **Modificadores (set)**
 Son operaciones que, con el valor pasado, modifican el atributo correspondiente.
 
 Todos estos tipos de operaciones son de tipo *void*.
@@ -36,7 +36,7 @@ Por ejemplo, la operacion **setDNI()** modificará el DNI del alumno en cuestió
 
 Algunos ejemplos más son: **setNombre(), setApellidos(), etc**.
 
-##### Observadores (get)
+2. **Observadores (get)**
 Son operaciones que devuelven el atributo correspondiente.
 
 Cada operacion de este tipo es del tipo correspondiente a su atributo.

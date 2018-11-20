@@ -81,6 +81,7 @@ Su único atributo es **Lista Profesores** el cual representa la lista de todos 
 #### Operaciones
 Esta clase no contiene ninguna operación.
 ## Relaciones entre las Clases
+A continuación se van a ir **desarrollando cada una de las relaciones entre clases** que contiene nuestro diagrama:
 ### Relación Alumno - Base de Datos
 ### Relación Base de Datos - Profesor
 ### Relación Profesor - Base de Datos de los Profesores

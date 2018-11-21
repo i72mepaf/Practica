@@ -1,4 +1,8 @@
 # Explicación del Diagrama de Clase
+Este archivo es una explicación del Diagrama de Clase llamado *nombrearchivo.jpg* incluido en esta misma carpeta.
+
+El Diagrama de Clase consiste en una estructura estática que muestra las **clases, el sistema, atributos, métodos y relaciones entre ellos**.
+
 Como podemos observar, nuestro diagrama de clase está compuesto por **4 clases** diferentes, estas son:
 1. **Alumno**
 2. **Base de Datos**

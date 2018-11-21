@@ -68,7 +68,7 @@ A continuación se describirán todos los atributos de la clase Profesor.
 
 Cabe destacar que **todos sus atributos son privados**, estos son:
 1. **DNI**: Representa el DNI del profesor. Es un atributo de tipo *string*.
-2. **PunteroBase**:Es un atributo de tipo *pointer*.
+2. **PunteroBase**:Representa un puntero de cada profesor que apunta a la base de datos de los alumnos. Es un atributo de tipo *pointer*.
 3. **Rol**: Representa el tipo del profesor, es decir, si es Profesor Coordinador o Profesor Ayudante. Es un atributo de tipo *string*.
 #### Operaciones
 A continuación se describirán todas las operaciones de la clase Profesor.

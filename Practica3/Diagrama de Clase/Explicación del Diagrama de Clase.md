@@ -87,14 +87,14 @@ Esta clase **no contiene ninguna operación**.
 ## Relaciones entre las Clases
 A continuación se van a ir **desarrollando cada una de las relaciones entre clases** que contiene nuestro diagrama:
 ### Relación Alumno - Base de Datos
-Como se puede observar, la relación indica que un alumno está en una sola base de datos y una base de datos está compuesta por 0 o muchos alumnos.
+Como se puede observar, la relación indica que **un alumno está en una sola base de datos y una base de datos está compuesta por 0 o muchos alumnos**.
 
 Esta relación es una relación de **Composición**, es decir, la base de datos esta compuesta por alumnos.
 ### Relación Base de Datos - Profesor
-Esta relación indica que un profesor interactua con una base de datos de los alumnos, y una base de datos de los alumnos es utilizada por un solo profesor.
+Esta relación indica que **un profesor interactua con una base de datos de los alumnos, y una base de datos de los alumnos es utilizada por un solo profesor**.
 
 Esta relación es una relación de **Asociación**, es decir, es una relación estática entre ambas clases.
 ### Relación Profesor - Base de Datos de los Profesores
-Como se puede observar, la relación indica que un profesor está en una sola base de datos de profesores y una base de datos de profesores está compuesta desde 0 hasta 6 profesores.
+Como se puede observar, la relación indica que **un profesor está en una sola base de datos de profesores y una base de datos de profesores está compuesta desde 0 hasta 6 profesores**.
 
 Esta relación es una relación de **Composición**, es decir, la base de datos de los profesores esta compuesta por los profesores registrados en el archivo de credenciales.

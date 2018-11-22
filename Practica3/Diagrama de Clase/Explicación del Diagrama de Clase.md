@@ -1,5 +1,5 @@
 # Explicación del Diagrama de Clase
-Este archivo es una explicación del Diagrama de Clase llamado *nombrearchivo.jpg* incluido en esta misma carpeta.
+Este archivo es una explicación del Diagrama de Clase llamado *Class Diagram1.jpg* incluido en esta misma carpeta.
 
 El Diagrama de Clase consiste en una estructura estática que muestra las **clases, el sistema, atributos, métodos y relaciones entre ellos**.
 
@@ -93,7 +93,7 @@ A continuación se van a ir **desarrollando cada una de las relaciones entre cla
 ### Relación Alumno - Base de Datos
 Como se puede observar, la relación indica que **un alumno está en una sola base de datos y una base de datos está compuesta por 0 o muchos alumnos**.
 
-Esta relación es una relación de **Composición**, es decir, la base de datos esta compuesta por alumnos.
+Esta relación es una relación de **Agregación**, es decir, la base de datos esta compuesta por alumnos.
 ### Relación Base de Datos - Profesor
 Esta relación indica que **un profesor interactua con una base de datos de los alumnos, y una base de datos de los alumnos es utilizada por un solo profesor**.
 
@@ -101,4 +101,4 @@ Esta relación es una relación de **Asociación**, es decir, es una relación e
 ### Relación Profesor - Base de Datos de los Profesores
 Como se puede observar, la relación indica que **un profesor está en una sola base de datos de profesores y una base de datos de profesores está compuesta desde 0 hasta 6 profesores**.
 
-Esta relación es una relación de **Composición**, es decir, la base de datos de los profesores esta compuesta por los profesores registrados en el archivo de credenciales.
+Esta relación es una relación de **Agregación**, es decir, la base de datos de los profesores esta compuesta por los profesores registrados en el archivo de credenciales.

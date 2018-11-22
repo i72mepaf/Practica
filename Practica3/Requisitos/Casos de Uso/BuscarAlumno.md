@@ -14,7 +14,7 @@
 
 **Flujo principal:**
 
-1. El caso de uso empieza cuando el profesor quiere buscar un alumno de la base de datos.
+1. El caso de uso empieza cuando el sistema quiere buscar un alumno de la base de datos.
 2. El sistema pide al profesor introducir los apellidos del alumno a buscar.
 3. El sistema busca a ese alumno y muestra sus datos por pantalla.
 

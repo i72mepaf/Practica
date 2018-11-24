@@ -8,4 +8,4 @@ Quiero que el sistema pueda buscar un alumno de la base de datos.
 
 ---
 ## (REVERSO)
-* La búsqueda se realizará por apellidos y si hay dos iguales se realizará la busqueda por DNI.
+* La búsqueda se realizará por apellidos y si hay dos iguales se realizará la búsqueda por DNI.

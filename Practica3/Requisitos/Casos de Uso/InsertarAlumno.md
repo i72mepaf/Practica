@@ -11,8 +11,8 @@
 **Precondiciones:**
 
 1. El alumno no debe existir.
-2. Los datos obligatorios a introducir son: DNI, Nombre, Apellidos, Tlf., e-mail corporativo(UCO), dirección postal, curso más alto en el que está matriculado y Fecha de Nacimiento.
-3. Los datos opcionales a introducir son: Número del equipo que pertenece y si es Lider del grupo o no.
+2. Los datos obligatorios a introducir son: DNI, Nombre, Apellidos, Tlf., e-mail corporativo (UCO), dirección postal, curso más alto en el que está matriculado y Fecha de Nacimiento.
+3. Los datos opcionales a introducir son: Número del equipo que pertenece y si es Líder del grupo o no.
 
 **Flujo principal:**
 
@@ -24,7 +24,7 @@
 **Postcondiciones:**
 
 * Si no existe el alumno se inserta en la base de datos.
-* Los datos opcionales al no ser introducidos se les asignará los valores por defecto (Nº equipo: 0 y Lider: No)
+* Los datos opcionales al no ser introducidos se les asignará los valores por defecto (N.º equipo: 0 y Líder: No)
 
 **Flujos alternativos:**
 

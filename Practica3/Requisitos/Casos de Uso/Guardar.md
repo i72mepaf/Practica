@@ -10,7 +10,7 @@
 
 **Precondiciones:**
 
-1. Si la base de datos está vacia, el archivo binario donde se guardarán los datos quedará vacio.
+1. Si la base de datos está vacía, el archivo binario donde se guardarán los datos quedará vacío.
 
 **Flujo principal:**
 

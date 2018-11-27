@@ -1,24 +1,6 @@
-Programador 1 y Scrum Master: Felipe Mérida Palacios
-Programador 2: Ricardo Mifsut Castilla
-Programador 3: Ángel Santos Ramírez
+# Sprint Backlog
+Este archivo es el ***Sprint Backlog***, el cual se encarga de **distribuir** los distintos *sprint backlogs*.
+Dicho de otro modo, en este documento se hará **la distribución de las distintas tareas del proyecto a desarrollar**.
 
-
-
-
-
-Programador 3 - Ángel Santos Ramírez
-Mostrar Alumno
-Cargar en un fichero binario
-Guardar en un fichero binario
-
-
-Programador 2 - Ricardo Mifsut Castilla
-Modificar Alumno
-Insertar Alumno
-Buscar Alumno
-
-
-Programador 1 - Felipe Mérida Palacios
-Identificar Profesor
-Eliminar Alumno
-Eliminar base de datos de los alumnos
+Este archivo es desarrollado por el ***Scrum Master***, el cual, en nuestro
+caso se trata del lider/administrador del grupo, es decir, Felipe Mérida Palacios.

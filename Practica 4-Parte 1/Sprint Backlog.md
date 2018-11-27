@@ -19,3 +19,7 @@ A continuación se van a nombrar las tareas para cada programador:
 * Modificar Alumno
 * Insertar Alumno
 * Buscar Alumno
+## Programador 1 - Felipe Mérida Palacios
+* Identificar Profesor
+* Eliminar Alumno
+* Eliminar base de datos de los alumnos

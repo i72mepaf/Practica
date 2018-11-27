@@ -15,3 +15,7 @@ A continuación se van a nombrar las tareas para cada programador:
 * Mostrar Alumno
 * Cargar en un fichero binario
 * Guardar en un fichero binario
+## Programador 2 - Ricardo Mifsut Castilla
+* Modificar Alumno
+* Insertar Alumno
+* Buscar Alumno

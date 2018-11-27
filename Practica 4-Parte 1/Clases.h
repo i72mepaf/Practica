@@ -1,4 +1,7 @@
-<<<<<<< HEAD
+#include <list.h>
+#include <iostream>
+#include <string>
+
 using namespace std;
 class Alumno {
 private: 
@@ -33,14 +36,7 @@ public:
 	void setFechaNacimiento();
 	void setLider();
 	void setGrupo();
-=======
-#include <list.h>
-#include <iostream>
-#include <string>
-
-
-class Alumno
-
+};
 
 class BaseAlumnos{
 private:
@@ -52,4 +48,4 @@ public:
 	void mostrarAlumno();
 	void modificarAlumno();
 >>>>>>> 0b68108ab49f1bc1a9511752a6d22f8918d3cc18
-}
+};

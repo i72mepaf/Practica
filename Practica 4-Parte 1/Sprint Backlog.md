@@ -9,3 +9,9 @@ Los programadores del grupo son los siguientes:
 * Programador 1 y Scrum Master: **Felipe Mérida Palacios**
 * Programador 2: **Ricardo Mifsut Castilla**
 * Programador 3: **Ángel Santos Ramírez**
+# Tareas
+A continuación se van a nombrar las tareas para cada programador:
+## Programador 3 - Ángel Santos Ramírez
+* Mostrar Alumno
+* Cargar en un fichero binario
+* Guardar en un fichero binario

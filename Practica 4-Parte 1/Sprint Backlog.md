@@ -4,3 +4,8 @@ Dicho de otro modo, en este documento se hará **la distribución de las distint
 
 Este archivo es desarrollado por el ***Scrum Master***, el cual, en nuestro
 caso se trata del lider/administrador del grupo, es decir, Felipe Mérida Palacios.
+# Programadores
+Los programadores del grupo son los siguientes:
+* Programador 1 y Scrum Master: **Felipe Mérida Palacios**
+* Programador 2: **Ricardo Mifsut Castilla**
+* Programador 3: **Ángel Santos Ramírez**

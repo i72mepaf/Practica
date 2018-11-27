@@ -14,15 +14,15 @@
 
 **Flujo principal:**
 
-1. El caso de uso empieza cuando el profesor quiere buscar un alumno de la base de datos.
+1. El caso de uso empieza cuando el sistema quiere buscar un alumno de la base de datos.
 2. El sistema pide al profesor introducir los apellidos del alumno a buscar.
 3. El sistema busca a ese alumno y muestra sus datos por pantalla.
 
-**Postcondiciones :**
+**Postcondiciones:**
 
 * Si se encuentra el alumno lo muestra por pantalla.
 
-**Flujos alternativos :**
+**Flujos alternativos:**
 
 2.a. Si al introducir los apellidos hay varios alumnos con los mismos se requerirá buscar por DNI.
 

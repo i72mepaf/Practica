@@ -1,6 +1,10 @@
-# Explicacion diagramas de secuencia
-Como podemos observar nuestro programa tiene 9 métodos diferentes con sus diagramas de secuencias correspondientes,
-en esta carpeta se encuentran los diagramas de secuencia de los métodos ,los cuales son:
+# Explicación de los diagramas de secuencia
+
+Como podemos observar nuestro programa tiene 9 métodos diferentes. En esta carpeta se encuentran los
+diferentes diagramas de secuencia de los métodos, los cuales especificarán como se desarrollarán las
+ejecuciones de los diferentes métodos, así como las diferentes ejecuciones alternativas de estos.
+
+Los diagramas de secuencia que se encuentran es esta carpeta son:
 
 1. **Secuencia Borrar**: Diagrama de secuencia de la función BorrarAlumno
 2. **Secuencia Borrar Base de Datos**: Diagrama de secuencia de la función BorrarBaseDatos

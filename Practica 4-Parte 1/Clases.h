@@ -16,16 +16,16 @@ private:
 	bool ¿lider?_;
 	int grupo_;
 public:
-	string getNombre();
-	string getApellidos();
-	string getDNI();
-	string getCorreo();
-	int getTelefono();
-	int getDireccion();
-	int getCursoMasAlto();
-	string getFechaNacimiento();
-	int getGrupo();
-	bool getLider();
+	inline string getNombre()const{return nombre_;};
+	inline string getApellidos()const{return apellidos_;};
+	inline string getDNI()const{return DNI_;};
+	inline string getCorreo()const{return correo_;};
+	inline int getTelefono()const{return telefono_;};
+	inline int getDireccion()const{return direccion_;};
+	inline int getCursoMasAlto()const{return cursoMasAlto_;};
+	inline string getFechaNacimiento()const{return fechaNacimiento_;};
+	inline int getGrupo()const{return grupo_;};
+	inline bool getLider()const{return ¿lider?_;};
 	void setNombre();
 	void setApellidos();
 	void setDNI();
@@ -47,5 +47,25 @@ public:
 	void eliminarAlumno();
 	void mostrarAlumno();
 	void modificarAlumno();
->>>>>>> 0b68108ab49f1bc1a9511752a6d22f8918d3cc18
+};
+
+class Profesor{
+private:
+	string DNI_;
+	//FALTA: pointer: Puntero Base
+	string Rol_;
+public:
+	void eliminarBaseAlumnos();
+	void cargarFichero();
+	void guardarFichero();
+	bool identificaProfesor();
+	void setDni();
+	inline string getDni()const{return DNI_;};
+	void setRol();
+	inline string getRol()const{return Rol_;};
+};
+
+class BaseProfesores{
+private:
+	list<Profesor> profesores_;
 };

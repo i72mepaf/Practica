@@ -1,6 +1,8 @@
 #include <list.h>
 #include <iostream>
 #include <string>
+#ifndef CLASES_H
+#define CLASES_H
 
 using namespace std;
 class Alumno {
@@ -65,7 +67,4 @@ public:
 	inline string getRol()const{return Rol_;};
 };
 
-class BaseProfesores{
-private:
-	list<Profesor> profesores_;
-};
+#endif

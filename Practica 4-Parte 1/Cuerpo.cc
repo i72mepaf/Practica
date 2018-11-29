@@ -1,3 +1,5 @@
+#include "Clases.h"
+
 void BaseAlumnos::eliminarAlumno(){ //Felipe
 
 }

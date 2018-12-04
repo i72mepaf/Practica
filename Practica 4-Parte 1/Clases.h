@@ -26,16 +26,16 @@ public:
 	inline string getFechaNacimiento()const{return fechaNacimiento_;};
 	inline int getGrupo()const{return grupo_;};
 	inline bool getLider()const{return ¿lider?_;};
-	void setNombre();
-	void setApellidos();
-	void setDNI();
-	void setCorreo();
-	void setTelefono();
-	void setDireccion();
-	void setCursoMasAlto();
-	void setFechaNacimiento();
-	void setLider();
-	void setGrupo();
+	void setNombre(string nombre);
+	void setApellidos(string apellidos);
+	void setDNI(string DNI);
+	void setCorreo(string correo);
+	void setTelefono(int telefono);
+	void setDireccion(int direccion);
+	void setCursoMasAlto(int cursoMasAlto);
+	void setFechaNacimiento(string fechaNacimiento);
+	void setLider(bool lider);
+	void setGrupo(int grupo);
 };
 
 class BaseAlumnos{

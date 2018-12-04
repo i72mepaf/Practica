@@ -189,7 +189,6 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 void Alumno::setLider(bool lider) {}
 void Alumno::setGrupo(int grupo) {
 	grupo_ = grupo;
-=======
 
 void BaseAlumnos::mostrarAlumno(){
 	int menu,menu2;
@@ -311,5 +310,4 @@ void imprimeVector(vector <Alumno> v){
 			cout<< v[i].getGrupo()<<endl;
 			cout<< v[i].getLider()<<endl;
 	}
->>>>>>> 04c3f11472e7e9d8bea16650784e0c3258d1f72c
 }

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 #include "Clases.h"
 #include <iostream>
 #include <list>
@@ -10,7 +8,6 @@ bool sortByCursoa(Alumno &lhs,Alumno &rhs){ return lhs.getCurso() > rhs.getCurso
 bool sortByCursod(Alumno &lhs,Alumno &rhs){ return lhs.getCurso() < rhs.getCurso() ; }
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() > rhs.getApellidos() ; }
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() < rhs.getApellidos() ; }
->>>>>>> 04c3f11472e7e9d8bea16650784e0c3258d1f72c
 
 void BaseAlumnos::eliminarAlumno(){ //Felipe
 
@@ -50,7 +47,7 @@ void Profesor::eliminarBaseAlumnos(){ //Felipe
 
 }
 
-<<<<<<< HEAD
+
 void BaseAlumnos::insertarAlumno(){
 	list<Alumno>::iterator it;
 	Alumno alumno;
@@ -223,7 +220,8 @@ void BaseAlumnos::mostrarAlumno(){
 	int comp=0;
 	int comp2=0;
 	int vit=0;
-	vector <Alumno> v(150);
+	std::string aux;
+	std::vector <Alumno> v(150);
 	for(i=alumnos_.begin();i != alumnos_.end();i++){
 		v[vit].setNombre(i->getNombre());
 		v[vit].setApellidos(i->getApellidos());
@@ -238,8 +236,8 @@ void BaseAlumnos::mostrarAlumno(){
 		vit++;
 	}
 	do{
-	cout >> "Mostrar todos los alumnos ....1"<< endl;
-	cout >> "Mostrar solo un alumno .......2"<< endl;
+	std::cout >> "Mostrar todos los alumnos ....1"<< std::endl;
+	std::cout >> "Mostrar solo un alumno .......2"<< std::endl;
 	cin>> menu;
 	list <Alumno>:: iterator i;
 	//system("cls");
@@ -247,10 +245,10 @@ void BaseAlumnos::mostrarAlumno(){
 		switch(menu){
 			case 1:
 				do{
-				cout >> "Mostrar todos los alumnos ordenados ascendentemente por curso mas alto matriculado....1"<< endl;
-				cout >> "Mostrar todos los alumnos ordenados descendentemente por curso mas alto matriculado...2"<< endl;
-				cout >> "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< endl;
-				cout >> "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< endl;
+				std::cout >> "Mostrar todos los alumnos ordenados ascendentemente por curso mas alto matriculado....1"<< std::endl;
+				std::cout >> "Mostrar todos los alumnos ordenados descendentemente por curso mas alto matriculado...2"<< std::endl;
+				std::cout >> "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< std::endl;
+				std::cout >> "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< std::endl;
 				cin>> menu2;			
 					switch(menu2){
 						case 1:
@@ -290,9 +288,10 @@ void BaseAlumnos::mostrarAlumno(){
 				do{
 					cout >>"Mostrar un alumno por dni..........1"
 					cout >>"Mostrar un alumno por Apellidos....2"
-					cin >> menu2
+					cin >> menu2;
 					switch(menu2){
 						case 1:
+
 						for (int i=0;i<v.size();i++){
 							if
 						}

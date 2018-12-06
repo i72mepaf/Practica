@@ -22,12 +22,12 @@ se puede solucionar con un flujo loop. Las comprobaciones se pueden hacer en el 
 donde se haga un ‘match’ entre las credenciales del fichero y las que mete el usuario.*/
 	int opcion = 0;
 	while(opcion!=1 && opcion!=2){
-	cout << "¿Es profesor Coordinador o Ayudante?" << endl;
-	cout << "1. Coordinador\n2. Ayudante" << endl;
-	cin >> opcion;
+	std::cout << "¿Es profesor Coordinador o Ayudante?" << std::endl;
+	std::cout << "1. Coordinador\n2. Ayudante" << endl;
+	std::cin >> opcion;
 	system("clear");
 	if(opcion!=1 && opcion!=2){
-		cout << "Número Incorrecto. Intentelo de nuevo" <<endl;
+		cout << "Número Incorrecto. Intentelo de nuevo" <<std::endl;
 	}
 	}
 
@@ -63,37 +63,37 @@ void BaseAlumnos::insertarAlumno(){
 	int grupo;
 
 	
-	std::cout<<"Introduce el DNI del alumno"<<endl;
+	std::cout<<"Introduce el DNI del alumno"<<std::endl;
 	std::cin>>DNI;
 	
 	it = alumnos_.begin();
 	while(it != alumnos_.end){
 		if(it.getDNI()==DNI) {
-			std::cout<<("ERROR.Este Alumno ya existe")<<endl;
+			std::cout<<("ERROR.Este Alumno ya existe")<<std::endl;
 			exit(-1);
 		}
 	}
-	std::cout<<"Introduzca el nombre del alumno"<<endl;
+	std::cout<<"Introduzca el nombre del alumno"<<std::endl;
 	std::cin>>nombre;
-	std::cout>>"Introduce el apellido del alumno"<<endl;
+	std::cout>>"Introduce el apellido del alumno"<<std::endl;
 	std::cin>>apellidos;
-	std::cout<<"Introduce el corre del alumno"<<endl;
+	std::cout<<"Introduce el corre del alumno"<<std::endl;
 	std::cin>>correo;
-	std::cout<<"Introduce el numero de telefono del alumno"<<endl;
+	std::cout<<"Introduce el numero de telefono del alumno"<<std::endl;
 	std::cin>>telefono;
-	std::cout<<"Introduce la direccion del alumno"<<endl;
+	std::cout<<"Introduce la direccion del alumno"<<std::endl;
 	std::cin>>direccion;
-	std::cout<<"Introduce el curso mas alto en el que el alumno esta matriculado"<<endl;
+	std::cout<<"Introduce el curso mas alto en el que el alumno esta matriculado"<<std::endl;
 	std::cin>>cursoMasAlto;
-	std::cout<<"Introduce el dia en el que el alumno nacio"<<endl;
+	std::cout<<"Introduce el dia en el que el alumno nacio"<<std::endl;
 	std::cin>>diaNacimiento;
-	std::cout<<"Introduce el mes de nacimiento del alumno"<<endl;
+	std::cout<<"Introduce el mes de nacimiento del alumno"<<std::endl;
 	std::cin>>mesNacimiento;
-	std::cout<<"Introduce el año de nacimiento del alumno"<<endl;
+	std::cout<<"Introduce el año de nacimiento del alumno"<<std::endl;
 	std::cin>>anoNacimiento;
-	std::cout<<"Este alumno es lider de algun grupo"<<endl;
+	std::cout<<"Este alumno es lider de algun grupo"<<std::endl;
 	std::cin>>lider;
-	std::cout<<"Grupo del alumno"<<endl:
+	std::cout<<"Grupo del alumno"<<std::endl:
 
 	alumno.setNombre(std::string nombre);
 	alumno.setApellidos(std::string apellidos);
@@ -132,78 +132,78 @@ void Alumno::setCursoMasAlto(int cursoMasAlto) {
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
 	std::string aux;
 	if(mesNacimiento <= 0 || mesNacimiento > 12) {
-		std::cout<<"El mes numero "<<mesNacimiento<<"no existe"<<endl;
+		std::cout<<"El mes numero "<<mesNacimiento<<"no existe"<<std::endl;
 		exit(-1);
 	}
 	if(mesNacimiento == 1) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 2) {
 		if(diaNacimiento <= 0 || diaNacimiento > 28) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 3) {
 		if(diaNacimiento <= 0 || diaNacimiento > 29) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 4) {
 		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 5) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 6) {
 		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 7) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 8) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 9) {
 		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 10) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 11) {
 		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 12) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}

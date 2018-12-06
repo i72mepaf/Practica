@@ -262,7 +262,7 @@ bool BaseAlumnos::insertarAlumno(){
 	string DNI;
 	string correo;
 	int telefono;
-	int direccion;
+	string direccion;
 	int cursoMasAlto;
 	int diaNacimiento, mesNacimiento, anoNacimiento;
 	bool lider;
@@ -303,10 +303,8 @@ bool BaseAlumnos::insertarAlumno(){
 	}
 	cout<<"Introduzca el nombre del alumno"<<endl;
 	getline(cin, nombre);
-	cin.ignore();
 	cout<<"Introduzca el apellido del alumno"<<endl;
 	getline(cin, apellidos);
-	cin.ignore();
 	cout<<"Introduzca el correo del alumno"<<endl;
 	cin>>correo;
 	cin.ignore();
@@ -343,8 +341,7 @@ bool BaseAlumnos::insertarAlumno(){
 	cin>>telefono;
 	cin.ignore();
 	cout<<"Introduzca la direccion del alumno"<<endl;
-	cin>>direccion;
-	cin.ignore();
+	getline(cin, direccion);
 	cout<<"Introduzca el curso mas alto en el que el alumno esta matriculado"<<endl;
 	cin>>cursoMasAlto;
 	cin.ignore();
@@ -359,30 +356,6 @@ bool BaseAlumnos::insertarAlumno(){
 	cin.ignore();
 	cout<<"Introduzca el grupo del alumno"<<endl;
 	cin>>grupo;
-	cin.ignore();
-	cout<<"Introduce el apellido del alumno"<<endl;
-	cin>>apellidos;
-	cin.ignore();
-	cout<<"Introduce el corre del alumno"<<endl;
-	cin>>correo;
-	cin.ignore();
-	cout<<"Introduce el numero de telefono del alumno"<<endl;
-	cin>>telefono;
-	cin.ignore();
-	cout<<"Introduce la direccion del alumno"<<endl;
-	cin>>direccion;
-	cin.ignore();
-	cout<<"Introduce el curso mas alto en el que el alumno esta matriculado"<<endl;
-	cin>>cursoMasAlto;
-	cin.ignore();
-	cout<<"Introduce el dia en el que el alumno nacio"<<endl;
-	cin>>diaNacimiento;
-	cin.ignore();
-	cout<<"Introduce el mes de nacimiento del alumno"<<endl;
-	cin>>mesNacimiento;
-	cin.ignore();
-	cout<<"Introduce el año de nacimiento del alumno"<<endl;
-	cin>>anoNacimiento;
 	cin.ignore();
 	cout<<"Introduzca si es lider o no de algun grupo"<<endl;
 	opcion=0;
@@ -400,9 +373,6 @@ bool BaseAlumnos::insertarAlumno(){
 				lider=false;
 		}
 	}
-	cout<<"Introduzca el numero del grupo del alumno"<<endl;
-	cin>>grupo;
-	cin.ignore();
 	alumno.setNombre(nombre);
 	alumno.setApellidos(apellidos);
 	alumno.setDNI(DNI);
@@ -645,7 +615,6 @@ void BaseAlumnos::mostrarAlumno(){
 						case 2:
 						cout <<"Introduzca los apellidos del alumno a mostrar"<<endl;
 						getline(cin, aux);
-						cin.ignore();
 						for (int i=0;i<v.size();i++){
 							if(aux == v[i].getApellidos()){
 								cont++;

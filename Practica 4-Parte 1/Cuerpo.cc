@@ -539,7 +539,7 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 	(static_cast<ostringstream*>(&(ostringstream() << anoNacimiento))->str());
 	fechaNacimiento_ = aux;
 }
-void imprimeVector(vector <Alumno> v); //Cabeceras de funciones para que no haya error al compilar
+void imprimeVector(vector <Alumno> v,int nele); //Cabeceras de funciones para que no haya error al compilar
 
 void imprimeAlumno(Alumno a);
 
@@ -549,6 +549,7 @@ void BaseAlumnos::mostrarAlumno(){
 	int comp2=0;
 	int vit=0;
 	int cont=0;
+	int nele;
 	string aux;
 	vector <Alumno> v(150);
 	list <Alumno>:: iterator i;
@@ -566,6 +567,7 @@ void BaseAlumnos::mostrarAlumno(){
 			atoi((aux.substr(aux.find(aux.substr(aux.find("/")+1, aux.find("/")))+1, aux.find("\n"))).c_str()));
 		v[vit].setLider(i->getLider());
 		vit++;
+		nele++;
 	}
 	
 	do{
@@ -587,25 +589,25 @@ void BaseAlumnos::mostrarAlumno(){
 					switch(menu2){
 						case 1:
 						sort(v.begin(),v.end(),sortByCursoa);
-						imprimeVector(v);
+						imprimeVector(v,nele);
 						comp2=1;
 						break;
 
 						case 2:
 						sort(v.begin(),v.end(),sortByCursod);
-						imprimeVector(v);
+						imprimeVector(v,nele);
 						comp2=1;
 						break;
 
 						case 3:
 						comp2=1;
 						sort(v.begin(),v.end(),sortByApella);
-						imprimeVector(v);
+						imprimeVector(v,nele);
 						break;
 
 						case 4:
 						sort(v.begin(),v.end(),sortByApelld);
-						imprimeVector(v);
+						imprimeVector(v,nele);
 						comp2=1;
 						break;
 
@@ -677,8 +679,8 @@ void BaseAlumnos::mostrarAlumno(){
 	}while(comp == 0);
 }
 
-void imprimeVector(vector <Alumno> v){
-	for(int i=0;i< v.size();i++){
+void imprimeVector(vector <Alumno> v,int nele){
+	for(int i=0;i< nele;i++){
 			cout<< v[i].getNombre()<<endl;
 			cout<< v[i].getApellidos()<<endl;
 			cout<< v[i].getDNI()<<endl;

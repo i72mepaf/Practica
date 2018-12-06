@@ -220,6 +220,7 @@ void BaseAlumnos::mostrarAlumno(){
 	int comp=0;
 	int comp2=0;
 	int vit=0;
+	int cont=0;
 	std::string aux;
 	std::vector <Alumno> v(150);
 	for(i=alumnos_.begin();i != alumnos_.end();i++){
@@ -236,20 +237,20 @@ void BaseAlumnos::mostrarAlumno(){
 		vit++;
 	}
 	do{
-	std::cout >> "Mostrar todos los alumnos ....1"<< std::endl;
-	std::cout >> "Mostrar solo un alumno .......2"<< std::endl;
-	cin>> menu;
+	std::cout << "Mostrar todos los alumnos ....1"<< std::endl;
+	std::cout << "Mostrar solo un alumno .......2"<< std::endl;
+	std::cin>> menu;
 	list <Alumno>:: iterator i;
 	//system("cls");
 	
 		switch(menu){
 			case 1:
 				do{
-				std::cout >> "Mostrar todos los alumnos ordenados ascendentemente por curso mas alto matriculado....1"<< std::endl;
-				std::cout >> "Mostrar todos los alumnos ordenados descendentemente por curso mas alto matriculado...2"<< std::endl;
-				std::cout >> "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< std::endl;
-				std::cout >> "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< std::endl;
-				cin>> menu2;			
+				std::cout << "Mostrar todos los alumnos ordenados ascendentemente por curso mas alto matriculado....1"<< std::endl;
+				std::cout << "Mostrar todos los alumnos ordenados descendentemente por curso mas alto matriculado...2"<< std::endl;
+				std::cout << "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< std::endl;
+				std::cout << "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< std::endl;
+				std::cin>> menu2;			
 					switch(menu2){
 						case 1:
 						sort(v.begin(),v.end(),sortByCursoa);
@@ -276,7 +277,7 @@ void BaseAlumnos::mostrarAlumno(){
 						break;
 
 						default:
-							cout >> "Error ,introduzca una opcion válida"<< endl;
+							std::cout << "Error ,introduzca una opcion válida"<< std::endl;
 							break;					
 					}
 				}while(comp2 == 0);
@@ -286,39 +287,55 @@ void BaseAlumnos::mostrarAlumno(){
 
 			case 2:
 				do{
-					cout >>"Mostrar un alumno por dni..........1"
-					cout >>"Mostrar un alumno por Apellidos....2"
-					cin >> menu2;
+					std::cout <<"Mostrar un alumno por dni..........1"<<std::endl;
+					std::cout <<"Mostrar un alumno por Apellidos....2"<<std::endl;
+					std::cin >> menu2;
 					switch(menu2){
 						case 1:
-
+						std::cout <<"Introduzca el dni del alumno a mostrar"<<std::endl;
+						cin>>aux;
 						for (int i=0;i<v.size();i++){
-							if
+							if(aux == v[i].getDNI()){
+								imprimeAlumno(v[i]);
+								comp2=1
+								break;
+							}
 						}
-
+						std::cout <<"No se encontro el alumno"<<std::endl;
 						comp2=1
 						break;
 
 						case 2:
-						comp2=1;
+						std::cout <<"Introduzca los apellidos del alumno a mostrar"<<std::endl;
+						cin>>aux;
+						for (int i=0;i<v.size();i++){
+							if(aux == v[i].getApellidos()){
+								cont++;
+							}
+						}
+						if(cont!=1){
+							std::cout <<"No se puede imprimir el alumno por apellidos"<<std::endl;
+							break;
+						}
+						for (int i=0;i<v.size();i++){
+							if(aux == v[i].getApellidos()){
+							imprimeAlumno(v[i]);	
+							}
+						}
+						comp2 =1;
 						break;
 
 						default:
-							cout >> "Error ,introduzca una opcion válida"<< endl;
+							std::cout >> "Error ,introduzca una opcion válida"<< std::endl;
 							break; 
 					}
 
-				}while(comp2 == 0),
-
-
-
-
-
+				}while(comp2 == 0);
 				comp=1;
 				break;
 
 			default:
-				cout >> "Error ,introduzca una opcion válida"<< endl;
+				std::cout >> "Error ,introduzca una opcion válida"<< std::endl;
 				break;
 		}
 	}while(comp == 0);
@@ -326,15 +343,27 @@ void BaseAlumnos::mostrarAlumno(){
 
 void imprimeVector(vector <Alumno> v){
 	for(int i=0;i< v.size();i++){
-			cout<< v[i].getNombre()<<endl;
-			cout<< v[i].getApellidos()<<endl;
-			cout<< v[i].getDNI()<<endl;
-			cout<< v[i].getCorreo()<<endl;
-			cout<< v[i].getTelefono()<<endl;
-			cout<< v[i].getDireccion()<<endl;
-			cout<< v[i].getCursoMasAlto()<<endl;
-			cout<< v[i].getFechaNacimiento()<<endl;
-			cout<< v[i].getGrupo()<<endl;
-			cout<< v[i].getLider()<<endl;
+			std::cout<< v[i].getNombre()<<std::endl;
+			std::cout<< v[i].getApellidos()<<std::endl;
+			std::cout<< v[i].getDNI()<<std::endl;
+			std::cout<< v[i].getCorreo()<<std::endl;
+			std::cout<< v[i].getTelefono()<<std::endl;
+			std::cout<< v[i].getDireccion()<<std::endl;
+			std::cout<< v[i].getCursoMasAlto()<<std::endl;
+			std::cout<< v[i].getFechaNacimiento()<<std::endl;
+			std::cout<< v[i].getGrupo()<<std::endl;
+			std::cout<< v[i].getLider()<<std::endl;
 	}
+}
+void imprimeAlumno(Alumno a){
+			std::cout<< a.getNombre()<<std::endl;
+			std::cout<< a.getApellidos()<<std::endl;
+			std::cout<< a.getDNI()<<std::endl;
+			std::cout<< a.getCorreo()<<std::endl;
+			std::cout<< a.getTelefono()<<std::endl;
+			std::cout<< a.getDireccion()<<std::endl;
+			std::cout<< a.getCursoMasAlto()<<std::endl;
+			std::cout<< a.getFechaNacimiento()<<std::endl;
+			std::cout<< a.getGrupo()<<std::endl;
+			std::cout<< a.getLider()<<std::endl;
 }

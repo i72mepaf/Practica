@@ -236,6 +236,7 @@ void BaseAlumnos::mostrarAlumno(){
 		v[vit].setLider(i->getLider());
 		vit++;
 	}
+	
 	do{
 	std::cout << "Mostrar todos los alumnos ....1"<< std::endl;
 	std::cout << "Mostrar solo un alumno .......2"<< std::endl;

@@ -5,6 +5,7 @@
 #include <list>
 #include <string>
 #include <vector>
+#include <stdlib.h>
 
 bool sortByCursoa(Alumno &lhs,Alumno &rhs){ return lhs.getCurso() > rhs.getCurso() ; }
 bool sortByCursod(Alumno &lhs,Alumno &rhs){ return lhs.getCurso() < rhs.getCurso() ; }
@@ -31,7 +32,7 @@ void BaseAlumnos::insertarAlumno(){
 	std::string DNI;
 	std::string correo;
 	int telefono;
-	int direccion
+	int direccion;
 	int cursoMasAlto;
 	int diaNacimiento, mesNacimiento, anoNacimiento;
 	bool lider;
@@ -43,33 +44,33 @@ void BaseAlumnos::insertarAlumno(){
 	
 	it = alumnos_.begin();
 	while(it != alumnos_.end){
-		if(it.getDNI()==DNI) {
-			std::cout<<("ERROR.Este Alumno ya existe")<<endl;
+		if((*it).getDNI()==DNI) {
+			std::cout<<"ERROR.Este Alumno ya existe"<<endl;
 			exit(-1);
 		}
 	}
 	std::cout<<"Introduzca el nombre del alumno"<<endl;
 	std::cin>>nombre;
-	std::cout>>"Introduce el apellido del alumno"<<endl;
+	std::cout<<"Introduzca el apellido del alumno"<<endl;
 	std::cin>>apellidos;
-	std::cout<<"Introduce el corre del alumno"<<endl;
+	std::cout<<"Introduzca el corre del alumno"<<endl;
 	std::cin>>correo;
-	std::cout<<"Introduce el numero de telefono del alumno"<<endl;
+	std::cout<<"Introduzca el numero de telefono del alumno"<<endl;
 	std::cin>>telefono;
-	std::cout<<"Introduce la direccion del alumno"<<endl;
+	std::cout<<"Introduzca la direccion del alumno"<<endl;
 	std::cin>>direccion;
-	std::cout<<"Introduce el curso mas alto en el que el alumno esta matriculado"<<endl;
+	std::cout<<"Introduzca el curso mas alto en el que el alumno esta matriculado"<<endl;
 	std::cin>>cursoMasAlto;
-	std::cout<<"Introduce el dia en el que el alumno nacio"<<endl;
+	std::cout<<"Introduzca el dia en el que el alumno nacio"<<endl;
 	std::cin>>diaNacimiento;
-	std::cout<<"Introduce el mes de nacimiento del alumno"<<endl;
+	std::cout<<"Introduzca el mes de nacimiento del alumno"<<endl;
 	std::cin>>mesNacimiento;
-	std::cout<<"Introduce el año de nacimiento del alumno"<<endl;
+	std::cout<<"Introduzca el año de nacimiento del alumno"<<endl;
 	std::cin>>anoNacimiento;
-	std::cout<<"Este alumno es lider de algun grupo"<<endl;
+	std::cout<<"Introduzca el grupo del alumno"<<endl;
+	std::cin>>grupo;
+	std::cout<<"¿El alumno sera lider del grupo?(Introduzca Si o No)"<<endl;
 	std::cin>>lider;
-	std::cout<<"Grupo del alumno"<<endl:
-
 	alumno.setNombre(std::string nombre);
 	alumno.setApellidos(std::string apellidos);
 	alumno.setDNI(std::string DNI);
@@ -78,8 +79,20 @@ void BaseAlumnos::insertarAlumno(){
 	alumno.setDireccion(int direccion);
 	alumno.setCursoMasAlto(int cursoMasAlto);
 	alumno.setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
-	alumno.setLider(bool lider);
 	alumno.setGrupo(int grupo);
+	if(lider == "Si") { //Si el profesor introduce "Si" se procedera a comprobar si hay un lider en ese grupo
+		list<Alumno>::iterator it2;
+		it2 = alumnos_.begin();
+		while(it2 != alumnos_.end()) {
+			if((*it2).getGrupo() == alumno.getGrupo() && (*it2).getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
+				std::cout<<"En este grupo ya hay un lider"<<endl;
+			}else {
+				alumno.setLider();
+			}
+			
+		}
+
+	}
 	alumnos_.push_back(alumno);
 }
 
@@ -102,7 +115,7 @@ void Alumno::setDireccion(int direccion) {
 	direccion_ = direccion;
 }
 void Alumno::setCursoMasAlto(int cursoMasAlto) {
-	cursoMasAlto_ = cursoMasAlto
+	cursoMasAlto_ = cursoMasAlto;
 }
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
 	std::string aux;
@@ -186,9 +199,16 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 	aux = diaNacimiento+"/"+mesNacimiento+"/"+anoNacimiento;
 	fechaNacimiento_ = aux;
 }
-void Alumno::setLider(bool lider) {}
 void Alumno::setGrupo(int grupo) {
 	grupo_ = grupo;
+}
+void Alumno::setLider(std::string lider) {
+	if(lider == "Si") {
+		lider_ = true;
+	}else {
+		lider_ = false;
+	}
+}
 =======
 
 void BaseAlumnos::mostrarAlumno(){

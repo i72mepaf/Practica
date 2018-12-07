@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 #include "Clases.h"
 #include <iostream>
 #include <list>
@@ -11,19 +9,46 @@ bool sortByCursoa(Alumno &lhs,Alumno &rhs){ return lhs.getCurso() > rhs.getCurso
 bool sortByCursod(Alumno &lhs,Alumno &rhs){ return lhs.getCurso() < rhs.getCurso() ; }
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() > rhs.getApellidos() ; }
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() < rhs.getApellidos() ; }
->>>>>>> 04c3f11472e7e9d8bea16650784e0c3258d1f72c
 
 void BaseAlumnos::eliminarAlumno(){ //Felipe
 
 }
-bool Profesor::identificaProfesor(){ //Felipe
+bool Profesor::identificaProfesor(){ /*Felipe //Requisito no funcional (el archivo de credenciales tiene 
+que haber profesores, mínimo el profesor coordinador)
+
+- SecuenciaIdentificarProfesor.jpg: El actor que hace este flujo de acciones no es el profesor, 
+es un usuario no identificado. Puedo trollear a la aplicación diciendo que soy coordinador 
+cuando realmente no lo soy (Hay que comprobar esto de alguna forma.) Lo de vuelva al punto 4.1 
+se puede solucionar con un flujo loop. Las comprobaciones se pueden hacer en el mismo sistema, 
+donde se haga un ‘match’ entre las credenciales del fichero y las que mete el usuario.*/
+	int opcion = 0;
+	while(opcion!=1 && opcion!=2){
+	std::cout << "¿Es profesor Coordinador o Ayudante?" << std::endl;
+	std::cout << "1. Coordinador\n2. Ayudante" << endl;
+	std::cin >> opcion;
+	system("clear");
+	if(opcion!=1 && opcion!=2){
+		cout << "Número Incorrecto. Intentelo de nuevo" <<std::endl;
+	}
+	}
+
+	Profesor aux;
+	ifstream f("credenciales.bin", ios::binary);
+	if (f.is_open()){
+		while(!f.eof()){
+			f.read((char*) &aux, sizeof(Profesor));
+
+
+		}
+
+	}
 
 }
 void Profesor::eliminarBaseAlumnos(){ //Felipe
 
 }
 
-<<<<<<< HEAD
+
 void BaseAlumnos::insertarAlumno(){
 	list<Alumno>::iterator it;
 	Alumno alumno;
@@ -39,18 +64,24 @@ void BaseAlumnos::insertarAlumno(){
 	int grupo;
 
 	
-	std::cout<<"Introduce el DNI del alumno"<<endl;
+	std::cout<<"Introduce el DNI del alumno"<<std::endl;
 	std::cin>>DNI;
 	
 	it = alumnos_.begin();
 	while(it != alumnos_.end){
+<<<<<<< HEAD
 		if((*it).getDNI()==DNI) {
 			std::cout<<"ERROR.Este Alumno ya existe"<<endl;
+=======
+		if(it.getDNI()==DNI) {
+			std::cout<<("ERROR.Este Alumno ya existe")<<std::endl;
+>>>>>>> d2224f7b0e2200563df37f12092dfb2680786d43
 			exit(-1);
 		}
 	}
-	std::cout<<"Introduzca el nombre del alumno"<<endl;
+	std::cout<<"Introduzca el nombre del alumno"<<std::endl;
 	std::cin>>nombre;
+<<<<<<< HEAD
 	std::cout<<"Introduzca el apellido del alumno"<<endl;
 	std::cin>>apellidos;
 	std::cout<<"Introduzca el corre del alumno"<<endl;
@@ -71,6 +102,28 @@ void BaseAlumnos::insertarAlumno(){
 	std::cin>>grupo;
 	std::cout<<"¿El alumno sera lider del grupo?(Introduzca Si o No)"<<endl;
 	std::cin>>lider;
+=======
+	std::cout>>"Introduce el apellido del alumno"<<std::endl;
+	std::cin>>apellidos;
+	std::cout<<"Introduce el corre del alumno"<<std::endl;
+	std::cin>>correo;
+	std::cout<<"Introduce el numero de telefono del alumno"<<std::endl;
+	std::cin>>telefono;
+	std::cout<<"Introduce la direccion del alumno"<<std::endl;
+	std::cin>>direccion;
+	std::cout<<"Introduce el curso mas alto en el que el alumno esta matriculado"<<std::endl;
+	std::cin>>cursoMasAlto;
+	std::cout<<"Introduce el dia en el que el alumno nacio"<<std::endl;
+	std::cin>>diaNacimiento;
+	std::cout<<"Introduce el mes de nacimiento del alumno"<<std::endl;
+	std::cin>>mesNacimiento;
+	std::cout<<"Introduce el año de nacimiento del alumno"<<std::endl;
+	std::cin>>anoNacimiento;
+	std::cout<<"Este alumno es lider de algun grupo"<<std::endl;
+	std::cin>>lider;
+	std::cout<<"Grupo del alumno"<<std::endl:
+
+>>>>>>> d2224f7b0e2200563df37f12092dfb2680786d43
 	alumno.setNombre(std::string nombre);
 	alumno.setApellidos(std::string apellidos);
 	alumno.setDNI(std::string DNI);
@@ -120,78 +173,78 @@ void Alumno::setCursoMasAlto(int cursoMasAlto) {
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
 	std::string aux;
 	if(mesNacimiento <= 0 || mesNacimiento > 12) {
-		std::cout<<"El mes numero "<<mesNacimiento<<"no existe"<<endl;
+		std::cout<<"El mes numero "<<mesNacimiento<<"no existe"<<std::endl;
 		exit(-1);
 	}
 	if(mesNacimiento == 1) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 2) {
 		if(diaNacimiento <= 0 || diaNacimiento > 28) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 3) {
 		if(diaNacimiento <= 0 || diaNacimiento > 29) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 4) {
 		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 5) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 6) {
 		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 7) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 8) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 9) {
 		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 10) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 11) {
 		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
 	if(mesNacimiento == 12) {
 		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
+			std::cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<std::endl;
 			exit(-1);
 		}
 	}
@@ -201,6 +254,7 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 }
 void Alumno::setGrupo(int grupo) {
 	grupo_ = grupo;
+<<<<<<< HEAD
 }
 void Alumno::setLider(std::string lider) {
 	if(lider == "Si") {
@@ -210,13 +264,17 @@ void Alumno::setLider(std::string lider) {
 	}
 }
 =======
+=======
+>>>>>>> d2224f7b0e2200563df37f12092dfb2680786d43
 
 void BaseAlumnos::mostrarAlumno(){
 	int menu,menu2;
 	int comp=0;
 	int comp2=0;
 	int vit=0;
-	vector <Alumno> v(150);
+	int cont=0;
+	std::string aux;
+	std::vector <Alumno> v(150);
 	for(i=alumnos_.begin();i != alumnos_.end();i++){
 		v[vit].setNombre(i->getNombre());
 		v[vit].setApellidos(i->getApellidos());
@@ -230,21 +288,22 @@ void BaseAlumnos::mostrarAlumno(){
 		v[vit].setLider(i->getLider());
 		vit++;
 	}
+	
 	do{
-	cout >> "Mostrar todos los alumnos ....1"<< endl;
-	cout >> "Mostrar solo un alumno .......2"<< endl;
-	cin>> menu;
+	std::cout << "Mostrar todos los alumnos ....1"<< std::endl;
+	std::cout << "Mostrar solo un alumno .......2"<< std::endl;
+	std::cin>> menu;
 	list <Alumno>:: iterator i;
 	//system("cls");
 	
 		switch(menu){
 			case 1:
 				do{
-				cout >> "Mostrar todos los alumnos ordenados ascendentemente por curso mas alto matriculado....1"<< endl;
-				cout >> "Mostrar todos los alumnos ordenados descendentemente por curso mas alto matriculado...2"<< endl;
-				cout >> "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< endl;
-				cout >> "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< endl;
-				cin>> menu2;			
+				std::cout << "Mostrar todos los alumnos ordenados ascendentemente por curso mas alto matriculado....1"<< std::endl;
+				std::cout << "Mostrar todos los alumnos ordenados descendentemente por curso mas alto matriculado...2"<< std::endl;
+				std::cout << "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< std::endl;
+				std::cout << "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< std::endl;
+				std::cin>> menu2;			
 					switch(menu2){
 						case 1:
 						sort(v.begin(),v.end(),sortByCursoa);
@@ -271,7 +330,7 @@ void BaseAlumnos::mostrarAlumno(){
 						break;
 
 						default:
-							cout >> "Error ,introduzca una opcion válida"<< endl;
+							std::cout << "Error ,introduzca una opcion válida"<< std::endl;
 							break;					
 					}
 				}while(comp2 == 0);
@@ -281,38 +340,55 @@ void BaseAlumnos::mostrarAlumno(){
 
 			case 2:
 				do{
-					cout >>"Mostrar un alumno por dni..........1"
-					cout >>"Mostrar un alumno por Apellidos....2"
-					cin >> menu2
+					std::cout <<"Mostrar un alumno por dni..........1"<<std::endl;
+					std::cout <<"Mostrar un alumno por Apellidos....2"<<std::endl;
+					std::cin >> menu2;
 					switch(menu2){
 						case 1:
+						std::cout <<"Introduzca el dni del alumno a mostrar"<<std::endl;
+						cin>>aux;
 						for (int i=0;i<v.size();i++){
-							if
+							if(aux == v[i].getDNI()){
+								imprimeAlumno(v[i]);
+								comp2=1
+								break;
+							}
 						}
-
+						std::cout <<"No se encontro el alumno"<<std::endl;
 						comp2=1
 						break;
 
 						case 2:
-						comp2=1;
+						std::cout <<"Introduzca los apellidos del alumno a mostrar"<<std::endl;
+						cin>>aux;
+						for (int i=0;i<v.size();i++){
+							if(aux == v[i].getApellidos()){
+								cont++;
+							}
+						}
+						if(cont!=1){
+							std::cout <<"No se puede imprimir el alumno por apellidos"<<std::endl;
+							break;
+						}
+						for (int i=0;i<v.size();i++){
+							if(aux == v[i].getApellidos()){
+							imprimeAlumno(v[i]);	
+							}
+						}
+						comp2 =1;
 						break;
 
 						default:
-							cout >> "Error ,introduzca una opcion válida"<< endl;
+							std::cout >> "Error ,introduzca una opcion válida"<< std::endl;
 							break; 
 					}
 
-				}while(comp2 == 0),
-
-
-
-
-
+				}while(comp2 == 0);
 				comp=1;
 				break;
 
 			default:
-				cout >> "Error ,introduzca una opcion válida"<< endl;
+				std::cout >> "Error ,introduzca una opcion válida"<< std::endl;
 				break;
 		}
 	}while(comp == 0);
@@ -320,16 +396,27 @@ void BaseAlumnos::mostrarAlumno(){
 
 void imprimeVector(vector <Alumno> v){
 	for(int i=0;i< v.size();i++){
-			cout<< v[i].getNombre()<<endl;
-			cout<< v[i].getApellidos()<<endl;
-			cout<< v[i].getDNI()<<endl;
-			cout<< v[i].getCorreo()<<endl;
-			cout<< v[i].getTelefono()<<endl;
-			cout<< v[i].getDireccion()<<endl;
-			cout<< v[i].getCursoMasAlto()<<endl;
-			cout<< v[i].getFechaNacimiento()<<endl;
-			cout<< v[i].getGrupo()<<endl;
-			cout<< v[i].getLider()<<endl;
+			std::cout<< v[i].getNombre()<<std::endl;
+			std::cout<< v[i].getApellidos()<<std::endl;
+			std::cout<< v[i].getDNI()<<std::endl;
+			std::cout<< v[i].getCorreo()<<std::endl;
+			std::cout<< v[i].getTelefono()<<std::endl;
+			std::cout<< v[i].getDireccion()<<std::endl;
+			std::cout<< v[i].getCursoMasAlto()<<std::endl;
+			std::cout<< v[i].getFechaNacimiento()<<std::endl;
+			std::cout<< v[i].getGrupo()<<std::endl;
+			std::cout<< v[i].getLider()<<std::endl;
 	}
->>>>>>> 04c3f11472e7e9d8bea16650784e0c3258d1f72c
+}
+void imprimeAlumno(Alumno a){
+			std::cout<< a.getNombre()<<std::endl;
+			std::cout<< a.getApellidos()<<std::endl;
+			std::cout<< a.getDNI()<<std::endl;
+			std::cout<< a.getCorreo()<<std::endl;
+			std::cout<< a.getTelefono()<<std::endl;
+			std::cout<< a.getDireccion()<<std::endl;
+			std::cout<< a.getCursoMasAlto()<<std::endl;
+			std::cout<< a.getFechaNacimiento()<<std::endl;
+			std::cout<< a.getGrupo()<<std::endl;
+			std::cout<< a.getLider()<<std::endl;
 }

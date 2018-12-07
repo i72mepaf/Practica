@@ -28,7 +28,22 @@ void BaseAlumnos::eliminarAlumno(){ //Felipe
 			}
 		cout << "Alumno con apellidos: '"<< ap <<"' eliminado con exito."<<endl;
 	}
-	
+	else{
+		cont = 0;
+		cout << "Hay varios alumnos con los apellidos: '" << ap << "'." << endl;
+		cout << "Porfavor, introduzca el DNI del alumno a borrar:" << endl;
+		cin >> ap;
+		for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+			if(it->getDNI() == ap){
+				alumnos_.erase(it);
+				cont++;
+			}
+		}
+		if(cont == 1)
+			cout << "Alumno con DNI: '"<< ap <<"' eliminado con exito." << endl;
+		else
+			cout << "El DNI: '"<< ap <<"' no coincide con ninguno de nuestra base de datos." << endl;
+	}
 }
 struct Auxiliar
 {

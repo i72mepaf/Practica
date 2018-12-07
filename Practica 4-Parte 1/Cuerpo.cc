@@ -190,7 +190,7 @@ bool Profesor::identificaProfesor(){
 	}
 }
 void Profesor::eliminarBaseAlumnos(){ //Felipe
-
+	
 }
 
 

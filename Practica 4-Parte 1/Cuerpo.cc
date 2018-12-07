@@ -12,7 +12,38 @@ bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() > rhs.getA
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() < rhs.getApellidos() ; }
 
 void BaseAlumnos::eliminarAlumno(){ //Felipe
-
+	string ap;
+	int cont=0;
+	cout << "Introduzca los apellidos del alumno a eliminar:"<< endl;
+	cin >> ap;
+	list<Alumno>::iterator it; 
+	for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+		if(it->getApellidos() == ap)
+			cont++;
+	}
+	if(cont == 0){
+		for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+			if(it->getApellidos() == ap)
+				alumnos_.erase(it);
+			}
+		cout << "Alumno con apellidos: '"<< ap <<"' eliminado con exito."<<endl;
+	}
+	else{
+		cont = 0;
+		cout << "Hay varios alumnos con los apellidos: '" << ap << "'." << endl;
+		cout << "Porfavor, introduzca el DNI del alumno a borrar:" << endl;
+		cin >> ap;
+		for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+			if(it->getDNI() == ap){
+				alumnos_.erase(it);
+				cont++;
+			}
+		}
+		if(cont == 1)
+			cout << "Alumno con DNI: '"<< ap <<"' eliminado con exito." << endl;
+		else
+			cout << "El DNI: '"<< ap <<"' no coincide con ninguno de nuestra base de datos." << endl;
+	}
 }
 struct Auxiliar
 {
@@ -198,6 +229,7 @@ void Profesor::eliminarBaseAlumnos(){ //Felipe
 		cout << "¿Esta seguro que desea eliminar la base de datos de los alumnos?" << endl;
 		cout << "1. Sí.\n2.No."<<endl;
 		cin >> opcion;
+		system("clear");
 		if(opcion!=1 && opcion!=2)
 			cout << "Error. Vuelva a intentarlo introduciendo un número valido" << endl;
 	}

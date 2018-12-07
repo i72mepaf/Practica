@@ -190,7 +190,24 @@ bool Profesor::identificaProfesor(){
 	}
 }
 void Profesor::eliminarBaseAlumnos(){ //Felipe
-
+	int opcion=0;
+	while(opcion!=1 && opcion!=2){
+		cout << "¿Esta seguro que desea eliminar la base de datos de los alumnos?" << endl;
+		cout << "1. Sí.\n2.No."<<endl;
+		cin >> opcion;
+		if(opcion!=1 && opcion!=2)
+			cout << "Error. Vuelva a intentarlo introduciendo un número valido" << endl;
+	}
+	if(opcion == 1){
+		if(alumnos_.size()==0){
+			cout << "La base de los alumnos esta vacia" << endl;
+		}
+		else{
+			while(alumnos_.size()!=0)
+				alumnos_.pop_back();
+			cout << "Base de Alumnos eliminada con exito" << endl;
+		}
+	}
 }
 
 

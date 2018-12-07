@@ -28,10 +28,10 @@ public:
 	inline string getFechaNacimiento()const{return fechaNacimiento_;};
 	inline int getGrupo()const{return grupo_;};
 	inline bool getLider()const{return lider_;};
-	void setNombre(std::string nombre);
-	void setApellidos(std::string apellidos);
-	void setDNI(std::string DNI);
-	void setCorreo(std::string correo);
+	void setNombre(string nombre);
+	void setApellidos(string apellidos);
+	void setDNI(string DNI);
+	void setCorreo(string correo);
 	void setTelefono(int telefono);
 	void setDireccion(int direccion);
 	void setCursoMasAlto(int cursoMasAlto);

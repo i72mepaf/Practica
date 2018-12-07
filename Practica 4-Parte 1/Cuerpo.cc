@@ -13,35 +13,180 @@ bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() < rhs.getA
 void BaseAlumnos::eliminarAlumno(){ //Felipe
 
 }
-bool Profesor::identificaProfesor(){ /*Felipe //Requisito no funcional (el archivo de credenciales tiene 
-que haber profesores, mínimo el profesor coordinador)
-- SecuenciaIdentificarProfesor.jpg: El actor que hace este flujo de acciones no es el profesor, 
-es un usuario no identificado. Puedo trollear a la aplicación diciendo que soy coordinador 
-cuando realmente no lo soy (Hay que comprobar esto de alguna forma.) Lo de vuelva al punto 4.1 
-se puede solucionar con un flujo loop. Las comprobaciones se pueden hacer en el mismo sistema, 
-donde se haga un ‘match’ entre las credenciales del fichero y las que mete el usuario.*/
-	int opcion = 0;
-	while(opcion!=1 && opcion!=2){
-	std::cout << "¿Es profesor Coordinador o Ayudante?" << std::endl;
-	std::cout << "1. Coordinador\n2. Ayudante" << endl;
-	std::cin >> opcion;
-	system("clear");
-	if(opcion!=1 && opcion!=2){
-		cout << "Número Incorrecto. Intentelo de nuevo" <<std::endl;
-	}
-	}
-
-	Profesor aux;
-	ifstream f("credenciales.bin", ios::binary);
-	if (f.is_open()){
-		while(!f.eof()){
-			f.read((char*) &aux, sizeof(Profesor));
-
-
+struct Auxiliar
+{
+	char d[100];
+	char r[100];
+};
+bool Profesor::identificaProfesor(){
+	int opcion = 0, contadorTipo=0;
+	string dni, compDNI, compROL;
+	Auxiliar aux;
+	vector<Auxiliar> v;
+	ifstream fichero("credenciales.bin", ios::in | ios::binary);
+	if (fichero.is_open()){
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar))){
+			v.push_back(aux);
 		}
-
 	}
-
+	else{
+		cout << "Error al abrir credenciales.bin porque no existe en el directorio." << endl;
+		exit(-1);
+	}
+   	fichero.close();
+		cout << "Bienvenido al programa de la base de datos de alumnos." << endl;
+	while(opcion!=1 && opcion!=2){
+		cout << "¿Es profesor Coordinador o Ayudante?" << endl;
+		cout << "1. Coordinador.\n2. Ayudante." << endl;
+		cin >> opcion;
+		system("clear");
+		if(opcion!=1 && opcion!=2){
+			cout << "Número Incorrecto. Intentelo de nuevo." << endl;
+		}
+		else{
+			if(opcion==1){//Coordinador
+				cout << "A continuación procederemos a identificarle como profesor Coordinador." << endl;
+				cout << "Introduzca DNI: ";
+				cin >> dni;
+				system("clear");
+   				for (int i = 0; i < v.size(); ++i)
+   				{
+   					compDNI = v[i].d;
+   					compROL = v[i].r;
+   					if(compDNI == dni && compROL == "Coordinador")
+   						cout << "Identificado Correctamente." << endl;
+   					while(compDNI == dni && compROL == "Coordinador"){
+   						cout << "¿Desea iniciar o cambiar DNI?\n1. Iniciar.\n2. Cambiar DNI." << endl;
+   						cin >> opcion;
+   						system("clear");
+   						if(opcion!= 1 && opcion!=2){
+   							cout << "Numero Incorrecto. Intentalo de nuevo." << endl;
+   						}
+   						else{
+   							if(opcion == 1){
+   								remove("credenciales.bin");
+   								ofstream fCreacion("credenciales.bin", ios::out | ios::binary);
+								if (fCreacion.is_open()){
+									for(int j=0; j < v.size(); j++)
+									fCreacion.write((char *)&v[j], sizeof(Auxiliar));
+   								}
+   								else{
+   									cout << "Error al abrir el fichero." << endl;
+   									exit(-1);
+   								}
+   								fCreacion.close();
+   								cout << "Iniciando..." << endl;
+   								setDni(compDNI);
+   								setRol(compROL);
+   								return true;
+   							}
+   							else{
+   								cout << "Introduzca el nuevo DNI: ";
+   								cin >> dni;
+   								remove("credenciales.bin");
+   								ofstream fEscCoord("credenciales.bin", ios::out | ios::binary);
+								if (fEscCoord.is_open()){
+									for(int j=0; j < v.size(); j++){
+										compROL = v[j].r;
+										if(compROL == "Coordinador")
+											strcpy(v[j].d, dni.c_str());
+										fEscCoord.write((char *)&v[j], sizeof(Auxiliar));
+									}
+   								}
+   								else{
+   									cout << "Error al abrir el fichero." << endl;
+   									exit(-1);
+   								}
+   								fEscCoord.close();
+   								cout << "DNI cambiado con exito. Iniciando..." << endl;
+   								setDni(dni);
+   								setRol("Coordinador");
+   								return true;
+   							}
+   						}
+   					}
+				}
+				cout << "Lo sentimos, no hemos podido identificarle, intentelo de nuevo." << endl;
+   				opcion = 3;
+   			}
+			else{//Ayudante
+				cout << "¿Desea registrarse o identificarse?" << endl;
+				cout << "1. Registrar.\n2. Identificar." << endl;
+				cin >> opcion;
+				system("clear");
+   				if(opcion!= 1 && opcion!=2){
+  					cout << "Numero Incorrecto. Intentalo de nuevo." << endl;
+  					opcion = 3;
+				}
+				else{
+					if(opcion == 1){//Registrarse
+						for (int i = 0; i < v.size(); ++i)
+						{
+							compROL = v[i].r;
+							if(compROL=="Ayudante")
+								contadorTipo++;
+						}
+						if(contadorTipo < 5){
+							cout << "Registro de un profesor ayudante.\nIntroduce el DNI: ";
+							cin >> dni;
+							strcpy(aux.d, dni.c_str());
+							strcpy(aux.r, "Ayudante");
+							v.push_back(aux);
+							remove("credenciales.bin");
+							ofstream fEscAyud("credenciales.bin", ios::out | ios::binary);
+							if (fEscAyud.is_open()){
+								for(int i=0; i < v.size(); i++)
+									fEscAyud.write((char *)&v[i], sizeof(Auxiliar));
+   							}
+   							else{
+   								cout << "Error al abrir el fichero." << endl;
+   								exit(-1);
+   							}
+   							fEscAyud.close();
+   							cout << "Registro correcto. Iniciando..." << endl;
+   							setDni(dni);
+   							setRol("Ayudante");
+   							return false;
+						}
+						else{
+							cout << "Lo sentimos. Ya existen registrados 5 profesores ayudantes." << endl;
+  							opcion = 3;
+						}
+					}
+					else{//Identificarse
+						cout << "A continuación procederemos a identificarle como profesor Ayudante." << endl;
+						cout << "Introduzca el DNI: ";
+						cin >> dni;
+						system("clear");
+   						for (int i = 0; i < v.size(); ++i)
+   						{
+   							compDNI = v[i].d;
+   							compROL = v[i].r;
+   							if(compDNI == dni && compROL == "Ayudante"){
+   								cout << "Identificado Correctamente. Iniciando..." << endl;
+   								remove("credenciales.bin");
+   								ofstream fCreacionA("credenciales.bin", ios::out | ios::binary);
+								if (fCreacionA.is_open()){
+									for(int j=0; j < v.size(); j++)
+									fCreacionA.write((char *)&v[j], sizeof(Auxiliar));
+   								}
+   								else{
+   									cout << "Error al abrir el fichero" << endl;
+   									exit(-1);
+   								}
+   								fCreacionA.close();
+   								setDni(compDNI);
+   								setRol(compROL);
+   								return false;
+							}
+						}
+							cout << "No se ha podido identificar, intentelo de nuevo." << endl;
+							opcion = 3;
+					}
+				}
+			}
+		}
+	}
 }
 void Profesor::eliminarBaseAlumnos(){ //Felipe
 

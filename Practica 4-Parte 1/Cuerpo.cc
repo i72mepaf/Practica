@@ -222,7 +222,7 @@ void BaseAlumnos::setListaAlumno(list<Alumno> lista){
 void Profesor::eliminarBaseAlumnos(){ //Felipe
 	int opcion=0;
 	list<Alumno> alumnos;
-	alumnos = base.getListaAlumno();
+	alumnos = base_.getListaAlumno();
 	while(opcion!=1 && opcion!=2){
 		cout << "¿Esta seguro que desea eliminar la base de datos de los alumnos?" << endl;
 		cout << "1. Sí.\n2.No."<<endl;
@@ -241,7 +241,7 @@ void Profesor::eliminarBaseAlumnos(){ //Felipe
 			cout << "Base de Alumnos eliminada con exito" << endl;
 		}
 	}
-	base.setListaAlumno(alumnos);
+	base_.setListaAlumno(alumnos);
 }
 
 

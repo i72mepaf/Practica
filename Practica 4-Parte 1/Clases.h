@@ -67,7 +67,7 @@ public:
 class Profesor{
 private:
 	string DNI_;
-	BaseAlumnos base;//FALTA: pointer: Puntero Base
+	BaseAlumnos base_;//FALTA: pointer: Puntero Base
 	string Rol_;
 public:
 	void eliminarBaseAlumnos();
@@ -78,6 +78,7 @@ public:
 	inline string getDni()const{return DNI_;};
 	inline void setRol(string Rol){Rol_=Rol;};
 	inline string getRol()const{return Rol_;};
+	inline BaseAlumnos getBase()const{return base_;}
 };
 
 #endif

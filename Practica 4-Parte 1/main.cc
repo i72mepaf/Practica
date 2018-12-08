@@ -1,4 +1,5 @@
 #include "Clases.h"
+
 int main(int argc, char const *argv[])
 {
 	cout << "Versión beta de la base de los alumnos" << endl;
@@ -17,7 +18,7 @@ int main(int argc, char const *argv[])
 			cout << "7. Eliminar Alumno" << endl;
 			cout << "8. Eliminar Base de Datos de los Alumnos" << endl;
 			cout << "9. Salir" << endl;
-			cin >> op
+			cin >> op;
 			system("clear");
 			switch(op){
 				case 1:{
@@ -55,7 +56,7 @@ int main(int argc, char const *argv[])
 			cout << "4. Modificar Alumno" << endl;
 			cout << "5. Eliminar Alumno" << endl;
 			cout << "6. Salir" << endl;
-			cin >> op
+			cin >> op;
 			system("clear");
 			switch(op){
 				case 1:{

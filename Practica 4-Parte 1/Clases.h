@@ -1,10 +1,19 @@
-#include <list>
 #include <iostream>
+#include <list>
 #include <string>
+#include <vector>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <fstream>
+#include <cstring>
+#include <algorithm>
+
+using namespace std;
+
 #ifndef CLASES_H
 #define CLASES_H
 
-using namespace std;
 class Alumno {
 private: 
 	string nombre_;
@@ -33,7 +42,7 @@ public:
 	inline void setDNI(string DNI){DNI_=DNI;};
 	inline void setCorreo(string correo){correo_=correo;};
 	inline void setTelefono(int telefono){telefono_=telefono;};
-	inline void setDireccion(int direccion){direccion_=direccion_};
+	inline void setDireccion(int direccion){direccion_=direccion_;};
 	inline void setCursoMasAlto(int cursoMasAlto){cursoMasAlto_=cursoMasAlto;};
 	void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
 	inline void setLider(bool lider){lider_=lider;};
@@ -63,7 +72,7 @@ public:
 	bool identificaProfesor();
 	inline void setDni(string DNI){DNI_=DNI;};
 	inline string getDni()const{return DNI_;};
-	inline void setRol(string ROL){Rol_=Rol;};
+	inline void setRol(string Rol){Rol_=Rol;};
 	inline string getRol()const{return Rol_;};
 };
 

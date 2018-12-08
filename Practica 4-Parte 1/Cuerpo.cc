@@ -1,13 +1,7 @@
 #include "Clases.h"
-#include <iostream>
-#include <list>
-#include <string>
-#include <vector>
-#include <stdlib.h>
-using namespace std;
 
-bool sortByCursoa(Alumno &lhs,Alumno &rhs){ return lhs.getCurso() > rhs.getCurso() ; }
-bool sortByCursod(Alumno &lhs,Alumno &rhs){ return lhs.getCurso() < rhs.getCurso() ; }
+bool sortByCursoa(Alumno &lhs,Alumno &rhs){ return lhs.getCursoMasAlto() > rhs.getCursoMasAlto() ; }
+bool sortByCursod(Alumno &lhs,Alumno &rhs){ return lhs.getCursoMasAlto() < rhs.getCursoMasAlto() ; }
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() > rhs.getApellidos() ; }
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() < rhs.getApellidos() ; }
 
@@ -271,7 +265,7 @@ bool BaseAlumnos::insertarAlumno(){
 				cin >> opcion;
 				system("clear");
 				if(opcion!=1 && opcion !=2){
-					cout << "ERROR. No ha seleccionado un número correcto. Vuelva a intentarlo"
+					cout << "ERROR. No ha seleccionado un número correcto. Vuelva a intentarlo" << endl;
 				}
 				else{
 					if(opcion==2){
@@ -303,7 +297,7 @@ bool BaseAlumnos::insertarAlumno(){
 				cin >> opcion;
 				system("clear");
 				if(opcion!=1 && opcion !=2){
-					cout << "ERROR. No ha seleccionado un número correcto. Vuelva a intentarlo"
+					cout << "ERROR. No ha seleccionado un número correcto. Vuelva a intentarlo" << endl;
 				}
 				else{
 					if(opcion==2){
@@ -336,7 +330,7 @@ bool BaseAlumnos::insertarAlumno(){
 	cin>>grupo;
 	cout<<"¿El alumno sera lider del grupo?(Introduzca Si o No)"<<endl;
 	cin>>lider;
-	cout>>"Introduce el apellido del alumno"<<endl;
+	cout<<"Introduce el apellido del alumno"<<endl;
 	cin>>apellidos;
 	cout<<"Introduce el corre del alumno"<<endl;
 	cin>>correo;
@@ -367,7 +361,7 @@ bool BaseAlumnos::insertarAlumno(){
 				lider=false;
 		}
 	}
-	cout<<"Introduzca el numero del grupo del alumno"<<endl:
+	cout<<"Introduzca el numero del grupo del alumno"<<endl;
 	cin>>grupo;
 	alumno.setNombre(nombre);
 	alumno.setApellidos(apellidos);
@@ -486,6 +480,7 @@ void BaseAlumnos::mostrarAlumno(){
 	int cont=0;
 	string aux;
 	vector <Alumno> v(150);
+	list <Alumno>:: iterator i;
 	for(i=alumnos_.begin();i != alumnos_.end();i++){
 		v[vit].setNombre(i->getNombre());
 		v[vit].setApellidos(i->getApellidos());
@@ -493,7 +488,7 @@ void BaseAlumnos::mostrarAlumno(){
 		v[vit].setCorreo(i->getCorreo());
 		v[vit].setTelefono(i->getTelefono());
 		v[vit].setDireccion(i->getDireccion());
-		v[vit].setCursoMasAlto(i->getCurso());
+		v[vit].setCursoMasAlto(i->getCursoMasAlto());
 		v[vit].setFechaNacimiento(i->getFechaNacimiento());
 		v[vit].setGrupo(i->getGrupo());
 		v[vit].setLider(i->getLider());
@@ -504,7 +499,6 @@ void BaseAlumnos::mostrarAlumno(){
 	cout << "Mostrar todos los alumnos ....1"<< endl;
 	cout << "Mostrar solo un alumno .......2"<< endl;
 	cin>> menu;
-	list <Alumno>:: iterator i;
 	//system("cls");
 	
 		switch(menu){
@@ -561,12 +555,12 @@ void BaseAlumnos::mostrarAlumno(){
 						for (int i=0;i<v.size();i++){
 							if(aux == v[i].getDNI()){
 								imprimeAlumno(v[i]);
-								comp2=1
+								comp2=1;
 								break;
 							}
 						}
 						cout <<"No se encontro el alumno"<<endl;
-						comp2=1
+						comp2=1;
 						break;
 
 						case 2:
@@ -590,7 +584,7 @@ void BaseAlumnos::mostrarAlumno(){
 						break;
 
 						default:
-							cout >> "Error ,introduzca una opcion válida"<< endl;
+							cout << "Error ,introduzca una opcion válida"<< endl;
 							break; 
 					}
 
@@ -599,7 +593,7 @@ void BaseAlumnos::mostrarAlumno(){
 				break;
 
 			default:
-				cout >> "Error ,introduzca una opcion válida"<< endl;
+				cout << "Error ,introduzca una opcion válida"<< endl;
 				break;
 		}
 	}while(comp == 0);

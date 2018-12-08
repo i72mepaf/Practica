@@ -7,22 +7,21 @@ int main(int argc, char const *argv[])
 	BaseAlumnos b;
 	int op = 0;
 	if(p.identificaProfesor()==true){
-		while(op!=9){
+		while(op!=8){
 			cout << "Menu:" << endl;
 			cout << "1. Insertar Alumno" << endl;
 			cout << "2. Cargar Copia de Seguridad" << endl;
 			cout << "3. Guardar Copia de Seguridad" << endl;
-			cout << "4. Buscar Alumno" << endl;
-			cout << "5. Mostrar Alumnos" << endl;
-			cout << "6. Modificar Alumno" << endl;
-			cout << "7. Eliminar Alumno" << endl;
-			cout << "8. Eliminar Base de Datos de los Alumnos" << endl;
-			cout << "9. Salir" << endl;
+			cout << "4. Mostrar Alumnos" << endl;
+			cout << "5. Modificar Alumno" << endl;
+			cout << "6. Eliminar Alumno" << endl;
+			cout << "7. Eliminar Base de Datos de los Alumnos" << endl;
+			cout << "8. Salir" << endl;
 			cin >> op;
 			system("clear");
 			switch(op){
 				case 1:{
-					if(b.InsertarAlumno())
+					if(b.insertarAlumno())
 						cout << "Alumno insertado correctamente" << endl;
 					else
 						cout << "Alumno no insertado" << endl;
@@ -31,19 +30,17 @@ int main(int argc, char const *argv[])
 				break;
 				case 3: p.guardarFichero();
 				break;
-				case 4: b.buscarAlumno();
+				case 4: b.mostrarAlumno();
 				break;
-				case 5: b.mostrarAlumno();
+				case 5: b.modificarAlumno();
 				break;
-				case 6: b.modificarAlumno();
+				case 6: b.eliminarAlumno();
 				break;
-				case 7: b.eliminarAlumno();
+				case 7: p.eliminarBaseAlumnos();
 				break;
-				case 8: p.eliminarBaseAlumnos();
+				case 8: cout << "Saliendo..." << endl;
 				break;
-				case 9: cout << "Saliendo..." << endl;
-				break;
-				default: cout << "Por favor, teclee un número de las opciones [1,9]" << endl;
+				default: cout << "Por favor, teclee un número de las opciones [1,8]" << endl;
 			}
 		}
 	}
@@ -51,31 +48,28 @@ int main(int argc, char const *argv[])
 		while(op!=6){
 			cout << "Menu:" << endl;
 			cout << "1. Insertar Alumno" << endl;
-			cout << "2. Buscar Alumno" << endl;
-			cout << "3. Mostrar Alumnos" << endl;
-			cout << "4. Modificar Alumno" << endl;
-			cout << "5. Eliminar Alumno" << endl;
-			cout << "6. Salir" << endl;
+			cout << "2. Mostrar Alumnos" << endl;
+			cout << "3. Modificar Alumno" << endl;
+			cout << "4. Eliminar Alumno" << endl;
+			cout << "5. Salir" << endl;
 			cin >> op;
 			system("clear");
 			switch(op){
 				case 1:{
-					if(b.InsertarAlumno())
+					if(b.insertarAlumno())
 						cout << "Alumno insertado correctamente" << endl;
 					else
 						cout << "Alumno no insertado" << endl;
 				}break;
-				case 2: b.buscarAlumno();
+				case 2: b.mostrarAlumno();
 				break;
-				case 3: b.mostrarAlumno();
+				case 3: b.modificarAlumno();
 				break;
-				case 4: b.modificarAlumno();
+				case 4: b.eliminarAlumno();
 				break;
-				case 5: b.eliminarAlumno();
+				case 5: cout << "Saliendo..." << endl;
 				break;
-				case 6: cout << "Saliendo..." << endl;
-				break;
-				default: cout << "Por favor, teclee un número de las opciones [1,6]" << endl;
+				default: cout << "Por favor, teclee un número de las opciones [1,5]" << endl;
 			}
 		}
 	}

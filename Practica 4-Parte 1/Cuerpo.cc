@@ -102,7 +102,7 @@ bool Profesor::identificaProfesor(){
    								}
    								fCreacion.close();
    								cout << "Iniciando..." << endl;
-   								setDni(compDNI);
+   								setDNI(compDNI);
    								setRol(compROL);
    								return true;
    							}
@@ -125,7 +125,7 @@ bool Profesor::identificaProfesor(){
    								}
    								fEscCoord.close();
    								cout << "DNI cambiado con exito. Iniciando..." << endl;
-   								setDni(dni);
+   								setDNI(dni);
    								setRol("Coordinador");
    								return true;
    							}
@@ -170,7 +170,7 @@ bool Profesor::identificaProfesor(){
    							}
    							fEscAyud.close();
    							cout << "Registro correcto. Iniciando..." << endl;
-   							setDni(dni);
+   							setDNI(dni);
    							setRol("Ayudante");
    							return false;
 						}
@@ -201,7 +201,7 @@ bool Profesor::identificaProfesor(){
    									exit(-1);
    								}
    								fCreacionA.close();
-   								setDni(compDNI);
+   								setDNI(compDNI);
    								setRol(compROL);
    								return false;
 							}
@@ -471,6 +471,9 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 	aux = diaNacimiento+"/"+mesNacimiento+"/"+anoNacimiento;
 	fechaNacimiento_ = aux;
 }
+void imprimeVector(vector <Alumno> v); //Cabeceras de funciones para que no haya error al compilar
+
+void imprimeAlumno(Alumno a);
 
 void BaseAlumnos::mostrarAlumno(){
 	int menu,menu2;
@@ -484,7 +487,7 @@ void BaseAlumnos::mostrarAlumno(){
 	for(i=alumnos_.begin();i != alumnos_.end();i++){
 		v[vit].setNombre(i->getNombre());
 		v[vit].setApellidos(i->getApellidos());
-		v[vit].setDni(i->getDNI());
+		v[vit].setDNI(i->getDNI());
 		v[vit].setCorreo(i->getCorreo());
 		v[vit].setTelefono(i->getTelefono());
 		v[vit].setDireccion(i->getDireccion());

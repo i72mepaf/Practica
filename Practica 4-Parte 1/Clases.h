@@ -52,7 +52,7 @@ public:
 class BaseAlumnos{
 private:
 	list<Alumno> alumnos_;
-	inline void buscarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
+	void buscarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 public:
 	bool insertarAlumno();
 	void eliminarAlumno();
@@ -70,7 +70,7 @@ public:
 	inline void cargarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 	inline void guardarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 	bool identificaProfesor();
-	inline void setDni(string DNI){DNI_=DNI;};
+	inline void setDNI(string DNI){DNI_=DNI;};
 	inline string getDni()const{return DNI_;};
 	inline void setRol(string Rol){Rol_=Rol;};
 	inline string getRol()const{return Rol_;};

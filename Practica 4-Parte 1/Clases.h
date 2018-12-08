@@ -43,7 +43,7 @@ public:
 class BaseAlumnos{
 private:
 	list<Alumno> alumnos_;
-	void buscarAlumno();
+	inline void buscarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 public:
 	bool insertarAlumno();
 	void eliminarAlumno();
@@ -54,7 +54,7 @@ public:
 class Profesor{
 private:
 	string DNI_;
-	//FALTA: pointer: Puntero Base
+	friend list<Alumno> BaseAlumnos::alumnos_;//FALTA: pointer: Puntero Base
 	string Rol_;
 public:
 	void eliminarBaseAlumnos();

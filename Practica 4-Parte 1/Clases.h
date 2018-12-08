@@ -28,16 +28,16 @@ public:
 	inline string getFechaNacimiento()const{return fechaNacimiento_;};
 	inline int getGrupo()const{return grupo_;};
 	inline bool getLider()const{return lider_;};
-	void setNombre(string nombre);
-	void setApellidos(string apellidos);
-	void setDNI(string DNI);
-	void setCorreo(string correo);
-	void setTelefono(int telefono);
-	void setDireccion(int direccion);
-	void setCursoMasAlto(int cursoMasAlto);
-	void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
-	void setLider(bool lider);
-	void setGrupo(int grupo);
+	inline void setNombre(string nombre){nombre_=nombre;};
+	inline void setApellidos(string apellidos){apellidos_=apellidos;};
+	inline void setDNI(string DNI){DNI_=DNI;};
+	inline void setCorreo(string correo){correo_=correo;};
+	inline void setTelefono(int telefono){telefono_=telefono;};
+	inline void setDireccion(int direccion){direccion_=direccion_};
+	inline void setCursoMasAlto(int cursoMasAlto){cursoMasAlto_=cursoMasAlto;};
+	inline void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento){};//PARA QUE COMPILE
+	inline void setLider(bool lider){lider_=lider;};
+	inline void setGrupo(int grupo){grupo_=grupo;};
 };
 
 class BaseAlumnos{
@@ -61,9 +61,9 @@ public:
 	void cargarFichero();
 	void guardarFichero();
 	bool identificaProfesor();
-	void setDni();
+	inline void setDni(string DNI){DNI_=DNI;};
 	inline string getDni()const{return DNI_;};
-	void setRol();
+	inline void setRol(string ROL){Rol_=Rol;};
 	inline string getRol()const{return Rol_;};
 };
 

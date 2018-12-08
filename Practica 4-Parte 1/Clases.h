@@ -35,7 +35,7 @@ public:
 	inline void setTelefono(int telefono){telefono_=telefono;};
 	inline void setDireccion(int direccion){direccion_=direccion_};
 	inline void setCursoMasAlto(int cursoMasAlto){cursoMasAlto_=cursoMasAlto;};
-	inline void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento){};//PARA QUE COMPILE
+	void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
 	inline void setLider(bool lider){lider_=lider;};
 	inline void setGrupo(int grupo){grupo_=grupo;};
 };
@@ -45,7 +45,7 @@ private:
 	list<Alumno> alumnos_;
 	void buscarAlumno();
 public:
-	void insertarAlumno();
+	bool insertarAlumno();
 	void eliminarAlumno();
 	void mostrarAlumno();
 	void modificarAlumno();

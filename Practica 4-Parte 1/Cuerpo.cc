@@ -214,8 +214,15 @@ bool Profesor::identificaProfesor(){
 		}
 	}
 }
+void BaseAlumnos::setListaAlumno(list<Alumno> lista){
+	while(alumnos_.size()!=0)
+		alumnos_.pop_back();
+	alumnos_=lista;
+}
 void Profesor::eliminarBaseAlumnos(){ //Felipe
 	int opcion=0;
+	list<Alumno> alumnos;
+	alumnos = base.getListaAlumno();
 	while(opcion!=1 && opcion!=2){
 		cout << "¿Esta seguro que desea eliminar la base de datos de los alumnos?" << endl;
 		cout << "1. Sí.\n2.No."<<endl;
@@ -225,15 +232,16 @@ void Profesor::eliminarBaseAlumnos(){ //Felipe
 			cout << "Error. Vuelva a intentarlo introduciendo un número valido" << endl;
 	}
 	if(opcion == 1){
-		if(alumnos_.size()==0){
+		if(alumnos.size()==0){
 			cout << "La base de los alumnos esta vacia" << endl;
 		}
 		else{
-			while(alumnos_.size()!=0)
-				alumnos_.pop_back();
+			while(alumnos.size()!=0)
+				alumnos.pop_back();
 			cout << "Base de Alumnos eliminada con exito" << endl;
 		}
 	}
+	base.setListaAlumno(alumnos);
 }
 
 
@@ -507,9 +515,6 @@ void BaseAlumnos::mostrarAlumno(){
 		v[vit].setTelefono(i->getTelefono());
 		v[vit].setDireccion(i->getDireccion());
 		v[vit].setCursoMasAlto(i->getCursoMasAlto());
-		/*fdia = atoi(strtok((i->getFechaNacimiento()).c_str(),"/"));
-		fmes = atoi(strtok((i->getFechaNacimiento()).c_str(),"/"));
-		fano = atoi(strtok((i->getFechaNacimiento()).c_str(),"\n"));*/
 		aux = (i->getFechaNacimiento());
 		v[vit].setFechaNacimiento(atoi((aux.substr(0, aux.find("/"))).c_str()), 
 			atoi((aux.substr(aux.find("/")+1, aux.find("/"))).c_str()), 

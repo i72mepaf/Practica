@@ -60,12 +60,14 @@ public:
 	void eliminarAlumno();
 	void mostrarAlumno();
 	inline void modificarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
+	inline list<Alumno> getListaAlumno()const{return alumnos_;}
+	void setListaAlumno(list<Alumno> lista);
 };
 
 class Profesor{
 private:
 	string DNI_;
-	friend list<Alumno> BaseAlumnos::alumnos_;//FALTA: pointer: Puntero Base
+	BaseAlumnos base;//FALTA: pointer: Puntero Base
 	string Rol_;
 public:
 	void eliminarBaseAlumnos();

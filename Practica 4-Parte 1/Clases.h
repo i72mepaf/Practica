@@ -23,7 +23,7 @@ private:
 	string DNI_;
 	string correo_;
 	int telefono_;
-	int direccion_;
+	string direccion_;
 	int cursoMasAlto_;
 	string fechaNacimiento_;
 	bool lider_;
@@ -34,7 +34,7 @@ public:
 	inline string getDNI()const{return DNI_;};
 	inline string getCorreo()const{return correo_;};
 	inline int getTelefono()const{return telefono_;};
-	inline int getDireccion()const{return direccion_;};
+	inline string getDireccion()const{return direccion_;};
 	inline int getCursoMasAlto()const{return cursoMasAlto_;};
 	inline string getFechaNacimiento()const{return fechaNacimiento_;};
 	inline int getGrupo()const{return grupo_;};
@@ -44,7 +44,7 @@ public:
 	inline void setDNI(string DNI){DNI_=DNI;};
 	inline void setCorreo(string correo){correo_=correo;};
 	inline void setTelefono(int telefono){telefono_=telefono;};
-	inline void setDireccion(int direccion){direccion_=direccion_;};
+	inline void setDireccion(string direccion){direccion_=direccion_;};
 	inline void setCursoMasAlto(int cursoMasAlto){cursoMasAlto_=cursoMasAlto;};
 	void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
 	inline void setLider(bool lider){lider_=lider;};

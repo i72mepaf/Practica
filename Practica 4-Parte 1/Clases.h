@@ -48,7 +48,7 @@ public:
 	bool insertarAlumno();
 	void eliminarAlumno();
 	void mostrarAlumno();
-	void modificarAlumno();
+	inline void modificarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 };
 
 class Profesor{
@@ -58,8 +58,8 @@ private:
 	string Rol_;
 public:
 	void eliminarBaseAlumnos();
-	void cargarFichero();
-	void guardarFichero();
+	inline void cargarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
+	inline void guardarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 	bool identificaProfesor();
 	inline void setDni(string DNI){DNI_=DNI;};
 	inline string getDni()const{return DNI_;};

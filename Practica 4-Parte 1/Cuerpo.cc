@@ -507,8 +507,13 @@ void BaseAlumnos::mostrarAlumno(){
 		v[vit].setTelefono(i->getTelefono());
 		v[vit].setDireccion(i->getDireccion());
 		v[vit].setCursoMasAlto(i->getCursoMasAlto());
-		v[vit].setFechaNacimiento(i->getFechaNacimiento());
-		v[vit].setGrupo(i->getGrupo());
+		/*fdia = atoi(strtok((i->getFechaNacimiento()).c_str(),"/"));
+		fmes = atoi(strtok((i->getFechaNacimiento()).c_str(),"/"));
+		fano = atoi(strtok((i->getFechaNacimiento()).c_str(),"\n"));*/
+		aux = (i->getFechaNacimiento());
+		v[vit].setFechaNacimiento(atoi((aux.substr(0, aux.find("/"))).c_str()), 
+			atoi((aux.substr(aux.find("/")+1, aux.find("/"))).c_str()), 
+			atoi((aux.substr(aux.find(aux.substr(aux.find("/")+1, aux.find("/")))+1, aux.find("\n"))).c_str()));
 		v[vit].setLider(i->getLider());
 		vit++;
 	}

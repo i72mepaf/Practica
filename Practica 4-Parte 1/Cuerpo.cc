@@ -395,27 +395,6 @@ bool BaseAlumnos::insertarAlumno(){
 
 }
 
-void Alumno::setNombre(string nombre) {
-	nombre_=nombre;
-}
-void Alumno::setApellidos(string apellidos) {
-	apellidos_=apellidos;
-}
-void Alumno::setDNI(string DNI) {
-	DNI_ = DNI;
-}
-void Alumno::setCorreo(string correo) {
-	correo_ = correo;
-}
-void Alumno::setTelefono(int telefono) {
-	telefono_ = telefono;
-}
-void Alumno::setDireccion(int direccion) {
-	direccion_ = direccion;
-}
-void Alumno::setCursoMasAlto(int cursoMasAlto) {
-	cursoMasAlto_ = cursoMasAlto;
-}
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
 	string aux;
 	if(mesNacimiento <= 0 || mesNacimiento > 12) {
@@ -497,16 +476,6 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 	itoa(diaNacimiento, mesNacimiento, anoNacimiento);
 	aux = diaNacimiento+"/"+mesNacimiento+"/"+anoNacimiento;
 	fechaNacimiento_ = aux;
-}
-void Alumno::setGrupo(int grupo) {
-	grupo_ = grupo;
-}
-void Alumno::setLider(string lider) {
-	if(lider == "Si") {
-		lider_ = true;
-	}else {
-		lider_ = false;
-	}
 }
 
 void BaseAlumnos::mostrarAlumno(){

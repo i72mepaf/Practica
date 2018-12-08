@@ -3,11 +3,13 @@
 #include <string>
 #include <vector>
 #include <stdlib.h>
+#include <cstdlib>
 #include <string.h>
 #include <stdio.h>
 #include <fstream>
 #include <cstring>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 

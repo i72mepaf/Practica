@@ -3,7 +3,7 @@
 bool sortByCursoa(Alumno &lhs,Alumno &rhs){ return lhs.getCursoMasAlto() > rhs.getCursoMasAlto() ; }
 bool sortByCursod(Alumno &lhs,Alumno &rhs){ return lhs.getCursoMasAlto() < rhs.getCursoMasAlto() ; }
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() > rhs.getApellidos() ; }
-bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() < rhs.getApellidos() ; }
+bool sortByApelld(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() < rhs.getApellidos() ; }
 
 void BaseAlumnos::eliminarAlumno(){ //Felipe
 	string ap;
@@ -480,8 +480,10 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 			cin >> diaNacimiento;
 		}
 	}
-	itoa(diaNacimiento, mesNacimiento, anoNacimiento);
-	aux = diaNacimiento+"/"+mesNacimiento+"/"+anoNacimiento;
+	
+	aux = (static_cast<ostringstream*>(&(ostringstream() << diaNacimiento))->str())+
+	"/"+(static_cast<ostringstream*>(&(ostringstream() << mesNacimiento))->str())+"/"+
+	(static_cast<ostringstream*>(&(ostringstream() << anoNacimiento))->str());
 	fechaNacimiento_ = aux;
 }
 void imprimeVector(vector <Alumno> v); //Cabeceras de funciones para que no haya error al compilar

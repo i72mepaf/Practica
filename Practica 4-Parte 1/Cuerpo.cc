@@ -81,7 +81,7 @@ bool Profesor::identificaProfesor(){
 				cout << "Introduzca DNI: ";
 				getline(cin, dni);
 				system("clear");
-   				for (int i = 0; i < v.size(); ++i)
+   				for (int i = 0; i < (int) v.size(); ++i)
    				{
    					compDNI = v[i].d;
    					compROL = v[i].r;
@@ -100,7 +100,7 @@ bool Profesor::identificaProfesor(){
    								remove("credenciales.bin");
    								ofstream fCreacion("credenciales.bin", ios::out | ios::binary);
 								if (fCreacion.is_open()){
-									for(int j=0; j < v.size(); j++)
+									for(int j=0; j < (int) v.size(); j++)
 									fCreacion.write((char *)&v[j], sizeof(Auxiliar));
    								}
    								else{
@@ -119,7 +119,7 @@ bool Profesor::identificaProfesor(){
    								remove("credenciales.bin");
    								ofstream fEscCoord("credenciales.bin", ios::out | ios::binary);
 								if (fEscCoord.is_open()){
-									for(int j=0; j < v.size(); j++){
+									for(int j=0; j < (int) v.size(); j++){
 										compROL = v[j].r;
 										if(compROL == "Coordinador")
 											strcpy(v[j].d, dni.c_str());
@@ -154,7 +154,7 @@ bool Profesor::identificaProfesor(){
 				}
 				else{
 					if(opcion == 1){//Registrarse
-						for (int i = 0; i < v.size(); ++i)
+						for (int i = 0; i < (int) v.size(); ++i)
 						{
 							compROL = v[i].r;
 							if(compROL=="Ayudante")
@@ -169,7 +169,7 @@ bool Profesor::identificaProfesor(){
 							remove("credenciales.bin");
 							ofstream fEscAyud("credenciales.bin", ios::out | ios::binary);
 							if (fEscAyud.is_open()){
-								for(int i=0; i < v.size(); i++)
+								for(int i=0; i < (int) v.size(); i++)
 									fEscAyud.write((char *)&v[i], sizeof(Auxiliar));
    							}
    							else{
@@ -192,7 +192,7 @@ bool Profesor::identificaProfesor(){
 						cout << "Introduzca el DNI: ";
 						getline(cin, dni);
 						system("clear");
-   						for (int i = 0; i < v.size(); ++i)
+   						for (int i = 0; i < (int) v.size(); ++i)
    						{
    							compDNI = v[i].d;
    							compROL = v[i].r;
@@ -201,7 +201,7 @@ bool Profesor::identificaProfesor(){
    								remove("credenciales.bin");
    								ofstream fCreacionA("credenciales.bin", ios::out | ios::binary);
 								if (fCreacionA.is_open()){
-									for(int j=0; j < v.size(); j++)
+									for(int j=0; j < (int) v.size(); j++)
 									fCreacionA.write((char *)&v[j], sizeof(Auxiliar));
    								}
    								else{
@@ -233,7 +233,7 @@ void Profesor::eliminarBaseAlumnos(){ //Felipe
 	alumnos = base_.getListaAlumno();
 	while(opcion!=1 && opcion!=2){
 		cout << "¿Esta seguro que desea eliminar la base de datos de los alumnos?" << endl;
-		cout << "1. Sí.\n2.No."<<endl;
+		cout << "1. Sí.\n2. No."<<endl;
 		cin >> opcion;
 		cin.ignore();
 		system("clear");
@@ -272,8 +272,8 @@ bool BaseAlumnos::insertarAlumno(){
 	
 	cout<<"Introduce el DNI del alumno"<<endl;
 	getline(cin, DNI);
-	
-	for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+	it = alumnos_.begin();
+	while(it != alumnos_.end()){
 		if(it->getDNI()==DNI) {
 			cout << "ERROR.Este Alumno con este DNI ya existe" << endl;
 			opcion=0;
@@ -298,6 +298,9 @@ bool BaseAlumnos::insertarAlumno(){
 				}
 			}
 		}
+		else{
+			++it;
+		}
 	}
 	cout<<"Introduzca el nombre del alumno"<<endl;
 	getline(cin, nombre);
@@ -305,8 +308,8 @@ bool BaseAlumnos::insertarAlumno(){
 	getline(cin, apellidos);
 	cout<<"Introduzca el correo del alumno"<<endl;
 	getline(cin, correo);
-
-	for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+	it=alumnos_.begin();
+	while(it != alumnos_.end()){
 		if(it->getCorreo()==correo) {
 			cout << "ERROR.Este Alumno con este correo ya existe" << endl;
 			opcion=0;
@@ -330,6 +333,9 @@ bool BaseAlumnos::insertarAlumno(){
 					}
 				}
 			}
+		}
+		else{
+			++it;
 		}
 	}
 
@@ -597,7 +603,7 @@ void BaseAlumnos::mostrarAlumno(){
 						cout <<"Introduzca el dni del alumno a mostrar"<<endl;
 						cin>>aux;
 						cin.ignore();
-						for (int i=0;i<v.size();i++){
+						for (int i=0;i< (int) v.size();i++){
 							if(aux == v[i].getDNI()){
 								imprimeAlumno(v[i]);
 								comp2=1;
@@ -611,7 +617,7 @@ void BaseAlumnos::mostrarAlumno(){
 						case 2:
 						cout <<"Introduzca los apellidos del alumno a mostrar"<<endl;
 						getline(cin, aux);
-						for (int i=0;i<v.size();i++){
+						for (int i=0;i<(int) v.size();i++){
 							if(aux == v[i].getApellidos()){
 								cont++;
 							}
@@ -620,7 +626,7 @@ void BaseAlumnos::mostrarAlumno(){
 							cout <<"No se puede imprimir el alumno por apellidos"<<endl;
 							break;
 						}
-						for (int i=0;i<v.size();i++){
+						for (int i=0;i< (int) v.size();i++){
 							if(aux == v[i].getApellidos()){
 							imprimeAlumno(v[i]);	
 							}
@@ -644,52 +650,38 @@ void BaseAlumnos::mostrarAlumno(){
 	}while(comp == 0);
 }
 
-<<<<<<< HEAD
-void imprimeVector(vector <Alumno> v){
-	for(int i=0;i< v.size();i++){
-			cout<< "Nombre: "<< v[i].getNombre()<<endl;
-			cout<< "Apellidos: "<<  v[i].getApellidos()<<endl;
-			cout<< "DNI: "<<  v[i].getDNI()<<endl;
-			cout<< "Correo: "<<  v[i].getCorreo()<<endl;
-			cout<< "Telefono: "<<  v[i].getTelefono()<<endl;
-			cout<< "Dirección: "<<  v[i].getDireccion()<<endl;
-			cout<< "Curso más alto: "<<  v[i].getCursoMasAlto()<<endl;
-			cout<< "Fecha de nacimiento: "<<  v[i].getFechaNacimiento()<<endl;
-			cout<< "Grupo: "<<  v[i].getGrupo()<<endl;
-			cout << "Lider: ";
-			if(v[i].getLider())
-				cout << "Si"<< endl;
-			else
-				cout << "No" << endl;
-=======
-void imprimeVector(vector <Alumno> v,int nele){
+void imprimeVector(vector <Alumno> v, int nele){
 	for(int i=0;i< nele;i++){
-			cout<< v[i].getNombre()<<endl;
-			cout<< v[i].getApellidos()<<endl;
-			cout<< v[i].getDNI()<<endl;
-			cout<< v[i].getCorreo()<<endl;
-			cout<< v[i].getTelefono()<<endl;
-			cout<< v[i].getDireccion()<<endl;
-			cout<< v[i].getCursoMasAlto()<<endl;
-			cout<< v[i].getFechaNacimiento()<<endl;
-			cout<< v[i].getGrupo()<<endl;
-			cout<< v[i].getLider()<<endl;
->>>>>>> 7f3e0061dd1aa6e2a900ef0e70dc2f04777e47a6
+		cout<< "Nombre: "<< v[i].getNombre()<<endl;
+		cout<< "Apellidos: "<<  v[i].getApellidos()<<endl;
+		cout<< "DNI: "<<  v[i].getDNI()<<endl;
+		cout<< "Correo: "<<  v[i].getCorreo()<<endl;
+		cout<< "Telefono: "<<  v[i].getTelefono()<<endl;
+		cout<< "Dirección: "<<  v[i].getDireccion()<<endl;
+		cout<< "Curso más alto: "<<  v[i].getCursoMasAlto()<<endl;
+		cout<< "Fecha de nacimiento: "<<  v[i].getFechaNacimiento()<<endl;
+		cout<< "Grupo: "<<  v[i].getGrupo()<<endl;
+		cout << "Lider: ";
+		if(v[i].getLider())
+			cout << "Si"<< endl;
+		else
+			cout << "No" << endl;
 	}
 }
+
 void imprimeAlumno(Alumno a){
-			cout<< "Nombre: "<< a.getNombre()<<endl;
-			cout<< "Apellidos: "<< a.getApellidos()<<endl;
-			cout<< "DNI: "<< a.getDNI()<<endl;
-			cout<< "Correo: "<< a.getCorreo()<<endl;
-			cout<< "Telefono: "<< a.getTelefono()<<endl;
-			cout<< "Dirección: "<< a.getDireccion()<<endl;
-			cout<< "Curso más alto: "<< a.getCursoMasAlto()<<endl;
-			cout<< "Fecha de nacimiento: "<< a.getFechaNacimiento()<<endl;
-			cout<< "Grupo: "<< a.getGrupo()<<endl;
-			cout << "Lider: ";
-			if(a.getLider())
-				cout << "Si"<< endl;
-			else
-				cout << "No" << endl;
+	cout<< "Nombre: "<< a.getNombre()<<endl;
+	cout<< "Apellidos: "<< a.getApellidos()<<endl;
+	cout<< "DNI: "<< a.getDNI()<<endl;
+	cout<< "Correo: "<< a.getCorreo()<<endl;
+	cout<< "Telefono: "<< a.getTelefono()<<endl;
+	cout<< "Dirección: "<< a.getDireccion()<<endl;
+	cout<< "Curso más alto: "<< a.getCursoMasAlto()<<endl;
+	cout<< "Fecha de nacimiento: "<< a.getFechaNacimiento()<<endl;
+	cout<< "Grupo: "<< a.getGrupo()<<endl;
+	cout << "Lider: ";
+	if(a.getLider())
+		cout << "Si"<< endl;
+	else
+		cout << "No" << endl;
 }

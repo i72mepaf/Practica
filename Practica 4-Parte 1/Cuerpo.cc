@@ -391,80 +391,93 @@ bool BaseAlumnos::insertarAlumno(){
 
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
 	string aux;
-	if(mesNacimiento <= 0 || mesNacimiento > 12) {
-		cout<<"El mes numero "<<mesNacimiento<<"no existe"<<endl;
-		exit(-1);
+	while(mesNacimiento <= 0 || mesNacimiento > 12) {
+		cout<<"El mes numero "<<mesNacimiento<<" no existe"<<endl;
+		cout << "Introduzca de nuevo el número del mes:" << endl;
+		cin >> mesNacimiento;
 	}
 	if(mesNacimiento == 1) {
-		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 31) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 2) {
-		if(diaNacimiento <= 0 || diaNacimiento > 28) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 28) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 3) {
-		if(diaNacimiento <= 0 || diaNacimiento > 29) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 29) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 4) {
-		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 30) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 5) {
-		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 31) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 6) {
-		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 30) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 7) {
-		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 31) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 8) {
-		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 31) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 9) {
-		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 30) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 10) {
-		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 31) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 11) {
-		if(diaNacimiento <= 0 || diaNacimiento > 30) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 30) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	if(mesNacimiento == 12) {
-		if(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<"no esta en el mes "<<mesNacimiento<<endl;
-			exit(-1);
+		while(diaNacimiento <= 0 || diaNacimiento > 31) {
+			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
+			cout << "Introduzca de nuevo el día del mes:" << endl;
+			cin >> diaNacimiento;
 		}
 	}
 	itoa(diaNacimiento, mesNacimiento, anoNacimiento);

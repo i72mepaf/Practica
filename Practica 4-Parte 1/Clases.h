@@ -67,9 +67,9 @@ public:
 class Profesor{
 private:
 	string DNI_;
-	BaseAlumnos base_;//FALTA: pointer: Puntero Base
 	string Rol_;
 public:
+	BaseAlumnos base_; //Publico porque osino no se guardan los cambios
 	void eliminarBaseAlumnos();
 	inline void cargarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 	inline void guardarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
@@ -78,7 +78,6 @@ public:
 	inline string getDni()const{return DNI_;};
 	inline void setRol(string Rol){Rol_=Rol;};
 	inline string getRol()const{return Rol_;};
-	inline BaseAlumnos getBase()const{return base_;}
 };
 
 #endif

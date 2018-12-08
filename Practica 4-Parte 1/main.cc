@@ -17,10 +17,11 @@ int main(int argc, char const *argv[])
 			cout << "7. Eliminar Base de Datos de los Alumnos" << endl;
 			cout << "8. Salir" << endl;
 			cin >> op;
+			cin.ignore();
 			system("clear");
 			switch(op){
 				case 1:{
-					if(p.getBase().insertarAlumno())
+					if(p.base_.insertarAlumno())
 						cout << "Alumno insertado correctamente" << endl;
 					else
 						cout << "Alumno no insertado" << endl;
@@ -29,11 +30,11 @@ int main(int argc, char const *argv[])
 				break;
 				case 3: p.guardarFichero();
 				break;
-				case 4: p.getBase().mostrarAlumno();
+				case 4: p.base_.mostrarAlumno();
 				break;
-				case 5: p.getBase().modificarAlumno();
+				case 5: p.base_.modificarAlumno();
 				break;
-				case 6: p.getBase().eliminarAlumno();
+				case 6: p.base_.eliminarAlumno();
 				break;
 				case 7: p.eliminarBaseAlumnos();
 				break;
@@ -52,19 +53,20 @@ int main(int argc, char const *argv[])
 			cout << "4. Eliminar Alumno" << endl;
 			cout << "5. Salir" << endl;
 			cin >> op;
+			cin.ignore();
 			system("clear");
 			switch(op){
 				case 1:{
-					if(p.getBase().insertarAlumno())
+					if(p.base_.insertarAlumno())
 						cout << "Alumno insertado correctamente" << endl;
 					else
 						cout << "Alumno no insertado" << endl;
 				}break;
-				case 2: p.getBase().mostrarAlumno();
+				case 2: p.base_.mostrarAlumno();
 				break;
-				case 3: p.getBase().modificarAlumno();
+				case 3: p.base_.modificarAlumno();
 				break;
-				case 4: p.getBase().eliminarAlumno();
+				case 4: p.base_.eliminarAlumno();
 				break;
 				case 5: cout << "Saliendo..." << endl;
 				break;

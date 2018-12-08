@@ -15,7 +15,8 @@ void BaseAlumnos::eliminarAlumno(){ //Felipe
 		if(it->getApellidos() == ap)
 			cont++;
 	}
-	if(cont == 0){
+	if(cont == 1){
+
 		for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
 			if(it->getApellidos() == ap)
 				alumnos_.erase(it);
@@ -23,21 +24,24 @@ void BaseAlumnos::eliminarAlumno(){ //Felipe
 		cout << "Alumno con apellidos: '"<< ap <<"' eliminado con exito."<<endl;
 	}
 	else{
-		cont = 0;
-		cout << "Hay varios alumnos con los apellidos: '" << ap << "'." << endl;
-		cout << "Porfavor, introduzca el DNI del alumno a borrar:" << endl;
-		cin >> ap;
-		cin.ignore();
-		for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
-			if(it->getDNI() == ap){
-				alumnos_.erase(it);
-				cont++;
+		if(cont == 0)
+			cout << "No hay ningún alumno con los apellidos '"<<ap<<"' en nuestra base de datos" << endl;
+		else{
+			cont = 0;
+			cout << "Hay varios alumnos con los apellidos: '" << ap << "'." << endl;
+			cout << "Porfavor, introduzca el DNI del alumno a borrar:" << endl;
+			getline(cin, ap);
+			for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+				if(it->getDNI() == ap){
+					alumnos_.erase(it);
+					cont++;
+				}
 			}
+			if(cont == 1)
+				cout << "Alumno con DNI: '"<< ap <<"' eliminado con exito." << endl;
+			else
+				cout << "El DNI: '"<< ap <<"' no coincide con ninguno de nuestra base de datos." << endl;
 		}
-		if(cont == 1)
-			cout << "Alumno con DNI: '"<< ap <<"' eliminado con exito." << endl;
-		else
-			cout << "El DNI: '"<< ap <<"' no coincide con ninguno de nuestra base de datos." << endl;
 	}
 }
 struct Auxiliar
@@ -75,8 +79,7 @@ bool Profesor::identificaProfesor(){
 			if(opcion==1){//Coordinador
 				cout << "A continuación procederemos a identificarle como profesor Coordinador." << endl;
 				cout << "Introduzca DNI: ";
-				cin >> dni;
-				cin.ignore();
+				getline(cin, dni);
 				system("clear");
    				for (int i = 0; i < v.size(); ++i)
    				{
@@ -112,8 +115,7 @@ bool Profesor::identificaProfesor(){
    							}
    							else{
    								cout << "Introduzca el nuevo DNI: ";
-   								cin >> dni;
-   								cin.ignore();
+   								getline(cin, dni);
    								remove("credenciales.bin");
    								ofstream fEscCoord("credenciales.bin", ios::out | ios::binary);
 								if (fEscCoord.is_open()){
@@ -160,8 +162,7 @@ bool Profesor::identificaProfesor(){
 						}
 						if(contadorTipo < 5){
 							cout << "Registro de un profesor ayudante.\nIntroduce el DNI: ";
-							cin >> dni;
-							cin.ignore();
+							getline(cin, dni);
 							strcpy(aux.d, dni.c_str());
 							strcpy(aux.r, "Ayudante");
 							v.push_back(aux);
@@ -189,8 +190,7 @@ bool Profesor::identificaProfesor(){
 					else{//Identificarse
 						cout << "A continuación procederemos a identificarle como profesor Ayudante." << endl;
 						cout << "Introduzca el DNI: ";
-						cin >> dni;
-						cin.ignore();
+						getline(cin, dni);
 						system("clear");
    						for (int i = 0; i < v.size(); ++i)
    						{
@@ -271,8 +271,7 @@ bool BaseAlumnos::insertarAlumno(){
 	int opcion;
 	
 	cout<<"Introduce el DNI del alumno"<<endl;
-	cin>>DNI;
-	cin.ignore();
+	getline(cin, DNI);
 	
 	for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
 		if(it->getDNI()==DNI) {
@@ -289,9 +288,8 @@ bool BaseAlumnos::insertarAlumno(){
 				else{
 					if(opcion==2){
 					cout << "Vuelva a introducir el DNI: ";
-					cin >> DNI;
-					cin.ignore();
-					it=alumnos_.begin();
+					getline(cin, DNI);
+					it = alumnos_.begin();
 					}
 					else{
 						cout << "No se ha introducido el alumno" << endl;
@@ -306,8 +304,7 @@ bool BaseAlumnos::insertarAlumno(){
 	cout<<"Introduzca el apellido del alumno"<<endl;
 	getline(cin, apellidos);
 	cout<<"Introduzca el correo del alumno"<<endl;
-	cin>>correo;
-	cin.ignore();
+	getline(cin, correo);
 
 	for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
 		if(it->getCorreo()==correo) {
@@ -324,9 +321,8 @@ bool BaseAlumnos::insertarAlumno(){
 				else{
 					if(opcion==2){
 					cout << "Vuelva a introducir el correo: ";
-					cin >> correo;
-					cin.ignore();
-					it=alumnos_.begin();
+					getline(cin, correo);
+					it = alumnos_.begin();
 					}
 					else{
 						cout << "No se ha introducido el alumno" << endl;
@@ -648,27 +644,35 @@ void BaseAlumnos::mostrarAlumno(){
 
 void imprimeVector(vector <Alumno> v){
 	for(int i=0;i< v.size();i++){
-			cout<< v[i].getNombre()<<endl;
-			cout<< v[i].getApellidos()<<endl;
-			cout<< v[i].getDNI()<<endl;
-			cout<< v[i].getCorreo()<<endl;
-			cout<< v[i].getTelefono()<<endl;
-			cout<< v[i].getDireccion()<<endl;
-			cout<< v[i].getCursoMasAlto()<<endl;
-			cout<< v[i].getFechaNacimiento()<<endl;
-			cout<< v[i].getGrupo()<<endl;
-			cout<< v[i].getLider()<<endl;
+			cout<< "Nombre: "<< v[i].getNombre()<<endl;
+			cout<< "Apellidos: "<<  v[i].getApellidos()<<endl;
+			cout<< "DNI: "<<  v[i].getDNI()<<endl;
+			cout<< "Correo: "<<  v[i].getCorreo()<<endl;
+			cout<< "Telefono: "<<  v[i].getTelefono()<<endl;
+			cout<< "Dirección: "<<  v[i].getDireccion()<<endl;
+			cout<< "Curso más alto: "<<  v[i].getCursoMasAlto()<<endl;
+			cout<< "Fecha de nacimiento: "<<  v[i].getFechaNacimiento()<<endl;
+			cout<< "Grupo: "<<  v[i].getGrupo()<<endl;
+			cout << "Lider: ";
+			if(v[i].getLider())
+				cout << "Si"<< endl;
+			else
+				cout << "No" << endl;
 	}
 }
 void imprimeAlumno(Alumno a){
-			cout<< a.getNombre()<<endl;
-			cout<< a.getApellidos()<<endl;
-			cout<< a.getDNI()<<endl;
-			cout<< a.getCorreo()<<endl;
-			cout<< a.getTelefono()<<endl;
-			cout<< a.getDireccion()<<endl;
-			cout<< a.getCursoMasAlto()<<endl;
-			cout<< a.getFechaNacimiento()<<endl;
-			cout<< a.getGrupo()<<endl;
-			cout<< a.getLider()<<endl;
+			cout<< "Nombre: "<< a.getNombre()<<endl;
+			cout<< "Apellidos: "<< a.getApellidos()<<endl;
+			cout<< "DNI: "<< a.getDNI()<<endl;
+			cout<< "Correo: "<< a.getCorreo()<<endl;
+			cout<< "Telefono: "<< a.getTelefono()<<endl;
+			cout<< "Dirección: "<< a.getDireccion()<<endl;
+			cout<< "Curso más alto: "<< a.getCursoMasAlto()<<endl;
+			cout<< "Fecha de nacimiento: "<< a.getFechaNacimiento()<<endl;
+			cout<< "Grupo: "<< a.getGrupo()<<endl;
+			cout << "Lider: ";
+			if(a.getLider())
+				cout << "Si"<< endl;
+			else
+				cout << "No" << endl;
 }

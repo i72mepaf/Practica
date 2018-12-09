@@ -521,7 +521,7 @@ void BaseAlumnos::mostrarAlumno(){
 	int comp2=0;
 	int vit=0;
 	int cont=0;
-	int nele;
+	int nele=0;
 	string aux;
 	vector <Alumno> v(150);
 	list <Alumno>:: iterator i;

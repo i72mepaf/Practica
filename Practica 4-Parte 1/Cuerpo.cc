@@ -1,9 +1,9 @@
 #include "Clases.h"
 
 bool sortByCursoa(Alumno &lhs,Alumno &rhs){ return lhs.getCursoMasAlto() > rhs.getCursoMasAlto() ; }
-bool sortByCursod(Alumno &lhs,Alumno &rhs){ return lhs.getCursoMasAlto() < rhs.getCursoMasAlto() ; }
+bool sortByCursod(Alumno &lhs,Alumno &rhs){ return rhs.getCursoMasAlto() > lhs.getCursoMasAlto() ; }
 bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() > rhs.getApellidos() ; }
-bool sortByApelld(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() < rhs.getApellidos() ; }
+bool sortByApelld(Alumno &lhs,Alumno &rhs){ return rhs.getApellidos() > lhs.getApellidos() ; }
 
 void BaseAlumnos::eliminarAlumno(){ //Felipe
 	string ap;
@@ -523,8 +523,11 @@ void BaseAlumnos::mostrarAlumno(){
 	int cont=0;
 	int nele=0;
 	string aux;
-	vector <Alumno> v(150);
 	list <Alumno>:: iterator i;
+	for(i=alumnos_.begin();i != alumnos_.end();i++){
+		nele++;
+	}
+	vector <Alumno> v(nele);
 	for(i=alumnos_.begin();i != alumnos_.end();i++){
 		v[vit].setNombre(i->getNombre());
 		v[vit].setApellidos(i->getApellidos());
@@ -539,7 +542,6 @@ void BaseAlumnos::mostrarAlumno(){
 			atoi((aux.substr(aux.find(aux.substr(aux.find("/")+1, aux.find("/")))+1, aux.find("\n"))).c_str()));
 		v[vit].setLider(i->getLider());
 		vit++;
-		nele++;
 	}
 	
 	do{
@@ -547,7 +549,7 @@ void BaseAlumnos::mostrarAlumno(){
 	cout << "Mostrar solo un alumno .......2"<< endl;
 	cin>> menu;
 	cin.ignore();
-	//system("cls");
+	system("clear");
 	
 		switch(menu){
 			case 1:
@@ -557,7 +559,8 @@ void BaseAlumnos::mostrarAlumno(){
 				cout << "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< endl;
 				cout << "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< endl;
 				cin>> menu2;
-				cin.ignore();			
+				cin.ignore();	
+				system("clear");		
 					switch(menu2){
 						case 1:
 						sort(v.begin(),v.end(),sortByCursoa);
@@ -598,11 +601,13 @@ void BaseAlumnos::mostrarAlumno(){
 					cout <<"Mostrar un alumno por Apellidos....2"<<endl;
 					cin >> menu2;
 					cin.ignore();
+					system("clear");
 					switch(menu2){
 						case 1:
 						cout <<"Introduzca el dni del alumno a mostrar"<<endl;
 						cin>>aux;
 						cin.ignore();
+						system("clear");
 						for (int i=0;i< (int) v.size();i++){
 							if(aux == v[i].getDNI()){
 								imprimeAlumno(v[i]);
@@ -617,6 +622,7 @@ void BaseAlumnos::mostrarAlumno(){
 						case 2:
 						cout <<"Introduzca los apellidos del alumno a mostrar"<<endl;
 						getline(cin, aux);
+						system("clear");
 						for (int i=0;i<(int) v.size();i++){
 							if(aux == v[i].getApellidos()){
 								cont++;

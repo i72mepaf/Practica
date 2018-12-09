@@ -541,6 +541,7 @@ void BaseAlumnos::mostrarAlumno(){
 			atoi((aux.substr(aux.find("/")+1, aux.find("/"))).c_str()), 
 			atoi((aux.substr(aux.find(aux.substr(aux.find("/")+1, aux.find("/")))+1, aux.find("\n"))).c_str()));
 		v[vit].setLider(i->getLider());
+		v[vit].setGrupo(i->getGrupo());
 		vit++;
 	}
 	
@@ -608,7 +609,7 @@ void BaseAlumnos::mostrarAlumno(){
 						cin>>aux;
 						cin.ignore();
 						system("clear");
-						for (int i=0;i< (int) v.size();i++){
+						for (int i=0;i<(int)v.size();i++){
 							if(aux == v[i].getDNI()){
 								imprimeAlumno(v[i]);
 								comp2=1;

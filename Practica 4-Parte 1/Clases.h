@@ -62,6 +62,10 @@ public:
 	inline void modificarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 	inline list<Alumno> getListaAlumno()const{return alumnos_;}
 	void setListaAlumno(list<Alumno> lista);
+	inline void cargarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
+	inline void cargar(){cout << "Esta funcionalidad aun no está disponible" << endl;};
+	inline void guardarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
+	inline void guardar(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 };
 
 class Profesor{
@@ -71,10 +75,6 @@ private:
 public:
 	BaseAlumnos base_; //Publico porque osino no se guardan los cambios
 	void eliminarBaseAlumnos();
-	inline void cargarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
-	inline void cargar(){cout << "Esta funcionalidad aun no está disponible" << endl;};
-	inline void guardarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
-	inline void guardar(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 	bool identificaProfesor();
 	inline void setDNI(string DNI){DNI_=DNI;};
 	inline string getDni()const{return DNI_;};

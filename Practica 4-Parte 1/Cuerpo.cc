@@ -720,6 +720,7 @@ void BaseAlumnos::guardarFichero(){
 		for(int j=0; j < (int) v.size(); j++)
 		salida.write((char *)&v[j], sizeof(Auxiliar2));
    	}
+   	salida.close();
 }
 void BaseAlumnos::guardarCopia(){
 	int vit=0;
@@ -752,4 +753,23 @@ void BaseAlumnos::guardarCopia(){
 		for(int j=0; j < (int) v.size(); j++)
 		salida.write((char *)&v[j], sizeof(Auxiliar2));
    	}
+   	salida.close();
+}
+
+void BaseAlumnos::CargarFichero(){
+	string n;
+	cout << "Introduzca el nombre del fichero";
+	cin>>n;
+	Alumno aux;
+	ifstream fichero(n.c_str(), ios::in | ios::binary);
+	if (fichero.is_open()){
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
+			v.push_back(aux);
+		}
+	}
+	else{
+		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
+		exit(-1);
+	}
+   	fichero.close();
 }

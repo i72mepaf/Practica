@@ -519,7 +519,7 @@ void BaseAlumnos::mostrarAlumno(){
 		aux = (i->getFechaNacimiento());
 		v[vit].setFechaNacimiento(atoi((aux.substr(0, aux.find("/"))).c_str()), 
 			atoi((aux.substr(aux.find("/")+1, aux.find("/"))).c_str()), 
-			atoi((aux.substr(aux.find("/")+aux.find(aux.substr(aux.find("/")+1, aux.find("/"))))).c_str());
+			atoi((aux.substr(aux.find("/")+aux.find(aux.substr(aux.find("/")+1, aux.find("/"))))).c_str()));
 		v[vit].setLider(i->getLider());
 		v[vit].setGrupo(i->getGrupo());
 		vit++;

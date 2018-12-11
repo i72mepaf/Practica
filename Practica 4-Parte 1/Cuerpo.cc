@@ -589,14 +589,15 @@ void BaseAlumnos::mostrarAlumno(){
 						cin>>aux;
 						cin.ignore();
 						system("clear");
+						comp2=0;
 						for (int i=0;i<(int)v.size();i++){
 							if(aux == v[i].getDNI()){
 								imprimeAlumno(v[i]);
 								comp2=1;
-								break;
 							}
 						}
-						cout <<"No se encontro el alumno"<<endl;
+						if(comp2==0)
+							cout <<"No se encontro el alumno"<<endl;
 						comp2=1;
 						break;
 

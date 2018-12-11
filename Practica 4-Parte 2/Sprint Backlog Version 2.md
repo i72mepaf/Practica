@@ -12,14 +12,11 @@ Los programadores del grupo son los siguientes:
 # Tareas
 A continuación se van a nombrar las tareas para cada programador:
 ## Programador 1 - Felipe Mérida Palacios
-* Identificar Profesor
-* Eliminar Alumno
-* Eliminar base de datos de los alumnos
+
+
 ## Programador 2 - Ricardo Mifsut Castilla
 * Modificar Alumno
-* Insertar Alumno
 * Buscar Alumno
 ## Programador 3 - Ángel Santos Ramírez
-* Mostrar Alumno
 * Cargar en un fichero binario
 * Guardar en un fichero binario

@@ -97,17 +97,6 @@ bool Profesor::identificaProfesor(){
    						}
    						else{
    							if(opcion == 1){
-   								remove("credenciales.bin");
-   								ofstream fCreacion("credenciales.bin", ios::out | ios::binary);
-								if (fCreacion.is_open()){
-									for(int j=0; j < (int) v.size(); j++)
-									fCreacion.write((char *)&v[j], sizeof(Auxiliar));
-   								}
-   								else{
-   									cout << "Error al abrir el fichero." << endl;
-   									exit(-1);
-   								}
-   								fCreacion.close();
    								cout << "Iniciando..." << endl;
    								setDNI(compDNI);
    								setRol(compROL);
@@ -198,17 +187,6 @@ bool Profesor::identificaProfesor(){
    							compROL = v[i].r;
    							if(compDNI == dni && compROL == "Ayudante"){
    								cout << "Identificado Correctamente. Iniciando..." << endl;
-   								remove("credenciales.bin");
-   								ofstream fCreacionA("credenciales.bin", ios::out | ios::binary);
-								if (fCreacionA.is_open()){
-									for(int j=0; j < (int) v.size(); j++)
-									fCreacionA.write((char *)&v[j], sizeof(Auxiliar));
-   								}
-   								else{
-   									cout << "Error al abrir el fichero" << endl;
-   									exit(-1);
-   								}
-   								fCreacionA.close();
    								setDNI(compDNI);
    								setRol(compROL);
    								return false;
@@ -400,7 +378,11 @@ bool BaseAlumnos::insertarAlumno(){
 	return true;
 
 }
-
+string intToString (int number){
+     ostringstream ss;
+     ss << Number;
+     return ss.str();
+  }
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
 	string aux;
 	while(mesNacimiento <= 0 || mesNacimiento > 12) {
@@ -506,9 +488,7 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 		}
 	}
 	
-	aux = (static_cast<ostringstream*>(&(ostringstream() << diaNacimiento))->str())+
-	"/"+(static_cast<ostringstream*>(&(ostringstream() << mesNacimiento))->str())+"/"+
-	(static_cast<ostringstream*>(&(ostringstream() << anoNacimiento))->str());
+	aux = intToString(diaNacimiento) + "/"+ intToString(mesNacimiento) +"/"+ intToString(anoNacimiento);
 	fechaNacimiento_ = aux;
 }
 void imprimeVector(vector <Alumno> v,int nele); //Cabeceras de funciones para que no haya error al compilar

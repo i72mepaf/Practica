@@ -756,7 +756,7 @@ void BaseAlumnos::guardarCopia(){
    	salida.close();
 }
 
-void BaseAlumnos::CargarFichero(){
+void BaseAlumnos::cargarFichero(){
 	string n;
 	cout << "Introduzca el nombre del fichero";
 	cin>>n;
@@ -764,7 +764,7 @@ void BaseAlumnos::CargarFichero(){
 	ifstream fichero(n.c_str(), ios::in | ios::binary);
 	if (fichero.is_open()){
 		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
-			v.push_back(aux);
+			alumnos_.push_back(aux);
 		}
 	}
 	else{
@@ -773,3 +773,5 @@ void BaseAlumnos::CargarFichero(){
 	}
    	fichero.close();
 }
+
+void BaseAlumnos::cargarCopia(){}

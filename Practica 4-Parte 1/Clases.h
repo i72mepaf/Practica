@@ -54,13 +54,18 @@ public:
 class BaseAlumnos{
 private:
 	list<Alumno> alumnos_;
-	void buscarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
+	bool buscarAlumno();
 public:
 	bool insertarAlumno();
 	void eliminarAlumno();
 	void mostrarAlumno();
+<<<<<<< HEAD
 	inline void modificarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
 	inline list<Alumno> getListaAlumno()const{return alumnos_;};
+=======
+	void modificarAlumno();
+	inline list<Alumno> getListaAlumno()const{return alumnos_;}
+>>>>>>> rama_mifsut
 	void setListaAlumno(list<Alumno> lista);
 	void cargarFichero();
 	void cargarCopia();

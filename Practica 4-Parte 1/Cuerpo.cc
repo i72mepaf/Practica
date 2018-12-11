@@ -692,3 +692,177 @@ void imprimeAlumno(Alumno a){
 	else
 		cout << "No" << endl;
 }
+
+bool BaseAlumnos::buscarAlumno() {
+	string apellido;
+	int contador = 0;//Se utilizara para ver el numero de alumnos que comparten apellido
+	string DNI;
+	
+	cout<<"Introduza el apellido del alumno que desea buscar"<<endl;
+	getline(cin, apellido);
+	list<Alumno>::iterator it;
+	it = alumnos_.begin();
+	while(it != alumnos_.end()) {
+		if(it->getApellidos() == apellido) {
+			contador++;
+		}
+		it++;
+	}
+	if(contador == 0) {
+		cout<<"No hay alumnos con el apellido introducido"<<endl;
+		return false;
+	}
+	if(contador == 1) {
+		cout<<"Alumno encontado"<<endl;
+		return true; 
+	}
+	if(contador != 1 && contador != 0) {
+		cout<<"Hay " << contador << "con el apellido introducido"<<endl;
+		cout<<"Introduzca el DNI del alumno"<<endl;
+		cin>> DNI;
+		it = alumnos_.begin();
+		while(it != alumnos_.end()) {
+			if(it->getDNI() == DNI) {
+				cout<<"Alumno encontrado :" << it->getNombre()+" "+it->getApellidos() <<endl;
+				return true;
+			}
+			it++;
+		}
+		cout<<"Alumno no encontrado"<<endl;
+		return false;
+	}
+}
+
+
+void BaseAlumnos::modificarAlumno() {
+	string DNI;
+	int opcion = 0;//Para evitar que el valor basure tome un valor innecesario
+	cout<<"Introduzca el DNI del alumno a buscar"<<endl;
+    list<Alumno>::iterator it2;
+    it2 = alumnos_.begin();
+    while(it2 != alumnos_.end()) {
+    	if(it2->getDNI() == DNI) {
+    		while(opcion != 11) {
+			cout<<"Seleccione el atribuo a modificar"<<endl;
+			cout<<"1.Nombre"<<endl;
+			cout<<"2.Apellidos"<<endl;
+			cout<<"3.DNI"<<endl;
+			cout<<"4.Correo"<<endl;
+			cout<<"5.Telefono"<<endl;
+			cout<<"6.Direccion"<<endl;
+			cout<<"7.cursoMasAlto"<<endl;
+			cout<<"8.getFechaNacimiento"<<endl;
+			cout<<"9.Liderazgo"<<endl;
+			cout<<"10.Grupo"<<endl;
+			cout<<"11.Salir"<<endl;
+			cin>>opcion;
+			system("clear");
+			switch(opcion) {
+				case 1: {
+					string nombre;
+					cout<<"Introduzca el nombre"<<endl;
+					cin >> nombre;
+					it2->setNombre(nombre);
+					break;
+				}
+				case 2: {
+					string apellido;
+					cout<<"Introduzca el apellido"<<endl;
+					getline(cin, apellido);
+					it2->setApellidos(apellido);
+					break;
+				}
+				case 3: {
+					string DNI;
+					cout<<"Introduzca el DNI"<<endl;
+					cin >> DNI;
+					it2->setDNI(DNI);
+					break;
+				}
+				case 4: {
+					string correo;
+					cout<<"Introduzca el correo"<<endl;
+					cin >> correo;
+					it2->setCorreo(correo);
+					break;
+				}
+				case 5: {
+					int telefono;
+					cout<<"Introduza el telefono"<<endl;
+					cin >> telefono;
+					it2->setTelefono(telefono);
+					break;
+				}
+				case 6: {
+					string direccion;
+					cout<<"Introduza el direccion"<<endl;
+					getline(cin, direccion);
+					it2->setDireccion(direccion);
+					break;
+				}
+				case 7: {
+					int curso;
+					cout<<"Introduza el curso mas alto en el que el alumno esta matriculado"<<endl;
+					cin >> curso;
+					it2->setCursoMasAlto(curso);
+					break;
+				}
+				case 8: {
+					int diaNacimiento;
+					int mesNacimiento;
+					int anoNacimiento;
+					cout<<"Introduzca el dia en el que el alumno nacio"<<endl;
+					cin>>diaNacimiento;
+					cin.ignore();
+					cout<<"Introduzca el mes de nacimiento del alumno"<<endl;
+					cin>>mesNacimiento;
+					cin.ignore();
+					cout<<"Introduzca el año de nacimiento del alumno"<<endl;
+					cin>>anoNacimiento;
+					cin.ignore();
+					it2->setFechaNacimiento(diaNacimiento, mesNacimiento, anoNacimiento);				
+					break;
+				}
+				case 9: {
+					bool lider;
+					opcion=0;
+					while(opcion!=1 && opcion!=2){
+						cout << "1.Lider\n2.No Lider" << endl;
+						cin>>opcion;
+						cin.ignore();
+						if(opcion!=1 && opcion!=2){
+						cout << "Error. Seleccione un número correcto" << endl;
+						}else{
+						if(opcion==1)
+						lider=true;
+						else
+						lider=false;
+						}
+					}
+					if(lider == true) {
+						list <Alumno>:: iterator it;
+						for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+							if(it2->getGrupo() == it->getGrupo() && it->getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
+							cout<<"En este grupo ya hay un lider."<<endl;
+							cout << "Por lo que el alumno insertado estará en el grupo pero no será lider"<<endl;
+							lider=false;
+							}
+						}
+					}
+					it2->setLider(lider);
+					break;
+				}
+				case 10: {
+					int grupo;
+					cout<<"Introduzca el grupo el cual el alumno pertenece"<<endl;
+					cin>>grupo;
+					it2->setGrupo(grupo);
+					break;
+				}
+				default: cout<<"Seleccione una opcion disponible"<<endl;
+			}
+			}
+    	}
+    	it2++;
+	}
+}

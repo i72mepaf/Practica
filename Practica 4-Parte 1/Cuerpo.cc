@@ -380,7 +380,7 @@ bool BaseAlumnos::insertarAlumno(){
 }
 string intToString (int number){
      ostringstream ss;
-     ss << Number;
+     ss << number;
      return ss.str();
   }
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
@@ -713,6 +713,38 @@ void BaseAlumnos::guardarFichero(){
 	string n;
 	cout << "Introduzca el nombre del fichero : ";
 	cin>>n;
+	cin.ignore();	
+	system("clear");
+	ofstream salida(n.c_str(), ios::out | ios::binary);
+	if (salida.is_open()){
+		for(int j=0; j < (int) v.size(); j++)
+		salida.write((char *)&v[j], sizeof(Auxiliar2));
+   	}
+}
+void BaseAlumnos::guardarCopia(){
+	int vit=0;
+	int nele=0;
+	list <Alumno>::iterator i;
+
+	for(i=alumnos_.begin();i != alumnos_.end();i++){
+		nele++;
+	}
+
+	vector <Auxiliar2> v(nele);
+	for(i=alumnos_.begin();i != alumnos_.end();i++){
+		v[vit].nom=(i->getNombre()).c_str();
+		v[vit].apel=((i->getApellidos()).c_str());
+		v[vit].DNI=((i->getDNI()).c_str());
+		v[vit].Correo=((i->getCorreo()).c_str());
+		v[vit].telefono=(i->getTelefono());
+		v[vit].direccion=((i->getDireccion()).c_str());
+		v[vit].curso=(i->getCursoMasAlto());
+		v[vit].fecha = ((i->getFechaNacimiento()).c_str());
+		v[vit].lider=(i->getLider());
+		v[vit].grupo=(i->getGrupo());
+		vit++;
+	}
+	string n="CopiaSeguridad.bin";
 	cin.ignore();	
 	system("clear");
 	ofstream salida(n.c_str(), ios::out | ios::binary);

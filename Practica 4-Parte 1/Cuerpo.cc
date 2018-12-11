@@ -526,8 +526,8 @@ void BaseAlumnos::mostrarAlumno(){
 	}
 	
 	do{
-	cout << "Mostrar todos los alumnos ....1"<< endl;
-	cout << "Mostrar solo un alumno .......2"<< endl;
+	cout << "1. Mostrar todos los alumnos"<< endl;
+	cout << "2. Mostrar solo un alumno"<< endl;
 	cin>> menu;
 	cin.ignore();
 	system("clear");
@@ -535,10 +535,10 @@ void BaseAlumnos::mostrarAlumno(){
 		switch(menu){
 			case 1:
 				do{
-				cout << "Mostrar todos los alumnos ordenados ascendentemente por curso mas alto matriculado....1"<< endl;
-				cout << "Mostrar todos los alumnos ordenados descendentemente por curso mas alto matriculado...2"<< endl;
-				cout << "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< endl;
-				cout << "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< endl;
+				cout << "1. Mostrar ordenados ascendentemente por curso mas alto matriculado"<< endl;
+				cout << "2. Mostrar ordenados descendentemente por curso mas alto matriculado"<< endl;
+				cout << "3. Mostrar ordenados ascendentemente por apellidos"<< endl;
+				cout << "4. Mostrar ordenados descendentemente por apellidos"<< endl;
 				cin>> menu2;
 				cin.ignore();	
 				system("clear");		
@@ -578,8 +578,8 @@ void BaseAlumnos::mostrarAlumno(){
 
 			case 2:
 				do{
-					cout <<"Mostrar un alumno por dni..........1"<<endl;
-					cout <<"Mostrar un alumno por Apellidos....2"<<endl;
+					cout <<"1. Mostrar un alumno por dni"<<endl;
+					cout <<"2. Mostrar un alumno por Apellidos"<<endl;
 					cin >> menu2;
 					cin.ignore();
 					system("clear");

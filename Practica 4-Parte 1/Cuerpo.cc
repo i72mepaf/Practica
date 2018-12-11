@@ -685,9 +685,58 @@ void imprimeAlumno(Alumno a){
 	cout<< "Curso más alto: "<< a.getCursoMasAlto()<<endl;
 	cout<< "Fecha de nacimiento: "<< a.getFechaNacimiento()<<endl;
 	cout<< "Grupo: "<< a.getGrupo()<<endl;
-	cout << "Lider: ";
+	cout<< "Lider: ";
 	if(a.getLider())
 		cout << "Si"<< endl;
 	else
 		cout << "No" << endl;
+}
+
+struct Auxiliar2{
+	const char* nom;
+	const char* apel;
+	const char* DNI;
+	const char* Correo;
+	int telefono;
+	const char *direccion;
+	int curso;
+	const char *fecha;
+	bool lider;
+	int grupo;
+};
+
+
+void BaseAlumnos::guardarFichero(){
+	int vit=0;
+	int nele=0;
+	list <Alumno>::iterator i;
+
+	for(i=alumnos_.begin();i != alumnos_.end();i++){
+		nele++;
+	}
+
+	vector <Auxiliar2> v(nele);
+	for(i=alumnos_.begin();i != alumnos_.end();i++){
+		v[vit].nom=(i->getNombre()).c_str();
+		v[vit].apel=((i->getApellidos()).c_str());
+		v[vit].DNI=((i->getDNI()).c_str());
+		v[vit].Correo=((i->getCorreo()).c_str());
+		v[vit].telefono=(i->getTelefono());
+		v[vit].direccion=((i->getDireccion()).c_str());
+		v[vit].curso=(i->getCursoMasAlto());
+		v[vit].fecha = ((i->getFechaNacimiento()).c_str());
+		v[vit].lider=(i->getLider());
+		v[vit].grupo=(i->getGrupo());
+		vit++;
+	}
+	string n;
+	cout << "Introduzca el nombre del fichero : ";
+	cin>>n;
+	cin.ignore();	
+	system("clear");
+	ofstream salida(n.c_str(), ios::out | ios::binary);
+	if (salida.is_open()){
+		for(int j=0; j < (int) v.size(); j++)
+		salida.write((char *)&v[j], sizeof(Auxiliar2));
+   	}
 }

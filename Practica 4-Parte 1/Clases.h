@@ -60,12 +60,12 @@ public:
 	void eliminarAlumno();
 	void mostrarAlumno();
 	inline void modificarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
-	inline list<Alumno> getListaAlumno()const{return alumnos_;}
+	inline list<Alumno> getListaAlumno()const{return alumnos_;};
 	void setListaAlumno(list<Alumno> lista);
-	inline void cargarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
-	inline void cargar(){cout << "Esta funcionalidad aun no está disponible" << endl;};
-	inline void guardarFichero(){cout << "Esta funcionalidad aun no está disponible" << endl;};
-	inline void guardar(){cout << "Esta funcionalidad aun no está disponible" << endl;};
+	void cargarFichero();
+	void cargarCopia();
+	void guardarFichero();
+	void guardarCopia();
 };
 
 class Profesor{

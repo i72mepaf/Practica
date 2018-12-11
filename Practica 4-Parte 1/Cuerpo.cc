@@ -97,17 +97,6 @@ bool Profesor::identificaProfesor(){
    						}
    						else{
    							if(opcion == 1){
-   								remove("credenciales.bin");
-   								ofstream fCreacion("credenciales.bin", ios::out | ios::binary);
-								if (fCreacion.is_open()){
-									for(int j=0; j < (int) v.size(); j++)
-									fCreacion.write((char *)&v[j], sizeof(Auxiliar));
-   								}
-   								else{
-   									cout << "Error al abrir el fichero." << endl;
-   									exit(-1);
-   								}
-   								fCreacion.close();
    								cout << "Iniciando..." << endl;
    								setDNI(compDNI);
    								setRol(compROL);
@@ -198,17 +187,6 @@ bool Profesor::identificaProfesor(){
    							compROL = v[i].r;
    							if(compDNI == dni && compROL == "Ayudante"){
    								cout << "Identificado Correctamente. Iniciando..." << endl;
-   								remove("credenciales.bin");
-   								ofstream fCreacionA("credenciales.bin", ios::out | ios::binary);
-								if (fCreacionA.is_open()){
-									for(int j=0; j < (int) v.size(); j++)
-									fCreacionA.write((char *)&v[j], sizeof(Auxiliar));
-   								}
-   								else{
-   									cout << "Error al abrir el fichero" << endl;
-   									exit(-1);
-   								}
-   								fCreacionA.close();
    								setDNI(compDNI);
    								setRol(compROL);
    								return false;
@@ -400,7 +378,11 @@ bool BaseAlumnos::insertarAlumno(){
 	return true;
 
 }
-
+string intToString (int number){
+     ostringstream ss;
+     ss << Number;
+     return ss.str();
+  }
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
 	string aux;
 	while(mesNacimiento <= 0 || mesNacimiento > 12) {
@@ -506,9 +488,7 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 		}
 	}
 	
-	aux = (static_cast<ostringstream*>(&(ostringstream() << diaNacimiento))->str())+
-	"/"+(static_cast<ostringstream*>(&(ostringstream() << mesNacimiento))->str())+"/"+
-	(static_cast<ostringstream*>(&(ostringstream() << anoNacimiento))->str());
+	aux = intToString(diaNacimiento) + "/"+ intToString(mesNacimiento) +"/"+ intToString(anoNacimiento);
 	fechaNacimiento_ = aux;
 }
 void imprimeVector(vector <Alumno> v,int nele); //Cabeceras de funciones para que no haya error al compilar
@@ -541,12 +521,13 @@ void BaseAlumnos::mostrarAlumno(){
 			atoi((aux.substr(aux.find("/")+1, aux.find("/"))).c_str()), 
 			atoi((aux.substr(aux.find(aux.substr(aux.find("/")+1, aux.find("/")))+1, aux.find("\n"))).c_str()));
 		v[vit].setLider(i->getLider());
+		v[vit].setGrupo(i->getGrupo());
 		vit++;
 	}
 	
 	do{
-	cout << "Mostrar todos los alumnos ....1"<< endl;
-	cout << "Mostrar solo un alumno .......2"<< endl;
+	cout << "1. Mostrar todos los alumnos"<< endl;
+	cout << "2. Mostrar solo un alumno"<< endl;
 	cin>> menu;
 	cin.ignore();
 	system("clear");
@@ -554,10 +535,10 @@ void BaseAlumnos::mostrarAlumno(){
 		switch(menu){
 			case 1:
 				do{
-				cout << "Mostrar todos los alumnos ordenados ascendentemente por curso mas alto matriculado....1"<< endl;
-				cout << "Mostrar todos los alumnos ordenados descendentemente por curso mas alto matriculado...2"<< endl;
-				cout << "Mostrar todos los alumnos ordenados ascendentemente por apellidos.....................3"<< endl;
-				cout << "Mostrar todos los alumnos ordenados descendentemente por apellidos....................4"<< endl;
+				cout << "1. Mostrar ordenados ascendentemente por curso mas alto matriculado"<< endl;
+				cout << "2. Mostrar ordenados descendentemente por curso mas alto matriculado"<< endl;
+				cout << "3. Mostrar ordenados ascendentemente por apellidos"<< endl;
+				cout << "4. Mostrar ordenados descendentemente por apellidos"<< endl;
 				cin>> menu2;
 				cin.ignore();	
 				system("clear");		
@@ -597,8 +578,8 @@ void BaseAlumnos::mostrarAlumno(){
 
 			case 2:
 				do{
-					cout <<"Mostrar un alumno por dni..........1"<<endl;
-					cout <<"Mostrar un alumno por Apellidos....2"<<endl;
+					cout <<"1. Mostrar un alumno por dni"<<endl;
+					cout <<"2. Mostrar un alumno por Apellidos"<<endl;
 					cin >> menu2;
 					cin.ignore();
 					system("clear");
@@ -608,7 +589,7 @@ void BaseAlumnos::mostrarAlumno(){
 						cin>>aux;
 						cin.ignore();
 						system("clear");
-						for (int i=0;i< (int) v.size();i++){
+						for (int i=0;i<(int)v.size();i++){
 							if(aux == v[i].getDNI()){
 								imprimeAlumno(v[i]);
 								comp2=1;

@@ -10,4 +10,4 @@ de usuario** detectadas, su **prioridades** otorgadas y los **tiempos estimados*
 * **Mostrar Alumno** - Prioridad **4** - Tiempo estimado: **5 horas**.
 * **Eliminar Alumno** - Prioridad **4** - Tiempo estimado: **2 horas**.
 * **Modificar Alumno** - Prioridad **4** - Tiempo estimado:
-* **Eliminar base de datos de los alumnos** - Prioridad **5** - Tiempo estimado: 1 hora.
+* **Eliminar base de datos de los alumnos** - Prioridad **5** - Tiempo estimado: **1 hora**.

@@ -44,7 +44,7 @@ public:
 	inline void setDNI(string DNI){DNI_=DNI;};
 	inline void setCorreo(string correo){correo_=correo;};
 	inline void setTelefono(int telefono){telefono_=telefono;};
-	inline void setDireccion(string direccion){direccion_=direccion_;};
+	inline void setDireccion(string direccion){direccion_=direccion;};
 	inline void setCursoMasAlto(int cursoMasAlto){cursoMasAlto_=cursoMasAlto;};
 	void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
 	inline void setLider(bool lider){lider_=lider;};

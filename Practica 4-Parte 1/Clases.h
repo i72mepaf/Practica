@@ -43,12 +43,12 @@ public:
 	inline void setApellidos(string apellidos){apellidos_=apellidos;};
 	inline void setDNI(string DNI){DNI_=DNI;};
 	inline void setCorreo(string correo){correo_=correo;};
-	inline void setTelefono(int telefono){telefono_=telefono;};
+	inline void setTelefono(int telefono);
 	inline void setDireccion(string direccion){direccion_=direccion_;};
-	inline void setCursoMasAlto(int cursoMasAlto){cursoMasAlto_=cursoMasAlto;};
+	inline void setCursoMasAlto(int cursoMasAlto);
 	void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
 	inline void setLider(bool lider){lider_=lider;};
-	inline void setGrupo(int grupo){grupo_=grupo;};
+	inline void setGrupo(int grupo);
 };
 
 class BaseAlumnos{

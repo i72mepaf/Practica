@@ -866,3 +866,51 @@ void BaseAlumnos::modificarAlumno() {
     	it2++;
 	}
 }
+
+
+void Alumno::setTelefono(int numero) {
+	int p = 0;
+	while(p!=1){
+		if(strlen(itoa(numero)) <= 15 && strlen(itoa(numero) >= 7)) {//Este criterio segun el estandar ITU-T E.164, definido por el CCITT.
+			telefono_ = numero;
+			p=1;
+		} 
+		else {
+		cout<<"El numero de telefono introducido es incorrecto"<<endl;
+		cout<<"Intentalo de nuevo"<<endl;
+		cin>>numero;
+		cin.ignore();
+		system("clear");
+	}
+}
+}
+
+void Alumno::setGrupo(int grupo) {
+	int control = 0;
+	while(control != 1) {
+		if(grupo < 51 && grupo > 0) {
+			grupo_ = grupo;
+			control = 1;
+		} else {
+			cout<<"Numero de grupo fuera de rango (1-50)"<<endl;
+			cout<<"Intentalo de nuevo"<<endl;
+			cin>>grupo;
+			cin.ignore();
+			system("clear");
+		}
+	}
+}
+
+void Alumno::setCursoMasAlto(int curso) {
+	int control = 0;
+	while(control != 1) {
+		if(curso > 0 && curso < 5) {//Asumimos que solo hay 4 cursos
+			cursoMasAlto_ = curso;
+			control = 1;
+		} else {
+			cout<<"El curso introducido esta fuera de rango (1-4)"<<endl;
+			cout<<"Intentalo de nuevo"<<endl;
+			cin>>curso;
+		}
+	}
+}

@@ -43,12 +43,18 @@ public:
 	inline void setApellidos(string apellidos){apellidos_=apellidos;};
 	inline void setDNI(string DNI){DNI_=DNI;};
 	inline void setCorreo(string correo){correo_=correo;};
+<<<<<<< HEAD
 	inline void setTelefono(int telefono){telefono_=telefono;};
 	inline void setDireccion(string direccion){direccion_=direccion;};
 	inline void setCursoMasAlto(int cursoMasAlto){cursoMasAlto_=cursoMasAlto;};
+=======
+	inline void setTelefono(int telefono);
+	inline void setDireccion(string direccion){direccion_=direccion_;};
+	inline void setCursoMasAlto(int cursoMasAlto);
+>>>>>>> rama_mifsut
 	void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
 	inline void setLider(bool lider){lider_=lider;};
-	inline void setGrupo(int grupo){grupo_=grupo;};
+	inline void setGrupo(int grupo);
 };
 
 class BaseAlumnos{

@@ -22,7 +22,7 @@ private:
 	string apellidos_;
 	string DNI_;
 	string correo_;
-	int telefono_;
+	string telefono_;
 	string direccion_;
 	int cursoMasAlto_;
 	string fechaNacimiento_;
@@ -33,7 +33,7 @@ public:
 	inline string getApellidos()const{return apellidos_;};
 	inline string getDNI()const{return DNI_;};
 	inline string getCorreo()const{return correo_;};
-	inline int getTelefono()const{return telefono_;};
+	inline string getTelefono()const{return telefono_;};
 	inline string getDireccion()const{return direccion_;};
 	inline int getCursoMasAlto()const{return cursoMasAlto_;};
 	inline string getFechaNacimiento()const{return fechaNacimiento_;};
@@ -43,18 +43,12 @@ public:
 	inline void setApellidos(string apellidos){apellidos_=apellidos;};
 	inline void setDNI(string DNI){DNI_=DNI;};
 	inline void setCorreo(string correo){correo_=correo;};
-<<<<<<< HEAD
-	inline void setTelefono(int telefono){telefono_=telefono;};
 	inline void setDireccion(string direccion){direccion_=direccion;};
-	inline void setCursoMasAlto(int cursoMasAlto){cursoMasAlto_=cursoMasAlto;};
-=======
-	inline void setTelefono(int telefono);
-	inline void setDireccion(string direccion){direccion_=direccion_;};
-	inline void setCursoMasAlto(int cursoMasAlto);
->>>>>>> rama_mifsut
+	void setTelefono(string telefono);
+	void setCursoMasAlto(int cursoMasAlto);
 	void setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento);
 	inline void setLider(bool lider){lider_=lider;};
-	inline void setGrupo(int grupo);
+	void setGrupo(int grupo);
 };
 
 class BaseAlumnos{
@@ -65,13 +59,8 @@ public:
 	bool insertarAlumno();
 	void eliminarAlumno();
 	void mostrarAlumno();
-<<<<<<< HEAD
-	inline void modificarAlumno(){cout << "Esta funcionalidad aun no está disponible" << endl;};
-	inline list<Alumno> getListaAlumno()const{return alumnos_;};
-=======
 	void modificarAlumno();
-	inline list<Alumno> getListaAlumno()const{return alumnos_;}
->>>>>>> rama_mifsut
+	inline list<Alumno> getListaAlumno()const{return alumnos_;};
 	void setListaAlumno(list<Alumno> lista);
 	void cargarFichero();
 	void cargarCopia();

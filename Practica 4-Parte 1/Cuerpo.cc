@@ -239,7 +239,7 @@ bool BaseAlumnos::insertarAlumno(){
 	string apellidos;
 	string DNI;
 	string correo;
-	int telefono;
+	string telefono;
 	string direccion;
 	int cursoMasAlto;
 	int diaNacimiento, mesNacimiento, anoNacimiento;
@@ -382,7 +382,8 @@ string intToString (int number){
      ostringstream ss;
      ss << number;
      return ss.str();
-  }
+ }
+
 void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNacimiento) {
 	string aux;
 	while(mesNacimiento <= 0 || mesNacimiento > 12) {
@@ -674,13 +675,12 @@ void imprimeAlumno(Alumno a){
 		cout << "No" << endl;
 }
 
-<<<<<<< HEAD
 struct Auxiliar2{
 	const char* nom;
 	const char* apel;
 	const char* DNI;
 	const char* Correo;
-	int telefono;
+	string telefono;
 	const char *direccion;
 	int curso;
 	const char *fecha;
@@ -777,7 +777,6 @@ void BaseAlumnos::cargarFichero(){
 }
 
 void BaseAlumnos::cargarCopia(){}
-=======
 bool BaseAlumnos::buscarAlumno() {
 	string apellido;
 	int contador = 0;//Se utilizara para ver el numero de alumnos que comparten apellido
@@ -819,16 +818,17 @@ bool BaseAlumnos::buscarAlumno() {
 }
 
 
-void BaseAlumnos::modificarAlumno() {
+void BaseAlumnos::modificarAlumno(){
 	string DNI;
 	int opcion = 0;//Para evitar que el valor basure tome un valor innecesario
 	cout<<"Introduzca el DNI del alumno a buscar"<<endl;
+	getline(cin, DNI);
     list<Alumno>::iterator it2;
     it2 = alumnos_.begin();
-    while(it2 != alumnos_.end()) {
+    do{
     	if(it2->getDNI() == DNI) {
     		while(opcion != 11) {
-			cout<<"Seleccione el atribuo a modificar"<<endl;
+			cout<<"Seleccione el atributo a modificar"<<endl;
 			cout<<"1.Nombre"<<endl;
 			cout<<"2.Apellidos"<<endl;
 			cout<<"3.DNI"<<endl;
@@ -841,6 +841,7 @@ void BaseAlumnos::modificarAlumno() {
 			cout<<"10.Grupo"<<endl;
 			cout<<"11.Salir"<<endl;
 			cin>>opcion;
+			cin.ignore();
 			system("clear");
 			switch(opcion) {
 				case 1: {
@@ -861,18 +862,44 @@ void BaseAlumnos::modificarAlumno() {
 					string DNI;
 					cout<<"Introduzca el DNI"<<endl;
 					cin >> DNI;
-					it2->setDNI(DNI);
+					int encontrado = 0;
+					list <Alumno>::iterator it;
+					it = alumnos_.begin();
+					while(it != alumnos_.end()) {
+						if(it->getDNI() == DNI) {
+							cout<<"Error ya existe un alumno con el mismo DNI"<<endl;
+							encontrado = 1;
+						}
+						it++;
+					}   
+					if(encontrado == 0) {
+						it2->setDNI(DNI);
+						cout<<"Alumno modificado"<<endl;	
+					}
 					break;
 				}
 				case 4: {
 					string correo;
 					cout<<"Introduzca el correo"<<endl;
 					cin >> correo;
-					it2->setCorreo(correo);
+					int encontrado = 0;
+					list <Alumno>::iterator it;
+					it = alumnos_.begin();
+					while(it != alumnos_.end()) {
+						if(it->getCorreo() == correo) {
+							cout<<"Error ya existe un alumno con el mismo DNI"<<endl;
+							encontrado = 1;
+						}
+						it++;
+					}   
+						if(encontrado == 0) {
+						it2->setCorreo(correo);
+						cout<<"Alumno modificado"<<endl;
+					}
 					break;
 				}
 				case 5: {
-					int telefono;
+					string telefono;
 					cout<<"Introduza el telefono"<<endl;
 					cin >> telefono;
 					it2->setTelefono(telefono);
@@ -949,17 +976,12 @@ void BaseAlumnos::modificarAlumno() {
 			}
     	}
     	it2++;
-	}
+	}while(it2 != alumnos_.end());
 }
-<<<<<<< HEAD
->>>>>>> rama_mifsut
-=======
-
-
-void Alumno::setTelefono(int numero) {
+void Alumno::setTelefono(string numero) {
 	int p = 0;
 	while(p!=1){
-		if(strlen(itoa(numero)) <= 15 && strlen(itoa(numero) >= 7)) {//Este criterio segun el estandar ITU-T E.164, definido por el CCITT.
+		if(strlen(numero.c_str()) <= 15 && strlen(numero.c_str()) >= 7) {//Este criterio segun el estandar ITU-T E.164, definido por el CCITT.
 			telefono_ = numero;
 			p=1;
 		} 
@@ -1002,4 +1024,3 @@ void Alumno::setCursoMasAlto(int curso) {
 		}
 	}
 }
->>>>>>> rama_mifsut

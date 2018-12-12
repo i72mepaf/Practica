@@ -241,12 +241,15 @@ bool BaseAlumnos::insertarAlumno(){
 	string correo;
 	string telefono;
 	string direccion;
-	int cursoMasAlto;
-	int diaNacimiento, mesNacimiento, anoNacimiento;
+	int cursoMasAlto, diaNacimiento, mesNacimiento, anoNacimiento, cont=0;
 	bool lider;
 	int grupo;
 
 	int opcion;
+	if(alumnos_.size()==150){
+		cout << "La base de Alumnos esta llena" << endl;
+		return false;
+	}
 	
 	cout<<"Introduce el DNI del alumno"<<endl;
 	getline(cin, DNI);
@@ -361,7 +364,6 @@ bool BaseAlumnos::insertarAlumno(){
 	alumno.setDireccion(direccion);
 	alumno.setCursoMasAlto(cursoMasAlto);
 	alumno.setFechaNacimiento(diaNacimiento, mesNacimiento, anoNacimiento);
-	alumno.setGrupo(grupo);
 	if(lider == true) {
 		for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
 			if(it->getGrupo() == alumno.getGrupo() && it->getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
@@ -374,6 +376,22 @@ bool BaseAlumnos::insertarAlumno(){
 
 	}
 	alumno.setLider(lider);
+	it=alumnos_.begin();
+	while(it != alumnos_.end()){
+		if(it->getGrupo()==grupo)
+			cont++;
+		if(cont == 3){
+			cout << "El grupo asignado ya esta lleno" << endl;
+			cout << "Introduzca otro grupo: " << endl;
+			cin>>grupo;
+			cin.ignore();
+			cont=0;
+			it = alumnos_.begin();
+		}
+		else
+			it++;
+	}
+	alumno.setGrupo(grupo);
 	alumnos_.push_back(alumno);
 	return true;
 

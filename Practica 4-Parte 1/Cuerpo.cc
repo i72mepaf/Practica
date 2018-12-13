@@ -778,13 +778,18 @@ void BaseAlumnos::guardarCopia(){
 
 void BaseAlumnos::cargarFichero(){
 	string n;
+	int nele;
 	cout << "Introduzca el nombre del fichero";
 	cin>>n;
-	Alumno aux;
+	Auxiliar2 aux;
 	ifstream fichero(n.c_str(), ios::in | ios::binary);
 	if (fichero.is_open()){
 		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
-			alumnos_.push_back(aux);
+			nele++;
+		}
+		vector <Auxiliar2> v(nele);
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
+			v.push_back(aux);
 		}
 	}
 	else{

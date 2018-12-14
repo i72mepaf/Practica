@@ -76,9 +76,9 @@ int main(int argc, char const *argv[])
 				break;
 				case 4: p.base_.eliminarAlumno();
 				break;
-				case 5: p.base_.cargarFichero();
+				case 5: p.base_.cargarCopia();
 				break;
-				case 6: p.base_.guardarFichero();
+				case 6: p.base_.guardarCopia();
 				break;
 				case 7: cout << "Saliendo..." << endl;
 				break;

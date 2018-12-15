@@ -4,8 +4,10 @@ de usuario** detectadas, su **prioridades** otorgadas y los **tiempos estimados*
 # Historia de Usuario - Prioridad - Tiempo estimado
 * **Identificar Profesores** - Prioridad **1** - Tiempo estimado: **8 horas**.
 * **Insertar Alumno** - Prioridad **1** - Tiempo estimado: **5 horas**.
-* **Cargar copia de seguridad de un fichero binario** - Prioridad **2** - Tiempo estimado:
-* **Guardar copia de seguridad en un fichero binario** - Prioridad **2** - Tiempo estimado:
+* **Cargar** - Prioridad **2** - Tiempo estimado: **1 hora**
+* **Guardar** - Prioridad **2** - Tiempo estimado: **1 hora**
+* **Cargar copia de seguridad de un fichero binario** - Prioridad **2** - Tiempo estimado: **1 hora**
+* **Guardar copia de seguridad en un fichero binario** - Prioridad **2** - Tiempo estimado: **1 hora**
 * **Buscar Alumno** - Prioridad **3** - Tiempo estimado:
 * **Mostrar Alumno** - Prioridad **4** - Tiempo estimado: **5 horas**.
 * **Eliminar Alumno** - Prioridad **4** - Tiempo estimado: **2 horas**.

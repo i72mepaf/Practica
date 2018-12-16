@@ -2,7 +2,6 @@
 
 int main(int argc, char const *argv[])
 {
-	cout << "Versión beta de la base de los alumnos" << endl;
 	Profesor p;
 	int op = 0;
 	if(p.identificaProfesor()==true){

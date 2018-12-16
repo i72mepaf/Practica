@@ -822,16 +822,13 @@ void BaseAlumnos::cargarFichero(){
 
 			alumnos_.push_back(alu);
 		}
-
-		Auxiliar2 v;
-
+		cout << "Fichero '"<<n<<"' cargado correctamente" << endl;
+		fichero.close();
 	}
 	else{
 		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
-		exit(-1);
 	}
-   	fichero.close();
-   	cout << "Fichero '"<<n<<"' cargado correctamente" << endl;
+   	
 	}
 
 void BaseAlumnos::cargarCopia(){
@@ -879,16 +876,13 @@ void BaseAlumnos::cargarCopia(){
 
 			alumnos_.push_back(alu);
 		}
-
-		Auxiliar2 v;
-
+   		fichero.close();
+   		cout << "Cargado Correcto" << endl;
 	}
 	else{
 		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
-		exit(-1);
 	}
-   	fichero.close();
-   	cout << "Cargado Correcto" << endl;
+
 	}
 bool BaseAlumnos::buscarAlumno() {
 	string apellido;

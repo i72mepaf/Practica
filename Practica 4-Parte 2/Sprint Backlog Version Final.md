@@ -15,10 +15,6 @@ A continuación se van a nombrar las tareas para cada programador:
 
 
 ## Programador 2 - Ricardo Mifsut Castilla
-* Modificar Alumno
-* Buscar Alumno
+
+
 ## Programador 3 - Ángel Santos Ramírez
-* Cargar en un fichero binario
-* Guardar en un fichero binario
-* Cargar
-* Guardar

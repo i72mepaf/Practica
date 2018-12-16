@@ -29,16 +29,16 @@ private:
 	bool lider_;
 	int grupo_;
 public:
-	inline string getNombre()const{return nombre_;};
-	inline string getApellidos()const{return apellidos_;};
-	inline string getDNI()const{return DNI_;};
-	inline string getCorreo()const{return correo_;};
-	inline string getTelefono()const{return telefono_;};
-	inline string getDireccion()const{return direccion_;};
-	inline int getCursoMasAlto()const{return cursoMasAlto_;};
-	inline string getFechaNacimiento()const{return fechaNacimiento_;};
-	inline int getGrupo()const{return grupo_;};
-	inline bool getLider()const{return lider_;};
+	inline string getNombre(){return nombre_;};
+	inline string getApellidos(){return apellidos_;};
+	inline string getDNI(){return DNI_;};
+	inline string getCorreo(){return correo_;};
+	inline string getTelefono(){return telefono_;};
+	inline string getDireccion(){return direccion_;};
+	inline int getCursoMasAlto(){return cursoMasAlto_;};
+	inline string getFechaNacimiento(){return fechaNacimiento_;};
+	inline int getGrupo(){return grupo_;};
+	inline bool getLider(){return lider_;};
 	inline void setNombre(string nombre){nombre_=nombre;};
 	inline void setApellidos(string apellidos){apellidos_=apellidos;};
 	inline void setDNI(string DNI){DNI_=DNI;};

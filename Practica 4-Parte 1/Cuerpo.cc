@@ -695,10 +695,10 @@ void imprimeAlumno(Alumno a){
 
 struct Auxiliar2{
 	const char* nom;
-	const char* apel;
-	const char* DNI;
-	const char* Correo;
-	string telefono;
+	const char *apel;
+	const char *DNI;
+	const char *Correo;
+	const char *telefono;
 	const char *direccion;
 	int curso;
 	const char *fecha;
@@ -718,14 +718,14 @@ void BaseAlumnos::guardarFichero(){
 
 	vector <Auxiliar2> v(nele);
 	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		v[vit].nom=(i->getNombre()).c_str();
-		v[vit].apel=((i->getApellidos()).c_str());
-		v[vit].DNI=((i->getDNI()).c_str());
-		v[vit].Correo=((i->getCorreo()).c_str());
-		v[vit].telefono=(i->getTelefono());
-		v[vit].direccion=((i->getDireccion()).c_str());
+		v[vit].nom=(i->getNombre().c_str());
+		v[vit].apel=(i->getApellidos().c_str());
+		v[vit].DNI=(i->getDNI().c_str());
+		v[vit].Correo=(i->getCorreo().c_str());
+		v[vit].telefono=(i->getTelefono().c_str());
+		v[vit].direccion=(i->getDireccion().c_str());
 		v[vit].curso=(i->getCursoMasAlto());
-		v[vit].fecha = ((i->getFechaNacimiento()).c_str());
+		v[vit].fecha = (i->getFechaNacimiento().c_str());
 		v[vit].lider=(i->getLider());
 		v[vit].grupo=(i->getGrupo());
 		vit++;
@@ -753,21 +753,20 @@ void BaseAlumnos::guardarCopia(){
 
 	vector <Auxiliar2> v(nele);
 	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		v[vit].nom=(i->getNombre()).c_str();
-		v[vit].apel=((i->getApellidos()).c_str());
-		v[vit].DNI=((i->getDNI()).c_str());
-		v[vit].Correo=((i->getCorreo()).c_str());
-		v[vit].telefono=(i->getTelefono());
-		v[vit].direccion=((i->getDireccion()).c_str());
+		v[vit].nom=(i->getNombre().c_str());
+		v[vit].apel=(i->getApellidos().c_str());
+		v[vit].DNI=(i->getDNI().c_str());
+		v[vit].Correo=(i->getCorreo().c_str());
+		v[vit].telefono=(i->getTelefono().c_str());
+		v[vit].direccion=(i->getDireccion().c_str());
 		v[vit].curso=(i->getCursoMasAlto());
-		v[vit].fecha = ((i->getFechaNacimiento()).c_str());
+		v[vit].fecha = (i->getFechaNacimiento().c_str());
 		v[vit].lider=(i->getLider());
 		v[vit].grupo=(i->getGrupo());
 		vit++;
 	}
-	string n="CopiaSeguridad.bin";
-	cin.ignore();	
-	system("clear");
+	string n;
+	n ="CopiaSeguridad.bin";
 	ofstream salida(n.c_str(), ios::out | ios::binary);
 	if (salida.is_open()){
 		for(int j=0; j < (int) v.size(); j++)
@@ -778,28 +777,117 @@ void BaseAlumnos::guardarCopia(){
 
 void BaseAlumnos::cargarFichero(){
 	string n;
-	int nele;
-	cout << "Introduzca el nombre del fichero";
 	cin>>n;
 	Auxiliar2 aux;
+	string fe;
+	Alumno alu;
+	int ngr;
+	bool lider;
+	cout<<"1";
 	ifstream fichero(n.c_str(), ios::in | ios::binary);
 	if (fichero.is_open()){
-		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
-			nele++;
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Alumno))){
+			fe=aux.DNI;
+			alu.setDNI(fe);
+
+			fe=aux.nom;
+			alu.setNombre(fe);
+
+			fe=aux.apel;
+			alu.setApellidos(fe);
+
+			fe=aux.telefono;
+			alu.setTelefono(fe);
+
+			fe=aux.Correo;
+			alu.setCorreo(fe);
+
+			fe=aux.direccion;
+			alu.setDireccion(fe);
+
+			ngr=aux.curso;
+			alu.setCursoMasAlto(ngr);
+
+			lider=aux.lider;
+			alu.setLider(lider);
+
+			fe=aux.fecha;
+			alu.setFechaNacimiento(atoi((fe.substr(0, fe.find("/"))).c_str()), 
+			atoi((fe.substr(fe.find("/")+1, fe.find("/"))).c_str()), 
+			atoi((fe.substr(fe.find("/")+fe.find(fe.substr(fe.find("/")+1, fe.find("/"))))).c_str()));
+
+			ngr=aux.grupo;
+			alu.setGrupo(ngr);
+
+			alumnos_.push_back(alu);
 		}
-		vector <Auxiliar2> v(nele);
-		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
-			v.push_back(aux);
-		}
+
+		Auxiliar2 v;
+
 	}
 	else{
 		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
 		exit(-1);
 	}
    	fichero.close();
-}
+	}
 
-void BaseAlumnos::cargarCopia(){}
+void BaseAlumnos::cargarCopia(){
+	string n;
+	n="CopiaSeguridad.bin";
+	Auxiliar2 aux;
+	string fe;
+	Alumno alu;
+	int ngr;
+	bool lider;
+	cout<<"1";
+	ifstream fichero(n.c_str(), ios::in | ios::binary);
+	if (fichero.is_open()){
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Alumno))){
+			fe=aux.DNI;
+			alu.setDNI(fe);
+
+			fe=aux.nom;
+			alu.setNombre(fe);
+
+			fe=aux.apel;
+			alu.setApellidos(fe);
+
+			fe=aux.telefono;
+			alu.setTelefono(fe);
+
+			fe=aux.Correo;
+			alu.setCorreo(fe);
+
+			fe=aux.direccion;
+			alu.setDireccion(fe);
+
+			ngr=aux.curso;
+			alu.setCursoMasAlto(ngr);
+
+			lider=aux.lider;
+			alu.setLider(lider);
+
+			fe=aux.fecha;
+			alu.setFechaNacimiento(atoi((fe.substr(0, fe.find("/"))).c_str()), 
+			atoi((fe.substr(fe.find("/")+1, fe.find("/"))).c_str()), 
+			atoi((fe.substr(fe.find("/")+fe.find(fe.substr(fe.find("/")+1, fe.find("/"))))).c_str()));
+
+			ngr=aux.grupo;
+			alu.setGrupo(ngr);
+
+			alumnos_.push_back(alu);
+		}
+
+		Auxiliar2 v;
+
+	}
+	else{
+		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
+		exit(-1);
+	}
+   	fichero.close();
+	}
 bool BaseAlumnos::buscarAlumno() {
 	string apellido;
 	int contador = 0;//Se utilizara para ver el numero de alumnos que comparten apellido

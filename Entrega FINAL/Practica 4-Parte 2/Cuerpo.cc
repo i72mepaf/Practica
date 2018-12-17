@@ -60,9 +60,10 @@ struct Auxiliar
 };
 bool Profesor::identificaProfesor(){
 	int opcion = 0, contadorTipo=0;
-	string dni, compDNI, compROL;
+	string dni, compDNI, compROL, dniAux, rolAux, dniInicial, dniAyudante, RolAyudante;
 	Auxiliar aux;
 	vector<Auxiliar> v;
+	vector<Auxiliar>::iterator it;
 	ifstream fichero("credenciales.bin", ios::in | ios::binary);
 	if (fichero.is_open()){
 		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar))){
@@ -88,20 +89,20 @@ bool Profesor::identificaProfesor(){
 			if(opcion==1){//Coordinador
 				cout << "A continuación procederemos a identificarle como profesor Coordinador." << endl;
 				cout << "Introduzca DNI: ";
-				getline(cin, dni);
+				getline(cin, dniInicial);
 				system("clear");
    				for (int i = 0; i < (int) v.size(); i++)
    				{
    					compDNI = v[i].d;
    					compROL = v[i].r;
-   					if(compDNI == dni && compROL == "Coordinador")
+   					if(compDNI == dniInicial && compROL == "Coordinador")
    						cout << "Identificado Correctamente." << endl;
-   					while(compDNI == dni && compROL == "Coordinador"){
-   						cout << "¿Desea iniciar o cambiar DNI?\n1. Iniciar.\n2. Cambiar DNI." << endl;
+   					while(compDNI == dniInicial && compROL == "Coordinador"){
+   						cout << "¿Desea iniciar o cambiar DNI?\n1. Iniciar.\n2. Cambiar DNI.\n3. Eliminar Ayudante" << endl;
    						cin >> opcion;
    						cin.ignore();
    						system("clear");
-   						if(opcion!= 1 && opcion!=2){
+   						if(opcion!= 1 && opcion!=2 && opcion!=3){
    							cout << "Numero Incorrecto. Intentalo de nuevo." << endl;
    						}
    						else{
@@ -111,9 +112,23 @@ bool Profesor::identificaProfesor(){
    								setRol(compROL);
    								return true;
    							}
-   							else{
+   							if(opcion==2){
    								cout << "Introduzca el nuevo DNI: ";
    								getline(cin, dni);
+   								contadorTipo=0;
+								for (int i = 0; i < (int) v.size(); i++){
+									dniAux = v[i].d;
+									rolAux = v[i].r;
+									if(dni == dniAux && rolAux!="Coordinador"){
+										cout << "Ya existe un usuario registrado con ese DNI. Cambio no realizado" << endl;
+										contadorTipo++;
+									}
+								}
+								if(contadorTipo!=0){
+									dniInicial=dni;
+   									compDNI = dni;
+   									compROL = "Coordinador";
+								}else{
    								remove("credenciales.bin");
    								ofstream fEscCoord("credenciales.bin", ios::out | ios::binary);
 								if (fEscCoord.is_open()){
@@ -129,10 +144,43 @@ bool Profesor::identificaProfesor(){
    									exit(-1);
    								}
    								fEscCoord.close();
-   								cout << "DNI cambiado con exito. Iniciando..." << endl;
-   								setDNI(dni);
-   								setRol("Coordinador");
-   								return true;
+   								cout << "DNI cambiado con exito." << endl;
+   								dniInicial=dni;
+   								compDNI = dni;
+   								compROL = "Coordinador";
+   								}
+   							}
+   							if(opcion == 3){
+   								cout << "Introduzca el DNI del Profesor Ayudante a eliminar: ";
+   								getline(cin, dni);
+   								contadorTipo = 0;
+   								it=v.begin();
+   								for (int i = 0; i < (int) v.size(); i++){
+									dniAux = v[i].d;
+									rolAux = v[i].r;
+									if(dni == dniAux && rolAux=="Ayudante"){
+										v.erase(it);
+										contadorTipo++;
+									}
+									it++;
+								}
+								if(contadorTipo == 0){
+									cout << "No existe registrado ningún profesor ayudante con ese DNI" << endl;
+								}
+								else{
+									remove("credenciales.bin");
+									ofstream fEscAyud("credenciales.bin", ios::out | ios::binary);
+									if (fEscAyud.is_open()){
+										for(int i=0; i < (int) v.size(); i++)
+											fEscAyud.write((char *)&v[i], sizeof(Auxiliar));
+   									}
+   									else{
+   										cout << "Error al abrir el fichero." << endl;
+   										exit(-1);
+   									}
+   									fEscAyud.close();
+									cout << "Profesor Ayudante eliminado correctamente" << endl;
+								}
    							}
    						}
    					}
@@ -163,6 +211,15 @@ bool Profesor::identificaProfesor(){
 							getline(cin, dni);
 							strcpy(aux.d, dni.c_str());
 							strcpy(aux.r, "Ayudante");
+							contadorTipo=0;
+							for (int i = 0; i < (int) v.size(); i++){
+								dniAux = v[i].d;
+								if(dni == dniAux){
+									cout << "Ya existe un usuario registrado con ese DNI" << endl;
+									contadorTipo++;
+								}
+							}
+							if(contadorTipo==0){
 							v.push_back(aux);
 							remove("credenciales.bin");
 							ofstream fEscAyud("credenciales.bin", ios::out | ios::binary);
@@ -179,6 +236,10 @@ bool Profesor::identificaProfesor(){
    							setDNI(dni);
    							setRol("Ayudante");
    							return false;
+   							}
+   							else{
+   								opcion=3;
+   							}
 						}
 						else{
 							cout << "Lo sentimos. Ya existen registrados 5 profesores ayudantes." << endl;

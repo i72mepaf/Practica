@@ -1,0 +1,9 @@
+Para que inicialmente en el archivo de credenciales haya un profesor
+registrado mínimo, en el archivo de credenciales "credenciales.bin"
+habrá creado inicialmente un profesor con cuyos datos serán:
+DNI: "11111"
+Rol: "Coordinador"
+
+Probablemente para la entrega de la práctica 4 parte 1 no tendremos corregidos los fallos de la práctica 3, 
+ya que la parte 1 de la práctica 4 es muy atareada pero para la segunda parte y para la entrega final si estará
+corregido.

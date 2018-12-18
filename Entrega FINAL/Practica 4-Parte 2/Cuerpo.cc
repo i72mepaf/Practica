@@ -805,7 +805,7 @@ struct Auxiliar2{
 
 
 void BaseAlumnos::guardarFichero(){
-	int vit=0;
+	/*int vit=0;
 	int nele=0;
 	list <Alumno>::iterator i;
 
@@ -837,19 +837,15 @@ void BaseAlumnos::guardarFichero(){
 		salida.write((char *)&v[j], sizeof(Auxiliar2));
    	}
    	salida.close();
-   	cout << "Fichero '"<<n<<"' guardado correctamente" << endl;
+   	cout << "Fichero '"<<n<<"' guardado correctamente" << endl;*/
 }
 void BaseAlumnos::guardarCopia(){
-	int vit=0;
-	int nele=0;
+	/*int vit=0, j;
 	list <Alumno>::iterator i;
 
-	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		nele++;
-	}
-
-	vector <Auxiliar2> v(nele);
-	for(i=alumnos_.begin();i != alumnos_.end();i++){
+	vector <Auxiliar2> v(alumnos_.size());
+	if(alumnos_.size() == 1){
+		i=alumnos_.begin();
 		v[vit].nom=(i->getNombre().c_str());
 		v[vit].apel=(i->getApellidos().c_str());
 		v[vit].DNI=(i->getDNI().c_str());
@@ -860,21 +856,37 @@ void BaseAlumnos::guardarCopia(){
 		v[vit].fecha = (i->getFechaNacimiento().c_str());
 		v[vit].lider=(i->getLider());
 		v[vit].grupo=(i->getGrupo());
-		vit++;
+	}
+	else{
+		for(i=alumnos_.begin();i != alumnos_.end();i++){
+			v[vit].nom=(i->getNombre().c_str());
+			v[vit].apel=(i->getApellidos().c_str());
+			v[vit].DNI=(i->getDNI().c_str());
+			v[vit].Correo=(i->getCorreo().c_str());
+			v[vit].telefono=(i->getTelefono().c_str());
+			v[vit].direccion=(i->getDireccion().c_str());
+			v[vit].curso=(i->getCursoMasAlto());
+			v[vit].fecha = (i->getFechaNacimiento().c_str());
+			v[vit].lider=(i->getLider());
+			v[vit].grupo=(i->getGrupo());
+			vit++;
+		}
 	}
 	string n;
 	n ="CopiaSeguridad.bin";
-	ofstream salida(n.c_str(), ios::out | ios::binary);
+	ofstream salida(n.c_str(), ios::out | ios::binary | ios::trunc);
 	if (salida.is_open()){
-		for(int j=0; j < (int) v.size(); j++)
-		salida.write((char *)&v[j], sizeof(Auxiliar2));
+		for(j=0; j < (int) v.size(); j++)
+			salida.write((char *)&v[j], sizeof(Auxiliar2));
+		salida.close();
    	}
-   	salida.close();
-   	cout << "Guardado Correcto" << endl;
+   	else
+   		cout << "Error al crear el fichero" << endl;
+   	cout << "Guardado Correcto" << endl;*/
 }
 
 void BaseAlumnos::cargarFichero(){
-	string n;
+	/*string n;
 	Auxiliar2 aux;
 	string fe;
 	Alumno alu;
@@ -884,7 +896,7 @@ void BaseAlumnos::cargarFichero(){
 	getline(cin, n);
 	ifstream fichero(n.c_str(), ios::in | ios::binary);
 	if (fichero.is_open()){
-		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Alumno))){
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
 			fe=aux.DNI;
 			alu.setDNI(fe);
 
@@ -924,12 +936,12 @@ void BaseAlumnos::cargarFichero(){
 	}
 	else{
 		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
-	}
+	}*/
    	
 	}
 
 void BaseAlumnos::cargarCopia(){
-	string n;
+	/*string n;
 	n="CopiaSeguridad.bin";
 	Auxiliar2 aux;
 	string fe;
@@ -938,7 +950,7 @@ void BaseAlumnos::cargarCopia(){
 	bool lider;
 	ifstream fichero(n.c_str(), ios::in | ios::binary);
 	if (fichero.is_open()){
-		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Alumno))){
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
 			fe=aux.DNI;
 			alu.setDNI(fe);
 
@@ -978,7 +990,7 @@ void BaseAlumnos::cargarCopia(){
 	}
 	else{
 		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
-	}
+	}*/
 
 	}
 bool BaseAlumnos::buscarAlumno() {

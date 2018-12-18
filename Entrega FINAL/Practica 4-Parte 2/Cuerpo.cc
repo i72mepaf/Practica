@@ -7,13 +7,15 @@ bool sortByApelld(Alumno &lhs,Alumno &rhs){ return rhs.getApellidos() > lhs.getA
 
 void BaseAlumnos::eliminarAlumno(){ //Felipe
 	string ap;
-	int cont=0;
+	int cont=0, i;
 	cout << "Introduzca los apellidos del alumno a eliminar:"<< endl;
 	getline(cin, ap);
-	list<Alumno>::iterator it; 
-	for(it=alumnos_.begin(); it != alumnos_.end(); it++){
+	list<Alumno>::iterator it;
+	it=alumnos_.begin();
+	for(i=0; i < (int) alumnos_.size(); i++){
 		if(it->getApellidos() == ap)
 			cont++;
+		it++;
 	}
 	if(cont == 1){
 		if(alumnos_.size()==1){
@@ -25,9 +27,14 @@ void BaseAlumnos::eliminarAlumno(){ //Felipe
 			else
 				cout << "No hay ningún alumno con los apellidos '"<<ap<<"' en nuestra base de datos" << endl;
 		}else{
-			for(it=alumnos_.begin(); it != alumnos_.end(); it++){
-				if(it->getApellidos() == ap)
+			it = alumnos_.begin();
+			while(it != alumnos_.end()){
+				if(it->getApellidos() == ap){
 					alumnos_.erase(it);
+					it = alumnos_.begin();
+				}
+				else
+					it++;
 			}
 			cout << "Alumno con apellidos: '"<< ap <<"' eliminado con exito."<<endl;
 		}
@@ -40,11 +47,15 @@ void BaseAlumnos::eliminarAlumno(){ //Felipe
 			cout << "Hay varios alumnos con los apellidos: '" << ap << "'." << endl;
 			cout << "Porfavor, introduzca el DNI del alumno a borrar:" << endl;
 			getline(cin, ap);
-			for(it=alumnos_.begin(); it != alumnos_.end(); it++){
+			it=alumnos_.begin();
+			while(it != alumnos_.end()){
 				if(it->getDNI() == ap){
 					alumnos_.erase(it);
+					it = alumnos_.begin();
 					cont++;
 				}
+				else
+					it++;
 			}
 			if(cont == 1)
 				cout << "Alumno con DNI: '"<< ap <<"' eliminado con exito." << endl;
@@ -98,7 +109,7 @@ bool Profesor::identificaProfesor(){
    					if(compDNI == dniInicial && compROL == "Coordinador")
    						cout << "Identificado Correctamente." << endl;
    					while(compDNI == dniInicial && compROL == "Coordinador"){
-   						cout << "¿Desea iniciar o cambiar DNI?\n1. Iniciar.\n2. Cambiar DNI.\n3. Eliminar Ayudante" << endl;
+   						cout << "Eliga una opción\n1. Iniciar.\n2. Cambiar DNI.\n3. Eliminar Ayudante" << endl;
    						cin >> opcion;
    						cin.ignore();
    						system("clear");
@@ -160,9 +171,12 @@ bool Profesor::identificaProfesor(){
 									rolAux = v[i].r;
 									if(dni == dniAux && rolAux=="Ayudante"){
 										v.erase(it);
+										it = v.begin();
+										i=0;
 										contadorTipo++;
 									}
-									it++;
+									else
+										it++;
 								}
 								if(contadorTipo == 0){
 									cout << "No existe registrado ningún profesor ayudante con ese DNI" << endl;
@@ -200,6 +214,7 @@ bool Profesor::identificaProfesor(){
 				}
 				else{
 					if(opcion == 1){//Registrarse
+						contadorTipo=0;
 						for (int i = 0; i < (int) v.size(); i++)
 						{
 							compROL = v[i].r;
@@ -238,10 +253,12 @@ bool Profesor::identificaProfesor(){
    							return false;
    							}
    							else{
+   								contadorTipo = 0;
    								opcion=3;
    							}
 						}
 						else{
+							contadorTipo = 0;
 							cout << "Lo sentimos. Ya existen registrados 5 profesores ayudantes." << endl;
   							opcion = 3;
 						}

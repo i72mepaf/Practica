@@ -70,7 +70,7 @@ struct Auxiliar
 	char r[100];
 };
 bool Profesor::identificaProfesor(){
-	int opcion = 0, contadorTipo=0;
+	int opcion = 0, contadorTipo=0, i, j;
 	string dni, compDNI, compROL, dniAux, rolAux, dniInicial, dniAyudante, RolAyudante;
 	Auxiliar aux;
 	vector<Auxiliar> v;
@@ -102,18 +102,19 @@ bool Profesor::identificaProfesor(){
 				cout << "Introduzca DNI: ";
 				getline(cin, dniInicial);
 				system("clear");
-   				for (int i = 0; i < (int) v.size(); i++)
+   				for (i = 0; i < (int) v.size(); i++)
    				{
    					compDNI = v[i].d;
    					compROL = v[i].r;
    					if(compDNI == dniInicial && compROL == "Coordinador")
    						cout << "Identificado Correctamente." << endl;
    					while(compDNI == dniInicial && compROL == "Coordinador"){
-   						cout << "Eliga una opción\n1. Iniciar.\n2. Cambiar DNI.\n3. Eliminar Ayudante" << endl;
+   						cout << "Eliga una opción:\n1. Iniciar.\n2. Cambiar DNI." << endl;
+   						cout << "3. Eliminar Ayudante.\n4. Mostrar todos los profesores registrados." << endl;
    						cin >> opcion;
    						cin.ignore();
    						system("clear");
-   						if(opcion!= 1 && opcion!=2 && opcion!=3){
+   						if(opcion!= 1 && opcion!=2 && opcion!=3 && opcion!=4){
    							cout << "Numero Incorrecto. Intentalo de nuevo." << endl;
    						}
    						else{
@@ -127,7 +128,7 @@ bool Profesor::identificaProfesor(){
    								cout << "Introduzca el nuevo DNI: ";
    								getline(cin, dni);
    								contadorTipo=0;
-								for (int i = 0; i < (int) v.size(); i++){
+								for (i = 0; i < (int) v.size(); i++){
 									dniAux = v[i].d;
 									rolAux = v[i].r;
 									if(dni == dniAux && rolAux!="Coordinador"){
@@ -143,7 +144,7 @@ bool Profesor::identificaProfesor(){
    								remove("credenciales.bin");
    								ofstream fEscCoord("credenciales.bin", ios::out | ios::binary);
 								if (fEscCoord.is_open()){
-									for(int j=0; j < (int) v.size(); j++){
+									for(j=0; j < (int) v.size(); j++){
 										compROL = v[j].r;
 										if(compROL == "Coordinador")
 											strcpy(v[j].d, dni.c_str());
@@ -166,7 +167,7 @@ bool Profesor::identificaProfesor(){
    								getline(cin, dni);
    								contadorTipo = 0;
    								it=v.begin();
-   								for (int i = 0; i < (int) v.size(); i++){
+   								for (i = 0; i < (int) v.size(); i++){
 									dniAux = v[i].d;
 									rolAux = v[i].r;
 									if(dni == dniAux && rolAux=="Ayudante"){
@@ -196,6 +197,12 @@ bool Profesor::identificaProfesor(){
 									cout << "Profesor Ayudante eliminado correctamente" << endl;
 								}
    							}
+   							if(opcion == 4){
+   								cout << "El número de profesores registrados es " << (int) v.size() <<":\n"<< endl; 
+   								for (i = 0; i < v.size(); ++i)
+   									cout << i+1 <<". Rol: '"<< v[i].r << "' con DNI: '" << v[i].d << "'." << endl;
+   								cout << endl;
+   							}
    						}
    					}
 				}
@@ -215,7 +222,7 @@ bool Profesor::identificaProfesor(){
 				else{
 					if(opcion == 1){//Registrarse
 						contadorTipo=0;
-						for (int i = 0; i < (int) v.size(); i++)
+						for (i = 0; i < (int) v.size(); i++)
 						{
 							compROL = v[i].r;
 							if(compROL=="Ayudante")
@@ -227,7 +234,7 @@ bool Profesor::identificaProfesor(){
 							strcpy(aux.d, dni.c_str());
 							strcpy(aux.r, "Ayudante");
 							contadorTipo=0;
-							for (int i = 0; i < (int) v.size(); i++){
+							for (i = 0; i < (int) v.size(); i++){
 								dniAux = v[i].d;
 								if(dni == dniAux){
 									cout << "Ya existe un usuario registrado con ese DNI" << endl;
@@ -239,7 +246,7 @@ bool Profesor::identificaProfesor(){
 							remove("credenciales.bin");
 							ofstream fEscAyud("credenciales.bin", ios::out | ios::binary);
 							if (fEscAyud.is_open()){
-								for(int i=0; i < (int) v.size(); i++)
+								for(i=0; i < (int) v.size(); i++)
 									fEscAyud.write((char *)&v[i], sizeof(Auxiliar));
    							}
    							else{
@@ -268,7 +275,7 @@ bool Profesor::identificaProfesor(){
 						cout << "Introduzca el DNI: ";
 						getline(cin, dni);
 						system("clear");
-   						for (int i = 0; i < (int) v.size(); i++)
+   						for (i = 0; i < (int) v.size(); i++)
    						{
    							compDNI = v[i].d;
    							compROL = v[i].r;
@@ -452,13 +459,16 @@ bool BaseAlumnos::insertarAlumno(){
 	alumno.setCursoMasAlto(cursoMasAlto);
 	alumno.setFechaNacimiento(diaNacimiento, mesNacimiento, anoNacimiento);
 	if(lider == true) {
-		for(it=alumnos_.begin(); it != alumnos_.end(); it++){
-			if(it->getGrupo() == alumno.getGrupo() && it->getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
+		it=alumnos_.begin();
+		while(it != alumnos_.end()){
+			if(it->getGrupo() == alumno.getGrupo() && it->getLider() == true && lider==true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
 				cout<<"En este grupo ya hay un lider."<<endl;
 				cout << "Por lo que el alumno insertado estará en el grupo pero no será lider"<<endl;
 				lider=false;
+				it = alumnos_.begin();
 			}
-			
+			else
+				it++;	
 		}
 
 	}

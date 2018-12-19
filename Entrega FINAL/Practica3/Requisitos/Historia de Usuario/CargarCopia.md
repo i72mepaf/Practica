@@ -1,10 +1,10 @@
 ## (ANVERSO)
-### ID: 007 Cargar datos de un fichero binario prestablecido
+### ID: 010 Cargar datos de una copia de seguridad binaria
 ---
 
-Como usuario quiero poder cargar datos de los alumnos de un fichero binario
+Como usuario quiero poder cargar datos de los alumnos de una copia
 
-preestablecido actuando como una base de datos del mismo.
+de seguridad binaria actuando como una base de datos del mismo.
 
 **Prioridad:** 2
 

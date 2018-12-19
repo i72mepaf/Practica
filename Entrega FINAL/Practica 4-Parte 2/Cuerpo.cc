@@ -904,6 +904,10 @@ void BaseAlumnos::cargarCopia(){
 			v.push_back(aux);
 		}
 		fichero.close();
+		if((int)v.size() > 150){
+			cout << "Error. El fichero contiene más de 150 alumnos" << endl;
+			return;
+		}
 		while(alumnos_.size()!=0)
    		alumnos_.pop_back();
 
@@ -943,6 +947,12 @@ void BaseAlumnos::cargar(){
 			v.push_back(aux);
 		}
 		fichero.close();
+
+		if((int)v.size() > 150){
+			cout << "Error. El fichero contiene más de 150 alumnos" << endl;
+			return;
+		}
+		
 		while(alumnos_.size()!=0)
    		alumnos_.pop_back();
 

@@ -804,7 +804,7 @@ struct Auxiliar2{
 };
 
 
-void BaseAlumnos::guardarFichero(){ //Guardar copia de seguridad
+void BaseAlumnos::guardarCopia(){ //Guardar copia de seguridad
 	Auxiliar2 aux;
 	Alumno alum;
 	vector<Auxiliar2> v;
@@ -845,7 +845,7 @@ void BaseAlumnos::guardarFichero(){ //Guardar copia de seguridad
 	else
 		cout << "Error al sobrescribir el fichero." << endl;
 }
-void BaseAlumnos::guardarCopia(){
+void BaseAlumnos::guardar(){
 	Auxiliar2 aux;
 	Alumno alum;
 	vector<Auxiliar2> v;
@@ -880,7 +880,7 @@ void BaseAlumnos::guardarCopia(){
 		cout << "Error al sobrescribir el fichero." << endl;
 }
 
-void BaseAlumnos::cargarFichero(){
+void BaseAlumnos::cargarCopia(){
 	Auxiliar2 aux;
 	Alumno alum;
 	vector<Auxiliar2> v;
@@ -922,7 +922,7 @@ void BaseAlumnos::cargarFichero(){
 	}
 }
 
-void BaseAlumnos::cargarCopia(){
+void BaseAlumnos::cargar(){
 	Auxiliar2 aux;
 	Alumno alum;
 	vector<Auxiliar2> v;

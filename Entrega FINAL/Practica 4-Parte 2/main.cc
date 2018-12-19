@@ -28,9 +28,9 @@ int main(int argc, char const *argv[])
 					else
 						cout << "Alumno no insertado" << endl;
 				}break;
-				case 2: p.base_.cargarCopia();
+				case 2: p.base_.cargar();
 				break;
-				case 3: p.base_.guardarCopia();
+				case 3: p.base_.guardar();
 				break;
 				case 4: p.base_.mostrarAlumno();
 				break;
@@ -42,9 +42,9 @@ int main(int argc, char const *argv[])
 				break;
 				case 8: p.eliminarBaseAlumnos();
 				break;
-				case 9: p.base_.cargarFichero();
+				case 9: p.base_.cargarCopia();
 				break;
-				case 10: p.base_.guardarFichero();
+				case 10: p.base_.guardarCopia();
 				break;
 				case 11: cout << "Saliendo..." << endl;
 				break;
@@ -81,9 +81,9 @@ int main(int argc, char const *argv[])
 				break;
 				case 5: p.base_.buscarAlumno();
 				break;
-				case 6: p.base_.cargarFichero();
+				case 6: p.base_.cargar();
 				break;
-				case 7: p.base_.guardarFichero();
+				case 7: p.base_.guardar();
 				break;
 				case 8: cout << "Saliendo..." << endl;
 				break;

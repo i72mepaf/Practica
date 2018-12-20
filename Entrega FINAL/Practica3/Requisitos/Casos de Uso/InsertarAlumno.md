@@ -11,6 +11,7 @@
 **Precondiciones:**
 
 1. El alumno no debe existir.
+2. La base de datos no debe tener 150 alumnos.
 
 **Flujo principal:**
 
@@ -23,6 +24,8 @@
 * Si no existe el alumno se inserta en la base de datos.
 
 **Flujos alternativos:**
+
+1.a. Si la base de datos tiene 150 alumnos, se mostrará un mensaje diciendo que la base de datos está llena.
 
 2.a. Si el DNI o el e-mail introducidos son iguales a otro ya en la base de datos, se da la opción de volver a introducir el dato o de parar de introducir el alumno y no introducirlo.
 

@@ -40,17 +40,15 @@ Los datos que introduce el profesor, que se guardan en un fichero binario, que h
 ## Requisitos no funcionales:
 * Lenguaje de programación: C++.
 * Documentación en Markdown.
-* IDE Eclipse.
 * Uso de Commits.
 * Se utilizará Git y como repositorio remoto GitHub.
 * La aplicación se utilizará en Linux.
 * Se podrán almacenar como máximo 150 alumnos.
 * Solamente habrá 1 líder por grupo.
 * Se podrá almacenar en el archivo de credenciales como máximo un profesor coordinador y 5 profesores ayudantes.
-* Los alumnos se mostrarán en formato HTML o Markdown.
 * Como criterio de ordenación y búsqueda se utilizará DNI, Apellido, Curso más alto en el que el alumno está matriculado.
 * Se ordenará alfabéticamente de forma ascendente o descendente.
-* Se permite cambiar, borrar y asignar al líder de un grupo.
+* Se permite borrar y asignar al líder de un grupo.
 
 ## Priorización de Requisitos:
 ### N.º de Prioridad: Requisito

@@ -10,30 +10,33 @@
 
 **Precondiciones:**
 
-1. El alumno debe estar en la base de datos.
+1. El alumno a buscar, en el caso de elegir un solo alumno debe estar en la base de datos.
 
 **Flujo principal:**
 	
-1. El caso de uso empieza cuando el profesor quiera ver los datos de un alumno, de todos los alumnos o de los alumnos de un grupo.
-2. El sistema mostrara un menú en el que muestra las opciones de muestra mostrar datos de un alumno, todos los alumnos o de los alumnos de un grupo.
-3. El sistema muestra otro menú en el que el profesor selecciona si se muestra por DNI, por apellido, curso más alto matriculado y si se muestra por ordenación ascendente o descendente.
+1. El caso de uso empieza cuando el profesor quiera ver los datos de un alumno o de todos los alumnos.
+2. El sistema mostrara un menú en el que muestra las opciones de muestra mostrar datos de un alumno o todos los alumnos.
+3. En el caso de elegir mostrar todos los alumnos, el sistema muestra otro menú en el que el profesor selecciona si se muestra por curso más alto matriculado o por apellido y si se muestra por ordenación ascendente o descendente.
+4. El sistema muestra los datos de los alumnos de la forma elegida.
 
 **Postcondiciones:**
 	
-* El sistema muestra los datos de lo solicitado alfabéticamente y mostrara si el alumno es líder de algún grupo.
+* Si no hay ningún alumno, no mostrará nada.
 
 **Flujos alternativos:**
 	
-1.a. Si el profesor selecciona mostrar datos de un alumno, el sistema pedirá el apellido del alumno, en caso de haber múltiples alumnos con el mismo apellido el sistema pedirá el DNI. 
+2.a. Si el profesor selecciona mostrar datos de un alumno, el sistema pedirá buscar por el apellido o por el DNI del alumno.
 
-1.b. Si el alumno no existe en la base de datos, el sistema muestra un mensaje de error.
+2.b. Si ha seleccionado la opcion por apellido, el sistema pedirá al profesor el apellido del alumno.
 
-2.a. Si el profesor selecciona mostrar datos de todos los alumnos, el sistema muestra la información de todos los datos.
+2.c. Si el alumno ha sido encontrado, se muestran sus datos por pantalla.
 
-2.b. Si no hay alumnos en la base de datos, el sistema muestra un mensaje de error.
+2.c.1.a. Si existen varios alumnos con el mismo apellido se muestra un mensaje de error.
 
-3.a. Si el profesor selecciona mostrar los datos de los alumnos de un grupo, el sistema pedirá el número del grupo.
+2.c.2.a. Si no existe ningun alumno con el apellido introducido, se muestra un mensaje de error.
 
-3.b. Si el número del grupo introducido no existe, el sistema muestra un mensaje de error.
+2.b.a. Si ha seleccionado la opcion por DNI, el sistema pedirá al profesor el DNI del alumno.
 
-3.c. Si no hay alumnos en el grupo, el sistema muestra un mensaje de error.
+2.b.b. Si el alumno ha sido encontrado, se muestran sus datos por pantalla.
+
+2.b.b.a. Si no existe ningun alumno con el DNI introducido, se muestra un mensaje de error.

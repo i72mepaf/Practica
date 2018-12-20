@@ -4,6 +4,8 @@ Dicho de otro modo, en este documento se hará **la distribución de las distint
 
 Este archivo es desarrollado por el ***Scrum Master***, el cual, en nuestro
 caso se trata del lider/administrador del grupo, es decir, Felipe Mérida Palacios.
+
+El programador número 3, es decir, Ángel Santos Ramírez se encargará de 2 funciones más, ya que Cargar/Guardar Copia de Seguridad es identica a Cargar y Guardar, excepto por la variación de poder introducir en nombre del fichero.
 # Programadores
 Los programadores del grupo son los siguientes:
 * Programador 1 y Scrum Master: **Felipe Mérida Palacios**
@@ -21,5 +23,7 @@ A continuación se van a nombrar las tareas para cada programador:
 * Buscar Alumno
 ## Programador 3 - Ángel Santos Ramírez
 * Mostrar Alumno
-* Cargar en un fichero binario
-* Guardar en un fichero binario
+* Cargar
+* Guardar
+* Cargar Copia de Seguridad
+* Guardar Copia de Seguridad

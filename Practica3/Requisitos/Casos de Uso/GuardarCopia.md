@@ -24,7 +24,6 @@
 
 **Flujos alternativos:**
 
-2.a. Si el nombre introducido no es valido, se volverá a pedir por teclado el nombre del fichero binario a guardar.
-
+2.a. Si el nombre introducido no es valido, es decir, tenga el mismo nombre que de alguno de importancia(credenciales, cuerpo, etc), se volverá a pedir por teclado el nombre del fichero binario a guardar hasta que sea un nombre válido.
 
 3.a. Si hay un error a la hora de crearse/sobrescribirse el fichero, se muestra un mensaje de error.

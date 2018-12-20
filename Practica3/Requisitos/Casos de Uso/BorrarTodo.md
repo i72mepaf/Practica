@@ -24,6 +24,10 @@
 
 **Flujos alternativos:**
 
-3.a. Si no hay alumnos en la base de datos, el sistema mostrara un mensaje diciendo que la base de alumnos está vacia.
+3.a. Al seleccionar la opción de sí y al no existir alumnos en la base de datos, el sistema mostrara un mensaje diciendo que la base de alumnos está vacia.
 
 3.1.a. Al seleccionar la opción de no, el sistema no hace nada.
+
+3.2.a. Al no seleccionar ninguna opción el sistema muestra un mensaje de error diciendo que eligamos una opcion valida.
+
+3.2.b. El flujo vuelve al punto 2 del flujo principal.

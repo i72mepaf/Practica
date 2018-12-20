@@ -986,7 +986,7 @@ bool BaseAlumnos::buscarAlumno() {
 	int contador = 0;//Se utilizara para ver el numero de alumnos que comparten apellido
 	string DNI;
 	
-	cout<<"Introduza el apellido del alumno que desea buscar"<<endl;
+	cout<<"Introduza el apellido del alumno que desea buscar: "<<endl;
 	getline(cin, apellido);
 	list<Alumno>::iterator it;
 	it = alumnos_.begin();
@@ -1005,9 +1005,9 @@ bool BaseAlumnos::buscarAlumno() {
 		return true; 
 	}
 	if(contador != 1 && contador != 0) {
-		cout<<"Hay " << contador << "con el apellido introducido"<<endl;
-		cout<<"Introduzca el DNI del alumno"<<endl;
-		cin>> DNI;
+		cout<<"Hay " << contador << " alumnos con el apellido introducido"<<endl;
+		cout<<"Porfavor, introduzca el DNI del alumno para verificar que existe:"<<endl;
+		getline(cin, DNI);
 		it = alumnos_.begin();
 		while(it != alumnos_.end()) {
 			if(it->getDNI() == DNI) {
@@ -1025,16 +1025,16 @@ bool BaseAlumnos::buscarAlumno() {
 void BaseAlumnos::modificarAlumno(){
 	string cadena;
 	int opcion = 0;//Para evitar que el valor basure tome un valor innecesario
-	int encontrado=0, curso, diaNacimiento, mesNacimiento, anoNacimiento;
+	int encontrado=0, curso, diaNacimiento, mesNacimiento, anoNacimiento, grupo;
 	bool lider;
-	cout<<"Introduzca el DNI del alumno a buscar"<<endl;
+	cout<<"Introduzca el DNI del alumno a buscar:"<<endl;
 	getline(cin, cadena);
     list<Alumno>::iterator it2, it;
     it2 = alumnos_.begin();
     do{
     	if(it2->getDNI() == cadena) {
     		while(opcion != 11) {
-			cout<<"Seleccione el atributo a modificar"<<endl;
+			cout<<"Seleccione el atributo a modificar:"<<endl;
 			cout<<"1.Nombre"<<endl;
 			cout<<"2.Apellidos"<<endl;
 			cout<<"3.DNI"<<endl;
@@ -1051,19 +1051,21 @@ void BaseAlumnos::modificarAlumno(){
 			system("clear");
 			switch(opcion) {
 				case 1: {
-					cout<<"Introduzca el nombre"<<endl;
+					cout<<"Introduzca el nombre:"<<endl;
 					getline(cin, cadena);
 					it2->setNombre(cadena);
+					cout<<"Nombre modificado correctamente"<<endl;	
 					break;
 				}
 				case 2: {
-					cout<<"Introduzca el apellido"<<endl;
+					cout<<"Introduzca el apellido:"<<endl;
 					getline(cin, cadena);
 					it2->setApellidos(cadena);
+					cout<<"Apellido modificado correctamente"<<endl;	
 					break;
 				}
 				case 3: {
-					cout<<"Introduzca el DNI"<<endl;
+					cout<<"Introduzca el DNI:"<<endl;
 					getline(cin, cadena);
 					it = alumnos_.begin();
 					while(it != alumnos_.end()) {
@@ -1075,12 +1077,12 @@ void BaseAlumnos::modificarAlumno(){
 					}   
 					if(encontrado == 0) {
 						it2->setDNI(cadena);
-						cout<<"Alumno modificado"<<endl;	
+						cout<<"DNI modificado correctamente"<<endl;	
 					}
 					break;
 				}
 				case 4: {
-					cout<<"Introduzca el correo"<<endl;
+					cout<<"Introduzca el correo:"<<endl;
 					getline(cin, cadena);
 					it = alumnos_.begin();
 					while(it != alumnos_.end()) {
@@ -1092,7 +1094,7 @@ void BaseAlumnos::modificarAlumno(){
 					}   
 						if(encontrado == 0) {
 						it2->setCorreo(cadena);
-						cout<<"Alumno modificado"<<endl;
+						cout<<"Correo modificado correctamente"<<endl;
 					}
 					break;
 				}
@@ -1100,18 +1102,21 @@ void BaseAlumnos::modificarAlumno(){
 					cout<<"Introduza el telefono"<<endl;
 					getline(cin, cadena);
 					it2->setTelefono(cadena);
+					cout<<"Telefono modificado correctamente"<<endl;	
 					break;
 				}
 				case 6: {
 					cout<<"Introduza el direccion"<<endl;
 					getline(cin, cadena);
 					it2->setDireccion(cadena);
+					cout<<"Direccion modificada correctamente"<<endl;	
 					break;
 				}
 				case 7: {
 					cout<<"Introduza el curso mas alto en el que el alumno esta matriculado"<<endl;
 					cin >> curso;
 					it2->setCursoMasAlto(curso);
+					cout<<"Curso más alto modificado correctamente"<<endl;
 					break;
 				}
 				case 8: {
@@ -1124,7 +1129,8 @@ void BaseAlumnos::modificarAlumno(){
 					cout<<"Introduzca el año de nacimiento del alumno"<<endl;
 					cin>>anoNacimiento;
 					cin.ignore();
-					it2->setFechaNacimiento(diaNacimiento, mesNacimiento, anoNacimiento);				
+					it2->setFechaNacimiento(diaNacimiento, mesNacimiento, anoNacimiento);
+					cout<<"Fecha de nacimiento modificada correctamente"<<endl;					
 					break;
 				}
 				case 9: {
@@ -1162,13 +1168,14 @@ void BaseAlumnos::modificarAlumno(){
 						}
 					}
 					it2->setLider(lider);
+					cout<<"Liderazgo modificado correctamente"<<endl;	
 					break;
 				}
 				case 10: {
-					int grupo;
 					cout<<"Introduzca el grupo el cual el alumno pertenece"<<endl;
 					cin>>grupo;
 					it2->setGrupo(grupo);
+					cout<<"Grupo modificado correctamente"<<endl;
 					break;
 				}
 				case 11: {

@@ -26,7 +26,8 @@
 **Flujos alternativos:**
 
 2.a. Si al introducir los apellidos hay varios alumnos con los mismos apellidos, se requerirá buscar por DNI.
-2.b. El sistema seguirá por el punto 3 del flujo principal.
+
+2.b. El flujo continuará por el punto 3 del flujo principal.
 
 ---
 3.a. Si no existe el alumno se muestra un mensaje de error diciendo que el alumno no existe.

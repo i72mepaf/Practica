@@ -29,4 +29,6 @@
 
 2.a. Si el DNI o el e-mail introducidos son iguales a otro ya en la base de datos, se da la opción de volver a introducir el dato o de parar de introducir el alumno y no introducirlo.
 
+2.a.a. Si ha habido un dato no valido (Ej.: Fecha de nacimiento: 34/12/1997), se volverá a pedir el dato no valido.
+
 3.a. En caso de haber un error, se mostrará un mensaje diciendo que no se ha introducido correctamente.

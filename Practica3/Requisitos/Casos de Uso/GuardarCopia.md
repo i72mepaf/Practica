@@ -4,7 +4,7 @@
 
 **Breve descripción:** El sistema guarda la base de datos de los alumnos en una copia de seguridad.
 
-**Actores principales:** Profesor.
+**Actores principales:** Profesor Coordinador.
 
 **Actores secundarios:** Alumnos.
 

@@ -4,7 +4,7 @@
 
 **Breve descripción:** El sistema buscará un alumno en la base de datos.
 
-**Actores principales:** Profesor.
+**Actores principales:** Profesor Coordinador o Ayudante.
 
 **Actores secundarios:** Alumnos.
 

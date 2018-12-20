@@ -1,10 +1,10 @@
-# Cargar datos de un fichero binario preestablecido
+# Cargar datos de una copia de seguridad binaria
 
-**ID:** 007
+**ID:** 010
 
-**Breve descripción:** El sistema carga los datos de los alumnos de un fichero binario preestablecido.
+**Breve descripción:** El sistema carga los datos de los alumnos de una copia de seguridad binaria.
 
-**Actores principales:** Profesor.
+**Actores principales:** Profesor Coordinador.
 
 **Actores secundarios:** Alumnos.
 
@@ -17,7 +17,8 @@
 **Flujo principal:**
 
 1. El caso de uso empieza cuando el profesor necesita cargar los datos de los alumnos de un fichero binario.
-2. El sistema carga los datos del fichero binario preestablecido en el sistema.
+2. El sistema pregunta al profesor el nombre del fichero binario a cargar.
+3. El sistema carga los datos del fichero binario en el sistema.
 
 **Postcondiciones:**
 
@@ -25,7 +26,7 @@
 
 **Flujos alternativos:**
 
-2.a. Si el fichero binario preestablecido a cargar no existe, muestra un mensaje de error.
+2.a. Si el fichero binario a cargar no existe, muestra un mensaje de error.
 
 
 3.a. Si el fichero binario tiene más de 150 alumnos, muestra un mensaje de error.

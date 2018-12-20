@@ -1,27 +1,56 @@
 #include "Clases.h"
 
-bool sortByCursoa(Alumno &lhs,Alumno &rhs){ return lhs.getCursoMasAlto() > rhs.getCursoMasAlto() ; }
-bool sortByCursod(Alumno &lhs,Alumno &rhs){ return rhs.getCursoMasAlto() > lhs.getCursoMasAlto() ; }
-bool sortByApella(Alumno &lhs,Alumno &rhs){ return lhs.getApellidos() > rhs.getApellidos() ; }
-bool sortByApelld(Alumno &lhs,Alumno &rhs){ return rhs.getApellidos() > lhs.getApellidos() ; }
+struct Auxiliar2{
+	char nombre[100];
+	char apellidos[100];
+	char DNI[100];
+	char correo[100];
+	char telefono[100];
+	char direccion[256];
+	int cursoMasAlto;
+	char fechaNacimiento[100];
+	bool lider;
+	int grupo;
+};
+
+bool sortByCursoa(Auxiliar2 &lhs,Auxiliar2 &rhs){ return lhs.cursoMasAlto > rhs.cursoMasAlto ; }
+bool sortByCursod(Auxiliar2 &lhs,Auxiliar2 &rhs){ return rhs.cursoMasAlto > lhs.cursoMasAlto ; }
+bool sortByApella(Auxiliar2 &lhs,Auxiliar2 &rhs){ return lhs.apellidos > rhs.apellidos ; }
+bool sortByApelld(Auxiliar2 &lhs,Auxiliar2 &rhs){ return rhs.apellidos > lhs.apellidos ; }
 
 void BaseAlumnos::eliminarAlumno(){ //Felipe
 	string ap;
-	int cont=0;
+	int cont=0, i;
 	cout << "Introduzca los apellidos del alumno a eliminar:"<< endl;
 	getline(cin, ap);
-	list<Alumno>::iterator it; 
-	for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+	list<Alumno>::iterator it;
+	it=alumnos_.begin();
+	for(i=0; i < (int) alumnos_.size(); i++){
 		if(it->getApellidos() == ap)
 			cont++;
+		it++;
 	}
 	if(cont == 1){
-
-		for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
-			if(it->getApellidos() == ap)
+		if(alumnos_.size()==1){
+			it=alumnos_.begin();
+			if(it->getApellidos() == ap){
 				alumnos_.erase(it);
+				cout << "Alumno con apellidos: '"<< ap <<"' eliminado con exito."<<endl;
 			}
-		cout << "Alumno con apellidos: '"<< ap <<"' eliminado con exito."<<endl;
+			else
+				cout << "No hay ningún alumno con los apellidos '"<<ap<<"' en nuestra base de datos" << endl;
+		}else{
+			it = alumnos_.begin();
+			while(it != alumnos_.end()){
+				if(it->getApellidos() == ap){
+					alumnos_.erase(it);
+					it = alumnos_.begin();
+				}
+				else
+					it++;
+			}
+			cout << "Alumno con apellidos: '"<< ap <<"' eliminado con exito."<<endl;
+		}
 	}
 	else{
 		if(cont == 0)
@@ -31,11 +60,15 @@ void BaseAlumnos::eliminarAlumno(){ //Felipe
 			cout << "Hay varios alumnos con los apellidos: '" << ap << "'." << endl;
 			cout << "Porfavor, introduzca el DNI del alumno a borrar:" << endl;
 			getline(cin, ap);
-			for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
+			it=alumnos_.begin();
+			while(it != alumnos_.end()){
 				if(it->getDNI() == ap){
 					alumnos_.erase(it);
+					it = alumnos_.begin();
 					cont++;
 				}
+				else
+					it++;
 			}
 			if(cont == 1)
 				cout << "Alumno con DNI: '"<< ap <<"' eliminado con exito." << endl;
@@ -50,10 +83,11 @@ struct Auxiliar
 	char r[100];
 };
 bool Profesor::identificaProfesor(){
-	int opcion = 0, contadorTipo=0;
-	string dni, compDNI, compROL;
+	int opcion = 0, contadorTipo=0, i, j;
+	string dni, compDNI, compROL, dniAux, rolAux, dniInicial, dniAyudante, RolAyudante;
 	Auxiliar aux;
 	vector<Auxiliar> v;
+	vector<Auxiliar>::iterator it;
 	ifstream fichero("credenciales.bin", ios::in | ios::binary);
 	if (fichero.is_open()){
 		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar))){
@@ -79,20 +113,21 @@ bool Profesor::identificaProfesor(){
 			if(opcion==1){//Coordinador
 				cout << "A continuación procederemos a identificarle como profesor Coordinador." << endl;
 				cout << "Introduzca DNI: ";
-				getline(cin, dni);
+				getline(cin, dniInicial);
 				system("clear");
-   				for (int i = 0; i < (int) v.size(); ++i)
+   				for (i = 0; i < (int) v.size(); i++)
    				{
    					compDNI = v[i].d;
    					compROL = v[i].r;
-   					if(compDNI == dni && compROL == "Coordinador")
+   					if(compDNI == dniInicial && compROL == "Coordinador")
    						cout << "Identificado Correctamente." << endl;
-   					while(compDNI == dni && compROL == "Coordinador"){
-   						cout << "¿Desea iniciar o cambiar DNI?\n1. Iniciar.\n2. Cambiar DNI." << endl;
+   					while(compDNI == dniInicial && compROL == "Coordinador"){
+   						cout << "Eliga una opción:\n1. Iniciar.\n2. Cambiar DNI." << endl;
+   						cout << "3. Eliminar Ayudante.\n4. Mostrar todos los profesores registrados." << endl;
    						cin >> opcion;
    						cin.ignore();
    						system("clear");
-   						if(opcion!= 1 && opcion!=2){
+   						if(opcion!= 1 && opcion!=2 && opcion!=3 && opcion!=4){
    							cout << "Numero Incorrecto. Intentalo de nuevo." << endl;
    						}
    						else{
@@ -102,13 +137,27 @@ bool Profesor::identificaProfesor(){
    								setRol(compROL);
    								return true;
    							}
-   							else{
+   							if(opcion==2){
    								cout << "Introduzca el nuevo DNI: ";
    								getline(cin, dni);
+   								contadorTipo=0;
+								for (i = 0; i < (int) v.size(); i++){
+									dniAux = v[i].d;
+									rolAux = v[i].r;
+									if(dni == dniAux && rolAux!="Coordinador"){
+										cout << "Ya existe un usuario registrado con ese DNI. Cambio no realizado" << endl;
+										contadorTipo++;
+									}
+								}
+								if(contadorTipo!=0){
+									dniInicial=dni;
+   									compDNI = dni;
+   									compROL = "Coordinador";
+								}else{
    								remove("credenciales.bin");
    								ofstream fEscCoord("credenciales.bin", ios::out | ios::binary);
 								if (fEscCoord.is_open()){
-									for(int j=0; j < (int) v.size(); j++){
+									for(j=0; j < (int) v.size(); j++){
 										compROL = v[j].r;
 										if(compROL == "Coordinador")
 											strcpy(v[j].d, dni.c_str());
@@ -120,10 +169,52 @@ bool Profesor::identificaProfesor(){
    									exit(-1);
    								}
    								fEscCoord.close();
-   								cout << "DNI cambiado con exito. Iniciando..." << endl;
-   								setDNI(dni);
-   								setRol("Coordinador");
-   								return true;
+   								cout << "DNI cambiado con exito." << endl;
+   								dniInicial=dni;
+   								compDNI = dni;
+   								compROL = "Coordinador";
+   								}
+   							}
+   							if(opcion == 3){
+   								cout << "Introduzca el DNI del Profesor Ayudante a eliminar: ";
+   								getline(cin, dni);
+   								contadorTipo = 0;
+   								it=v.begin();
+   								for (i = 0; i < (int) v.size(); i++){
+									dniAux = v[i].d;
+									rolAux = v[i].r;
+									if(dni == dniAux && rolAux=="Ayudante"){
+										v.erase(it);
+										it = v.begin();
+										i=0;
+										contadorTipo++;
+									}
+									else
+										it++;
+								}
+								if(contadorTipo == 0){
+									cout << "No existe registrado ningún profesor ayudante con ese DNI" << endl;
+								}
+								else{
+									remove("credenciales.bin");
+									ofstream fEscAyud("credenciales.bin", ios::out | ios::binary);
+									if (fEscAyud.is_open()){
+										for(int i=0; i < (int) v.size(); i++)
+											fEscAyud.write((char *)&v[i], sizeof(Auxiliar));
+   									}
+   									else{
+   										cout << "Error al abrir el fichero." << endl;
+   										exit(-1);
+   									}
+   									fEscAyud.close();
+									cout << "Profesor Ayudante eliminado correctamente" << endl;
+								}
+   							}
+   							if(opcion == 4){
+   								cout << "El número de profesores registrados es " << (int) v.size() <<":\n"<< endl; 
+   								for (i = 0; i < (int) v.size(); ++i)
+   									cout << i+1 <<". Rol: '"<< v[i].r << "' con DNI: '" << v[i].d << "'." << endl;
+   								cout << endl;
    							}
    						}
    					}
@@ -143,7 +234,8 @@ bool Profesor::identificaProfesor(){
 				}
 				else{
 					if(opcion == 1){//Registrarse
-						for (int i = 0; i < (int) v.size(); ++i)
+						contadorTipo=0;
+						for (i = 0; i < (int) v.size(); i++)
 						{
 							compROL = v[i].r;
 							if(compROL=="Ayudante")
@@ -154,11 +246,20 @@ bool Profesor::identificaProfesor(){
 							getline(cin, dni);
 							strcpy(aux.d, dni.c_str());
 							strcpy(aux.r, "Ayudante");
+							contadorTipo=0;
+							for (i = 0; i < (int) v.size(); i++){
+								dniAux = v[i].d;
+								if(dni == dniAux){
+									cout << "Ya existe un usuario registrado con ese DNI" << endl;
+									contadorTipo++;
+								}
+							}
+							if(contadorTipo==0){
 							v.push_back(aux);
 							remove("credenciales.bin");
 							ofstream fEscAyud("credenciales.bin", ios::out | ios::binary);
 							if (fEscAyud.is_open()){
-								for(int i=0; i < (int) v.size(); i++)
+								for(i=0; i < (int) v.size(); i++)
 									fEscAyud.write((char *)&v[i], sizeof(Auxiliar));
    							}
    							else{
@@ -170,8 +271,14 @@ bool Profesor::identificaProfesor(){
    							setDNI(dni);
    							setRol("Ayudante");
    							return false;
+   							}
+   							else{
+   								contadorTipo = 0;
+   								opcion=3;
+   							}
 						}
 						else{
+							contadorTipo = 0;
 							cout << "Lo sentimos. Ya existen registrados 5 profesores ayudantes." << endl;
   							opcion = 3;
 						}
@@ -181,7 +288,7 @@ bool Profesor::identificaProfesor(){
 						cout << "Introduzca el DNI: ";
 						getline(cin, dni);
 						system("clear");
-   						for (int i = 0; i < (int) v.size(); ++i)
+   						for (i = 0; i < (int) v.size(); i++)
    						{
    							compDNI = v[i].d;
    							compROL = v[i].r;
@@ -280,7 +387,7 @@ bool BaseAlumnos::insertarAlumno(){
 			}
 		}
 		else{
-			++it;
+			it++;
 		}
 	}
 	cout<<"Introduzca el nombre del alumno"<<endl;
@@ -316,7 +423,7 @@ bool BaseAlumnos::insertarAlumno(){
 			}
 		}
 		else{
-			++it;
+			it++;
 		}
 	}
 
@@ -364,18 +471,6 @@ bool BaseAlumnos::insertarAlumno(){
 	alumno.setDireccion(direccion);
 	alumno.setCursoMasAlto(cursoMasAlto);
 	alumno.setFechaNacimiento(diaNacimiento, mesNacimiento, anoNacimiento);
-	if(lider == true) {
-		for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
-			if(it->getGrupo() == alumno.getGrupo() && it->getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
-				cout<<"En este grupo ya hay un lider."<<endl;
-				cout << "Por lo que el alumno insertado estará en el grupo pero no será lider"<<endl;
-				lider=false;
-			}
-			
-		}
-
-	}
-	alumno.setLider(lider);
 	it=alumnos_.begin();
 	while(it != alumnos_.end()){
 		if(it->getGrupo()==grupo)
@@ -392,6 +487,30 @@ bool BaseAlumnos::insertarAlumno(){
 			it++;
 	}
 	alumno.setGrupo(grupo);
+	if(lider == true) {
+		it=alumnos_.begin();
+		if((int) alumnos_.size()==1){
+			if(alumnos_.front().getGrupo() == alumno.getGrupo() && alumnos_.front().getLider() == true && lider==true) {
+					cout<<"En este grupo ya hay un lider."<<endl;
+					cout << "Por lo que el alumno insertado estará en el grupo pero no será lider"<<endl;
+					lider=false;
+			}
+		}
+		else{
+			while(it != alumnos_.end()){
+				if(it->getGrupo() == alumno.getGrupo() && it->getLider() == true && lider==true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
+					cout<<"En este grupo ya hay un lider."<<endl;
+					cout << "Por lo que el alumno insertado estará en el grupo pero no será lider"<<endl;
+					lider=false;
+					it = alumnos_.begin();
+				}
+				else
+					it++;	
+			}
+		}
+
+	}
+	alumno.setLider(lider);
 	alumnos_.push_back(alumno);
 	return true;
 
@@ -510,38 +629,32 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 	aux = intToString(diaNacimiento) + "/"+ intToString(mesNacimiento) +"/"+ intToString(anoNacimiento);
 	fechaNacimiento_ = aux;
 }
-void imprimeVector(vector <Alumno> v,int nele); //Cabeceras de funciones para que no haya error al compilar
+void imprimeVector(vector <Auxiliar2> v,int nele); //Cabeceras de funciones para que no haya error al compilar
 
-void imprimeAlumno(Alumno a);
+void imprimeAlumno(Auxiliar2 a);
 
 void BaseAlumnos::mostrarAlumno(){
-	int menu,menu2;
-	int comp=0;
-	int comp2=0;
-	int vit=0;
-	int cont=0;
-	int nele=0;
+	int menu, menu2, comp=0, comp2=0, cont=0, i;
 	string aux;
-	list <Alumno>:: iterator i;
-	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		nele++;
-	}
-	vector <Alumno> v(nele);
-	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		v[vit].setNombre(i->getNombre());
-		v[vit].setApellidos(i->getApellidos());
-		v[vit].setDNI(i->getDNI());
-		v[vit].setCorreo(i->getCorreo());
-		v[vit].setTelefono(i->getTelefono());
-		v[vit].setDireccion(i->getDireccion());
-		v[vit].setCursoMasAlto(i->getCursoMasAlto());
-		aux = (i->getFechaNacimiento());
-		v[vit].setFechaNacimiento(atoi((aux.substr(0, aux.find("/"))).c_str()), 
-			atoi((aux.substr(aux.find("/")+1, aux.find("/"))).c_str()), 
-			atoi((aux.substr(aux.find("/")+aux.find(aux.substr(aux.find("/")+1, aux.find("/"))))).c_str()));
-		v[vit].setLider(i->getLider());
-		v[vit].setGrupo(i->getGrupo());
-		vit++;
+	list <Alumno>:: iterator it;
+	vector<Auxiliar2> v;
+	Auxiliar2 relleno;
+	while((int)v.size()!= (int) alumnos_.size())
+		v.push_back(relleno);
+
+	it=alumnos_.begin();
+	for(i=0; i < (int) v.size(); i++){
+		strcpy(v[i].nombre, it->getNombre().c_str());
+		strcpy(v[i].apellidos, it->getApellidos().c_str());
+		strcpy(v[i].DNI, it->getDNI().c_str());
+		strcpy(v[i].correo, it->getCorreo().c_str());
+		strcpy(v[i].telefono, it->getTelefono().c_str());
+		strcpy(v[i].direccion, it->getDireccion().c_str());
+		v[i].cursoMasAlto = it->getCursoMasAlto();
+		strcpy(v[i].fechaNacimiento, it->getFechaNacimiento().c_str());
+		v[i].lider = it->getLider();
+		v[i].grupo = it->getGrupo();
+		it++;
 	}
 	
 	do{
@@ -564,25 +677,29 @@ void BaseAlumnos::mostrarAlumno(){
 					switch(menu2){
 						case 1:
 						sort(v.begin(),v.end(),sortByCursoa);
-						imprimeVector(v,nele);
+						cout<< "══════════════════════════════════"<<endl;
+						imprimeVector(v, (int) v.size());
 						comp2=1;
 						break;
 
 						case 2:
 						sort(v.begin(),v.end(),sortByCursod);
-						imprimeVector(v,nele);
+						cout<< "══════════════════════════════════"<<endl;
+						imprimeVector(v, (int) v.size());
 						comp2=1;
 						break;
 
 						case 3:
 						comp2=1;
 						sort(v.begin(),v.end(),sortByApella);
-						imprimeVector(v,nele);
+						cout<< "══════════════════════════════════"<<endl;
+						imprimeVector(v, (int) v.size());
 						break;
 
 						case 4:
 						sort(v.begin(),v.end(),sortByApelld);
-						imprimeVector(v,nele);
+						cout<< "══════════════════════════════════"<<endl;
+						imprimeVector(v, (int) v.size());
 						comp2=1;
 						break;
 
@@ -610,7 +727,7 @@ void BaseAlumnos::mostrarAlumno(){
 						system("clear");
 						comp2=0;
 						for (int i=0;i<(int)v.size();i++){
-							if(aux == v[i].getDNI()){
+							if(aux == v[i].DNI){
 								imprimeAlumno(v[i]);
 								comp2=1;
 							}
@@ -625,7 +742,7 @@ void BaseAlumnos::mostrarAlumno(){
 						getline(cin, aux);
 						system("clear");
 						for (int i=0;i<(int) v.size();i++){
-							if(aux == v[i].getApellidos()){
+							if(aux == v[i].apellidos){
 								cont++;
 							}
 						}
@@ -634,7 +751,7 @@ void BaseAlumnos::mostrarAlumno(){
 							break;
 						}
 						for (int i=0;i< (int) v.size();i++){
-							if(aux == v[i].getApellidos()){
+							if(aux == v[i].apellidos){
 							imprimeAlumno(v[i]);	
 							}
 						}
@@ -657,233 +774,213 @@ void BaseAlumnos::mostrarAlumno(){
 	}while(comp == 0);
 }
 
-void imprimeVector(vector <Alumno> v, int nele){
+void imprimeVector(vector <Auxiliar2> v, int nele){
 	for(int i=0;i< nele;i++){
-		cout<< "Nombre: "<< v[i].getNombre()<<endl;
-		cout<< "Apellidos: "<<  v[i].getApellidos()<<endl;
-		cout<< "DNI: "<<  v[i].getDNI()<<endl;
-		cout<< "Correo: "<<  v[i].getCorreo()<<endl;
-		cout<< "Telefono: "<<  v[i].getTelefono()<<endl;
-		cout<< "Dirección: "<<  v[i].getDireccion()<<endl;
-		cout<< "Curso más alto: "<<  v[i].getCursoMasAlto()<<endl;
-		cout<< "Fecha de nacimiento: "<<  v[i].getFechaNacimiento()<<endl;
-		cout<< "Grupo: "<<  v[i].getGrupo()<<endl;
+		cout<< "Nombre: "<< v[i].nombre<<endl;
+		cout<< "Apellidos: "<<  v[i].apellidos<<endl;
+		cout<< "DNI: "<<  v[i].DNI<<endl;
+		cout<< "Correo: "<<  v[i].correo<<endl;
+		cout<< "Telefono: "<<  v[i].telefono<<endl;
+		cout<< "Dirección: "<<  v[i].direccion<<endl;
+		cout<< "Curso más alto: "<<  v[i].cursoMasAlto<<endl;
+		cout<< "Fecha de nacimiento: "<<  v[i].fechaNacimiento<<endl;
+		cout<< "Grupo: "<<  v[i].grupo<<endl;
 		cout << "Lider: ";
-		if(v[i].getLider())
+		if(v[i].lider)
 			cout << "Si"<< endl;
 		else
 			cout << "No" << endl;
+		cout<< "══════════════════════════════════"<<endl;
 	}
 }
 
-void imprimeAlumno(Alumno a){
-	cout<< "Nombre: "<< a.getNombre()<<endl;
-	cout<< "Apellidos: "<< a.getApellidos()<<endl;
-	cout<< "DNI: "<< a.getDNI()<<endl;
-	cout<< "Correo: "<< a.getCorreo()<<endl;
-	cout<< "Telefono: "<< a.getTelefono()<<endl;
-	cout<< "Dirección: "<< a.getDireccion()<<endl;
-	cout<< "Curso más alto: "<< a.getCursoMasAlto()<<endl;
-	cout<< "Fecha de nacimiento: "<< a.getFechaNacimiento()<<endl;
-	cout<< "Grupo: "<< a.getGrupo()<<endl;
+void imprimeAlumno(Auxiliar2 a){
+	cout<< "══════════════════════════════════"<<endl;
+	cout<< "Nombre: "<< a.nombre<<endl;
+	cout<< "Apellidos: "<< a.apellidos<<endl;
+	cout<< "DNI: "<< a.DNI<<endl;
+	cout<< "Correo: "<< a.correo<<endl;
+	cout<< "Telefono: "<< a.telefono<<endl;
+	cout<< "Dirección: "<< a.direccion<<endl;
+	cout<< "Curso más alto: "<< a.cursoMasAlto<<endl;
+	cout<< "Fecha de nacimiento: "<< a.fechaNacimiento<<endl;
+	cout<< "Grupo: "<< a.grupo<<endl;
 	cout<< "Lider: ";
-	if(a.getLider())
+	if(a.lider)
 		cout << "Si"<< endl;
 	else
 		cout << "No" << endl;
+	cout<< "══════════════════════════════════"<<endl;
 }
 
-struct Auxiliar2{
-	const char* nom;
-	const char *apel;
-	const char *DNI;
-	const char *Correo;
-	const char *telefono;
-	const char *direccion;
-	int curso;
-	const char *fecha;
-	bool lider;
-	int grupo;
-};
-
-
-void BaseAlumnos::guardarFichero(){
-	int vit=0;
-	int nele=0;
-	list <Alumno>::iterator i;
-
-	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		nele++;
-	}
-
-	vector <Auxiliar2> v(nele);
-	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		v[vit].nom=(i->getNombre().c_str());
-		v[vit].apel=(i->getApellidos().c_str());
-		v[vit].DNI=(i->getDNI().c_str());
-		v[vit].Correo=(i->getCorreo().c_str());
-		v[vit].telefono=(i->getTelefono().c_str());
-		v[vit].direccion=(i->getDireccion().c_str());
-		v[vit].curso=(i->getCursoMasAlto());
-		v[vit].fecha = (i->getFechaNacimiento().c_str());
-		v[vit].lider=(i->getLider());
-		v[vit].grupo=(i->getGrupo());
-		vit++;
-	}
-	string n;
-	cout << "Introduzca el nombre del fichero : ";
-	getline(cin, n);	
-	system("clear");
-	ofstream salida(n.c_str(), ios::out | ios::binary);
-	if (salida.is_open()){
-		for(int j=0; j < (int) v.size(); j++)
-		salida.write((char *)&v[j], sizeof(Auxiliar2));
-   	}
-   	salida.close();
-   	cout << "Fichero '"<<n<<"' guardado correctamente" << endl;
-}
-void BaseAlumnos::guardarCopia(){
-	int vit=0;
-	int nele=0;
-	list <Alumno>::iterator i;
-
-	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		nele++;
-	}
-
-	vector <Auxiliar2> v(nele);
-	for(i=alumnos_.begin();i != alumnos_.end();i++){
-		v[vit].nom=(i->getNombre().c_str());
-		v[vit].apel=(i->getApellidos().c_str());
-		v[vit].DNI=(i->getDNI().c_str());
-		v[vit].Correo=(i->getCorreo().c_str());
-		v[vit].telefono=(i->getTelefono().c_str());
-		v[vit].direccion=(i->getDireccion().c_str());
-		v[vit].curso=(i->getCursoMasAlto());
-		v[vit].fecha = (i->getFechaNacimiento().c_str());
-		v[vit].lider=(i->getLider());
-		v[vit].grupo=(i->getGrupo());
-		vit++;
-	}
-	string n;
-	n ="CopiaSeguridad.bin";
-	ofstream salida(n.c_str(), ios::out | ios::binary);
-	if (salida.is_open()){
-		for(int j=0; j < (int) v.size(); j++)
-		salida.write((char *)&v[j], sizeof(Auxiliar2));
-   	}
-   	salida.close();
-   	cout << "Guardado Correcto" << endl;
-}
-
-void BaseAlumnos::cargarFichero(){
-	string n;
+void BaseAlumnos::guardarCopia(){ //Guardar copia de seguridad
 	Auxiliar2 aux;
-	string fe;
-	Alumno alu;
-	int ngr;
-	bool lider;
-	cout << "Introduzca el nombre del fichero : ";
-	getline(cin, n);
-	ifstream fichero(n.c_str(), ios::in | ios::binary);
-	if (fichero.is_open()){
-		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Alumno))){
-			fe=aux.DNI;
-			alu.setDNI(fe);
-
-			fe=aux.nom;
-			alu.setNombre(fe);
-
-			fe=aux.apel;
-			alu.setApellidos(fe);
-
-			fe=aux.telefono;
-			alu.setTelefono(fe);
-
-			fe=aux.Correo;
-			alu.setCorreo(fe);
-
-			fe=aux.direccion;
-			alu.setDireccion(fe);
-
-			ngr=aux.curso;
-			alu.setCursoMasAlto(ngr);
-
-			lider=aux.lider;
-			alu.setLider(lider);
-
-			fe=aux.fecha;
-			alu.setFechaNacimiento(atoi((fe.substr(0, fe.find("/"))).c_str()), 
-			atoi((fe.substr(fe.find("/")+1, fe.find("/"))).c_str()), 
-			atoi((fe.substr(fe.find("/")+fe.find(fe.substr(fe.find("/")+1, fe.find("/"))))).c_str()));
-
-			ngr=aux.grupo;
-			alu.setGrupo(ngr);
-
-			alumnos_.push_back(alu);
-		}
-		cout << "Fichero '"<<n<<"' cargado correctamente" << endl;
-		fichero.close();
+	Alumno alum;
+	vector<Auxiliar2> v;
+	list <Alumno>::iterator it;
+	int i;
+	string fechanam, nFichero;
+	cout << "Introduzca el nombre del Fichero para guardar:" << endl;
+	getline(cin, nFichero);
+	while(nFichero=="CopiaSeguridad.bin" || nFichero=="credenciales.bin" || nFichero=="Cuerpo.cc" || nFichero=="Clases.h" || nFichero=="main.cc"){
+		cout << "Error, el archivo no se puede llamar '"<<  nFichero << "', intentelo de nuevo" << endl;
+		getline(cin, nFichero);
+		system("clear");
 	}
-	else{
-		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
+	while((int)v.size()!= (int) alumnos_.size())
+		v.push_back(aux);
+
+	it=alumnos_.begin();
+	for(i=0; i < (int) v.size(); i++){
+		strcpy(v[i].nombre, it->getNombre().c_str());
+		strcpy(v[i].apellidos, it->getApellidos().c_str());
+		strcpy(v[i].DNI, it->getDNI().c_str());
+		strcpy(v[i].correo, it->getCorreo().c_str());
+		strcpy(v[i].telefono, it->getCorreo().c_str());
+		strcpy(v[i].direccion, it->getDireccion().c_str());
+		v[i].cursoMasAlto = it->getCursoMasAlto();
+		strcpy(v[i].fechaNacimiento, it->getFechaNacimiento().c_str());
+		v[i].lider = it->getLider();
+		v[i].grupo = it->getGrupo();
+		it++;
 	}
-   	
+	remove(nFichero.c_str());
+	ofstream fGuardar(nFichero.c_str(), ios::out | ios::binary);
+	if (fGuardar.is_open()){
+		for (i = 0; i < (int) v.size(); ++i)
+			fGuardar.write((char *)&v[i], sizeof(Auxiliar2));
+		fGuardar.close();
+		cout << "Guardado Correcto" << endl;
 	}
+	else
+		cout << "Error al sobrescribir el fichero." << endl;
+}
+void BaseAlumnos::guardar(){
+	Auxiliar2 aux;
+	Alumno alum;
+	vector<Auxiliar2> v;
+	list <Alumno>::iterator it;
+	int i;
+	string fechanam;
+	while((int)v.size()!= (int) alumnos_.size())
+		v.push_back(aux);
+
+	it=alumnos_.begin();
+	for(i=0; i < (int) v.size(); i++){
+		strcpy(v[i].nombre, it->getNombre().c_str());
+		strcpy(v[i].apellidos, it->getApellidos().c_str());
+		strcpy(v[i].DNI, it->getDNI().c_str());
+		strcpy(v[i].correo, it->getCorreo().c_str());
+		strcpy(v[i].telefono, it->getCorreo().c_str());
+		strcpy(v[i].direccion, it->getDireccion().c_str());
+		v[i].cursoMasAlto = it->getCursoMasAlto();
+		strcpy(v[i].fechaNacimiento, it->getFechaNacimiento().c_str());
+		v[i].lider = it->getLider();
+		v[i].grupo = it->getGrupo();
+		it++;
+	}
+	ofstream fGuardar("CopiaSeguridad.bin", ios::out | ios::binary);
+	if (fGuardar.is_open()){
+		for (i = 0; i < (int) v.size(); ++i)
+			fGuardar.write((char *)&v[i], sizeof(Auxiliar2));
+		fGuardar.close();
+		cout << "Guardado Correcto" << endl;
+	}
+	else
+		cout << "Error al sobrescribir el fichero." << endl;
+}
 
 void BaseAlumnos::cargarCopia(){
-	string n;
-	n="CopiaSeguridad.bin";
 	Auxiliar2 aux;
-	string fe;
-	Alumno alu;
-	int ngr;
-	bool lider;
-	ifstream fichero(n.c_str(), ios::in | ios::binary);
+	Alumno alum;
+	vector<Auxiliar2> v;
+	int i;
+	string fechanam, nFichero;
+	cout << "Introduzca el nombre del fichero binario a cargar: " << endl;
+	getline(cin, nFichero);
+
+	ifstream fichero(nFichero.c_str(), ios::in | ios::binary);
 	if (fichero.is_open()){
-		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Alumno))){
-			fe=aux.DNI;
-			alu.setDNI(fe);
-
-			fe=aux.nom;
-			alu.setNombre(fe);
-
-			fe=aux.apel;
-			alu.setApellidos(fe);
-
-			fe=aux.telefono;
-			alu.setTelefono(fe);
-
-			fe=aux.Correo;
-			alu.setCorreo(fe);
-
-			fe=aux.direccion;
-			alu.setDireccion(fe);
-
-			ngr=aux.curso;
-			alu.setCursoMasAlto(ngr);
-
-			lider=aux.lider;
-			alu.setLider(lider);
-
-			fe=aux.fecha;
-			alu.setFechaNacimiento(atoi((fe.substr(0, fe.find("/"))).c_str()), 
-			atoi((fe.substr(fe.find("/")+1, fe.find("/"))).c_str()), 
-			atoi((fe.substr(fe.find("/")+fe.find(fe.substr(fe.find("/")+1, fe.find("/"))))).c_str()));
-
-			ngr=aux.grupo;
-			alu.setGrupo(ngr);
-
-			alumnos_.push_back(alu);
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
+			v.push_back(aux);
 		}
-   		fichero.close();
+		fichero.close();
+		if((int)v.size() > 150){
+			cout << "Error. El fichero contiene más de 150 alumnos" << endl;
+			return;
+		}
+		while(alumnos_.size()!=0)
+   		alumnos_.pop_back();
+
+   		for (i = 0; i < (int) v.size(); ++i){
+   		alum.setNombre((string)v[i].nombre);
+   		alum.setApellidos((string)v[i].apellidos);
+   		alum.setDNI((string)v[i].DNI);
+   		alum.setCorreo((string)v[i].apellidos);
+   		alum.setDireccion((string)v[i].direccion);
+   		alum.setCursoMasAlto(v[i].cursoMasAlto);
+   		alum.setDireccion((string)v[i].direccion);
+   		fechanam = v[i].fechaNacimiento;
+		alum.setFechaNacimiento(atoi((fechanam.substr(0, fechanam.find("/"))).c_str()), 
+			atoi((fechanam.substr(fechanam.find("/")+1, fechanam.find("/"))).c_str()), 
+			atoi((fechanam.substr(fechanam.find("/")+fechanam.find(fechanam.substr(fechanam.find("/")+1, 
+				fechanam.find("/"))))).c_str()));
+		alum.setLider(v[i].lider);
+		alum.setGrupo(v[i].grupo);
+   		alumnos_.push_back(alum);
+   		}
    		cout << "Cargado Correcto" << endl;
 	}
 	else{
-		cout << "Error al abrir el fichero porque no existe en el directorio." << endl;
+		cout << "Error al cargar '"<< nFichero <<"' porque no existe en el directorio." << endl;
 	}
+}
 
+void BaseAlumnos::cargar(){
+	Auxiliar2 aux;
+	Alumno alum;
+	vector<Auxiliar2> v;
+	int i;
+	string fechanam;
+	ifstream fichero("CopiaSeguridad.bin", ios::in | ios::binary);
+	if (fichero.is_open()){
+		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
+			v.push_back(aux);
+		}
+		fichero.close();
+
+		if((int)v.size() > 150){
+			cout << "Error. El fichero contiene más de 150 alumnos" << endl;
+			return;
+		}
+		
+		while(alumnos_.size()!=0)
+   		alumnos_.pop_back();
+
+   		for (i = 0; i < (int) v.size(); ++i){
+   		alum.setNombre((string)v[i].nombre);
+   		alum.setApellidos((string)v[i].apellidos);
+   		alum.setDNI((string)v[i].DNI);
+   		alum.setCorreo((string)v[i].apellidos);
+   		alum.setDireccion((string)v[i].direccion);
+   		alum.setCursoMasAlto(v[i].cursoMasAlto);
+   		alum.setDireccion((string)v[i].direccion);
+   		fechanam = v[i].fechaNacimiento;
+		alum.setFechaNacimiento(atoi((fechanam.substr(0, fechanam.find("/"))).c_str()), 
+			atoi((fechanam.substr(fechanam.find("/")+1, fechanam.find("/"))).c_str()), 
+			atoi((fechanam.substr(fechanam.find("/")+fechanam.find(fechanam.substr(fechanam.find("/")+1, 
+				fechanam.find("/"))))).c_str()));
+		alum.setLider(v[i].lider);
+		alum.setGrupo(v[i].grupo);
+   		alumnos_.push_back(alum);
+   		}
+   		cout << "Cargado Correcto" << endl;
 	}
+	else{
+		cout << "Error al abrir CopiaSeguridad.bin porque no existe en el directorio." << endl;
+	}
+}
+
 bool BaseAlumnos::buscarAlumno() {
 	string apellido;
 	int contador = 0;//Se utilizara para ver el numero de alumnos que comparten apellido
@@ -926,14 +1023,16 @@ bool BaseAlumnos::buscarAlumno() {
 
 
 void BaseAlumnos::modificarAlumno(){
-	string DNI;
+	string cadena;
 	int opcion = 0;//Para evitar que el valor basure tome un valor innecesario
+	int encontrado=0, curso, diaNacimiento, mesNacimiento, anoNacimiento;
+	bool lider;
 	cout<<"Introduzca el DNI del alumno a buscar"<<endl;
-	getline(cin, DNI);
-    list<Alumno>::iterator it2;
+	getline(cin, cadena);
+    list<Alumno>::iterator it2, it;
     it2 = alumnos_.begin();
     do{
-    	if(it2->getDNI() == DNI) {
+    	if(it2->getDNI() == cadena) {
     		while(opcion != 11) {
 			cout<<"Seleccione el atributo a modificar"<<endl;
 			cout<<"1.Nombre"<<endl;
@@ -952,84 +1051,70 @@ void BaseAlumnos::modificarAlumno(){
 			system("clear");
 			switch(opcion) {
 				case 1: {
-					string nombre;
 					cout<<"Introduzca el nombre"<<endl;
-					cin >> nombre;
-					it2->setNombre(nombre);
+					getline(cin, cadena);
+					it2->setNombre(cadena);
 					break;
 				}
 				case 2: {
-					string apellido;
 					cout<<"Introduzca el apellido"<<endl;
-					getline(cin, apellido);
-					it2->setApellidos(apellido);
+					getline(cin, cadena);
+					it2->setApellidos(cadena);
 					break;
 				}
 				case 3: {
-					string DNI;
 					cout<<"Introduzca el DNI"<<endl;
-					cin >> DNI;
-					int encontrado = 0;
-					list <Alumno>::iterator it;
+					getline(cin, cadena);
 					it = alumnos_.begin();
 					while(it != alumnos_.end()) {
-						if(it->getDNI() == DNI) {
+						if(it->getDNI() == cadena) {
 							cout<<"Error ya existe un alumno con el mismo DNI"<<endl;
 							encontrado = 1;
 						}
 						it++;
 					}   
 					if(encontrado == 0) {
-						it2->setDNI(DNI);
+						it2->setDNI(cadena);
 						cout<<"Alumno modificado"<<endl;	
 					}
 					break;
 				}
 				case 4: {
-					string correo;
 					cout<<"Introduzca el correo"<<endl;
-					cin >> correo;
-					int encontrado = 0;
-					list <Alumno>::iterator it;
+					getline(cin, cadena);
 					it = alumnos_.begin();
 					while(it != alumnos_.end()) {
-						if(it->getCorreo() == correo) {
+						if(it->getCorreo() == cadena) {
 							cout<<"Error ya existe un alumno con el mismo DNI"<<endl;
 							encontrado = 1;
 						}
 						it++;
 					}   
 						if(encontrado == 0) {
-						it2->setCorreo(correo);
+						it2->setCorreo(cadena);
 						cout<<"Alumno modificado"<<endl;
 					}
 					break;
 				}
 				case 5: {
-					string telefono;
 					cout<<"Introduza el telefono"<<endl;
-					cin >> telefono;
-					it2->setTelefono(telefono);
+					getline(cin, cadena);
+					it2->setTelefono(cadena);
 					break;
 				}
 				case 6: {
-					string direccion;
 					cout<<"Introduza el direccion"<<endl;
-					getline(cin, direccion);
-					it2->setDireccion(direccion);
+					getline(cin, cadena);
+					it2->setDireccion(cadena);
 					break;
 				}
 				case 7: {
-					int curso;
 					cout<<"Introduza el curso mas alto en el que el alumno esta matriculado"<<endl;
 					cin >> curso;
 					it2->setCursoMasAlto(curso);
 					break;
 				}
 				case 8: {
-					int diaNacimiento;
-					int mesNacimiento;
-					int anoNacimiento;
 					cout<<"Introduzca el dia en el que el alumno nacio"<<endl;
 					cin>>diaNacimiento;
 					cin.ignore();
@@ -1043,7 +1128,6 @@ void BaseAlumnos::modificarAlumno(){
 					break;
 				}
 				case 9: {
-					bool lider;
 					opcion=0;
 					while(opcion!=1 && opcion!=2){
 						cout << "1.Lider\n2.No Lider" << endl;
@@ -1059,12 +1143,21 @@ void BaseAlumnos::modificarAlumno(){
 						}
 					}
 					if(lider == true) {
-						list <Alumno>:: iterator it;
-						for(it=alumnos_.begin(); it != alumnos_.end(); ++it){
-							if(it2->getGrupo() == it->getGrupo() && it->getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
-							cout<<"En este grupo ya hay un lider."<<endl;
-							cout << "Por lo que el alumno insertado estará en el grupo pero no será lider"<<endl;
-							lider=false;
+						it=alumnos_.begin();
+						if((int) alumnos_.size()==1){
+							if(it->getGrupo() == it2->getGrupo() && it->getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
+								cout << "En este grupo ya hay un lider." << endl;
+								cout << "Modificacion no realizada." << endl;
+								lider=false;
+							}
+						}
+						else{
+							for(it=alumnos_.begin(); it != alumnos_.end(); it++){
+								if(it2->getGrupo() == it->getGrupo() && it->getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
+								cout << "En este grupo ya hay un lider." << endl;
+								cout << "Modificacion no realizada." << endl;
+								lider=false;
+								}
 							}
 						}
 					}
@@ -1078,7 +1171,11 @@ void BaseAlumnos::modificarAlumno(){
 					it2->setGrupo(grupo);
 					break;
 				}
-				default: cout<<"Seleccione una opcion disponible"<<endl;
+				case 11: {
+					cout << "Saliendo de Modificar Alumno..." << endl;
+					break;
+				}
+				default: cout<<"Error. Seleccione una opcion disponible"<<endl;
 			}
 			}
     	}

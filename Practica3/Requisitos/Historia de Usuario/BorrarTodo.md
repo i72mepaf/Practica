@@ -3,6 +3,7 @@
 ---
 
 Como usuario quiero poder borrar a todos los alumnos de la base de datos.
+Quiero que el sistema me pregunte que si estoy seguro de hacerlo.
 
 **Prioridad:** 5
 

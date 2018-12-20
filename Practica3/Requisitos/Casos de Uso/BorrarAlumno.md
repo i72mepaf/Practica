@@ -4,7 +4,7 @@
 
 **Breve Descripción:** El sistema borra un alumno de la base de datos.
 
-**Actores principales:** Profesor.
+**Actores principales:** Profesor Coordinador o Ayudante.
 
 **Actores secundarios:** Alumnos.
 

@@ -61,9 +61,9 @@ public:
 	void modificarAlumno();
 	inline list<Alumno> getListaAlumno()const{return alumnos_;};
 	void setListaAlumno(list<Alumno> lista);
-	void cargarFichero();
+	void cargar();
 	void cargarCopia();
-	void guardarFichero();
+	void guardar();
 	void guardarCopia();
 	bool buscarAlumno();
 };

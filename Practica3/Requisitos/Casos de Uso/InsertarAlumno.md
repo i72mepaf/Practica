@@ -4,30 +4,29 @@
 
 **Breve Descripción:** El profesor introducirá, en la base de datos, los datos de un alumno.
 
-**Actores principales:** Profesor.
+**Actores principales:** Profesor Coordinador o Ayudante.
 
 **Actores secundarios:** Alumnos.
 
 **Precondiciones:**
 
 1. El alumno no debe existir.
-2. Los datos obligatorios a introducir son: DNI, Nombre, Apellidos, Tlf., e-mail corporativo (UCO), dirección postal, curso más alto en el que está matriculado y Fecha de Nacimiento.
-3. Los datos opcionales a introducir son: Número del equipo que pertenece y si es Líder del grupo o no.
+2. La base de datos no debe tener 150 alumnos.
 
 **Flujo principal:**
 
 1. El caso de uso empieza cuando el profesor quiere introducir un alumno a la base de datos.
-2. El sistema pedirá los datos obligatorios al profesor.
-3. El sistema pedirá los datos opcionales al profesor.
-4. El sistema mostrará un mensaje diciendo que el alumno ha sido introducido correctamente.
+2. El sistema pedirá los datos del alumno al profesor.
+3. El sistema mostrará un mensaje diciendo que el alumno ha sido introducido correctamente.
 
 **Postcondiciones:**
 
 * Si no existe el alumno se inserta en la base de datos.
-* Los datos opcionales al no ser introducidos se les asignará los valores por defecto (N.º equipo: 0 y Líder: No)
 
 **Flujos alternativos:**
 
-2.a. Si el DNI o el e-mail introducidos son iguales a otro ya en la base de datos, se da la opción de volver a introducir el dato o de parar de introducir el alumno y no introducir nada.
+1.a. Si la base de datos tiene 150 alumnos, se mostrará un mensaje diciendo que la base de datos está llena.
 
-4.a. En caso de haber un error, se mostrará un mensaje diciendo que no se ha introducido correctamente.
+2.a. Si el DNI o el e-mail introducidos son iguales a otro ya en la base de datos, se da la opción de volver a introducir el dato o de parar de introducir el alumno y no introducirlo.
+
+3.a. En caso de haber un error, se mostrará un mensaje diciendo que no se ha introducido correctamente.

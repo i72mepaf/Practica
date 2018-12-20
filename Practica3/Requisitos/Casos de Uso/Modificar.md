@@ -4,7 +4,7 @@
 
 **Breve descripción:** El sistema permite la modificación de los datos de un alumno.
 
-**Actores principales:** Profesor.
+**Actores principales:** Profesor Coordinador o Ayudante.
 
 **Actores secundarios:** Alumnos.
 

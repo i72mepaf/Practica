@@ -1,4 +1,4 @@
-# Guardar datos en un fichero binario
+# Guardar datos en un fichero binario preestablecido
 
 **ID:** 008
 

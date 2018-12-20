@@ -822,9 +822,10 @@ void BaseAlumnos::guardarCopia(){ //Guardar copia de seguridad
 	string fechanam, nFichero;
 	cout << "Introduzca el nombre del Fichero para guardar:" << endl;
 	getline(cin, nFichero);
-	while(nFichero=="CopiaSeguridad.bin" || nFichero=="credenciales.bin"){
-		cout << "Error, el archivo no se puede llamar CopiaSeguridad.bin ni credenciales.bin, intentelo de nuevo" << endl;
+	while(nFichero=="CopiaSeguridad.bin" || nFichero=="credenciales.bin" || nFichero=="Cuerpo.cc" || nFichero=="Clases.h" || nFichero=="main.cc"){
+		cout << "Error, el archivo no se puede llamar '"<<  nFichero << "', intentelo de nuevo" << endl;
 		getline(cin, nFichero);
+		system("clear");
 	}
 	while((int)v.size()!= (int) alumnos_.size())
 		v.push_back(aux);

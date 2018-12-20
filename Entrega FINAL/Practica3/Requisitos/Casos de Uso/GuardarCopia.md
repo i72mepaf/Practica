@@ -24,8 +24,7 @@
 
 **Flujos alternativos:**
 
-2.a. Si el nombre introducido coincide con el de las credenciales o el prestablecido para Guardar y Cargar,
-     se volverá a pedir por teclado el nombre del fichero binario a guardar.
+2.a. Si el nombre introducido no es valido, se volverá a pedir por teclado el nombre del fichero binario a guardar.
 
 
 3.a. Si hay un error a la hora de crearse/sobrescribirse el fichero, se muestra un mensaje de error.

@@ -62,9 +62,9 @@
 
     2.b.3.c. En el caso de coincidir, el sistema inicia el programa con las funcionalidades de profesor Ayudante.
 ---
-        2.b.3.c.1. En el caso de no coincidir, el sistema muestra un mensaje diciendo que no se ha podido identificar.
+        2.b.3.c.a. En el caso de no coincidir, el sistema muestra un mensaje diciendo que no se ha podido identificar.
 
-        2.b.3.c.2. El flujo vuelve al punto 2 del flujo principal.
+        2.b.3.c.b. El flujo vuelve al punto 2 del flujo principal.
 ---
 
 3.a. En el caso de no seleccionar ninguna opción, el sistema muestra un mensaje de error diciendo que se ha elegido una opción incorrecta.
@@ -88,3 +88,35 @@
     6.a.1.d. El sistema muestrá un mensaje diciendo que el cambio se ha realizado correctamente.
 
     6.a.1.e. El flujo vuelve al punto 5 del flujo principal.
+
+---
+
+      6.a.1.c.a. Si coincide con alguno, el sistema muestra un mensaje de error diciendo que el DNI introducido coincide con el DNI de un profesor ayudante.
+
+      6.a.1.c.b. El flujo vuelve al punto 5 del flujo principal.
+
+---
+
+    6.a.2.a. En el caso de seleccionar Eliminar Profesor Ayudante, el sistema pedirá al profesor el DNI del profesor Ayudante a Eliminar
+
+    6.a.2.b. El sistema comprueba que el DNI introducido coincide con alguno de los profesores ayudantes de las credenciales.
+
+    6.a.2.c. Si coincide, el sistema elimina el profesor ayudante encontrado de las credenciales.
+
+    6.a.2.d. El sistema muestra un mensaje diciendo que el profesor ayudante se ha eliminado correctamente.
+
+    6.a.2.e. El flujo vuelve al punto 5 del flujo principal.
+
+---
+
+      6.a.2.c.a. Si no coincide con ninguno, el sistema muestra un mensaje de error diciendo que no se encuentra ningún profesor ayudante con ese DNI.
+
+      6.a.2.c.b. El flujo vuelve al punto 5 del flujo principal.
+
+---
+
+    6.a.3.a. En el caso de seleccionar Mostrar todos los Profesores Registrados, el sistema recopilará del archivo de credenciales todos los datos de los profesores.
+
+    6.a.3.b. El sistema mostrará por pantalla el número de profesores registrados y, a continuación, escribirá sus roles (Coordinador o Ayudante) y sus DNIs correspondientes.
+
+    6.a.3.c. El flujo vuelve al punto 5 del flujo principal.

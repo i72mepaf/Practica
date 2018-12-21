@@ -25,7 +25,7 @@ Cabe resaltar que **todos sus atributos son privados**, estos son:
 4. **Correo**: Representa el correo del alumno. Es un atributo de tipo *string*.
 5. **Dirección**: Representa la dirección del alumno. Es un atributo de tipo string.
 6. **Teléfono**: Representa el número de teléfono del alumno. Es un atributo de tipo *string*, ya que podían existir números de telefono mayores a lo que un *int* y un *double* podían representar.
-7. **Dirección Postal**: Representa el número de dirección postal del alumno. Es un atributo de tipo *int*.
+7. **Dirección**: Representa la dirección del alumno. Es un atributo de tipo *string*.
 8. **Curso más alto matriculado**: Representa el curso más alto matriculado del alumno. Es un atributo de tipo *int*.
 9. **Fecha nacimiento**: Representa la fecha de nacimiento del alumno. Es un atributo de tipo *int*.
 10. **¿Líder?**: Representa si el alumno es lider o no de un grupo. Es un atributo de tipo *boolean*.

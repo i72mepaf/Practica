@@ -1180,14 +1180,17 @@ void BaseAlumnos::modificarAlumno(){
 				}
 				case 11: {
 					cout << "Saliendo de Modificar Alumno..." << endl;
+					return;
 					break;
 				}
 				default: cout<<"Error. Seleccione una opcion disponible"<<endl;
+				break;
 			}
 			}
     	}
     	it2++;
 	}while(it2 != alumnos_.end());
+	cout << "No se encontro el alumno a modificar" << endl;
 }
 void Alumno::setTelefono(string numero) {
 	int p = 0;

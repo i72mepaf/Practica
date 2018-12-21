@@ -45,7 +45,7 @@ Algunos ejemplos más son: **setNombre(), setApellidos(), etc**.
 2. **Observadores (get)**:
 Son operaciones que **devuelven el atributo** correspondiente.
 Cada operación de este tipo devuelve un atributo del **tipo correspondiente a su atributo**.
-Por ejemplo, la operación **getDNI** devolverá el DNI del alumno en cuestión, es decir, devolverá un atributo de tipo *string*.
+Por ejemplo, la operación **getDNI()** devolverá el DNI del alumno en cuestión, es decir, devolverá un atributo de tipo *string*.
 Algunos ejemplos más son: **getNombre(), getApellidos(), etc**.
 ### Base de Datos
 La **clase Base de Datos** representa la base de datos de todos los alumnos y las operaciones que puede llevar a cabo esta.
@@ -56,7 +56,7 @@ A continuación, se describirán todas las operaciones de la clase Base de datos
 1. **buscarAlumno()**: Se encarga de **buscar un alumno** en específico en la *Lista Alumnos*. Es de tipo *bool* y es una operación **pública**.
 2. **insertarAlumno()**: Se encarga de **insertar un nuevo alumno** en la *Lista Alumnos*. Es de tipo *bool* y es una operación **pública**.
 3. **eliminarAlumno()**: Se encarga de **eliminar un alumno** en específico de la *Lista Alumnos*. Es de tipo *void* y es una operación **pública**.
-4. **mostrarAlumno()**: Se encarga de **mostrar un alumno, todos los alumnos o los alumnos de un grupo** de la *Lista Alumnos* de distintas formas (ascendente por apellido o descendente por DNI, etc). Es de tipo *void* y es una operación **pública**.
+4. **mostrarAlumno()**: Se encarga de **mostrar un alumno o todos los alumnos** de la *Lista Alumnos* de distintas formas (ascendente por apellido o descendente por DNI, etc). Es de tipo *void* y es una operación **pública**.
 5. **modificarAlumno()**: Se encarga de **modificar un alumno** en específico de la *Lista Alumnos*. Es de tipo *void* y es una operación **pública**.
 6. **guardar()**: Se encarga de **guardar los datos en un fichero preestablecido** de la *Lista Alumnos*. Es de tipo *void* y es una operación **pública**.
 7. **guardarCopia()**: Se encarga de **guardar los datos en una copia de seguridad binaria** de la *Lista Alumnos*. Es de tipo *void* y es una operación **pública**.

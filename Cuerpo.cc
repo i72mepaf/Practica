@@ -1,6 +1,6 @@
-#include "Clases.h"
+#include "Clases.h" // Incluimos 
 
-struct Auxiliar2{
+struct Auxiliar2{ // Estructura auxiliar que usamos para mostrar, guardar, cargar, guardar copia y cargar copia para que no de problemas los ficheros binarios
 	char nombre[100];
 	char apellidos[100];
 	char DNI[100];
@@ -12,13 +12,13 @@ struct Auxiliar2{
 	bool lider;
 	int grupo;
 };
-
+// Las 4 siguientes funciones son de ordenación de los alumnos
 bool sortByCursoa(Auxiliar2 &lhs,Auxiliar2 &rhs){ return lhs.cursoMasAlto > rhs.cursoMasAlto ; }
 bool sortByCursod(Auxiliar2 &lhs,Auxiliar2 &rhs){ return rhs.cursoMasAlto > lhs.cursoMasAlto ; }
 bool sortByApella(Auxiliar2 &lhs,Auxiliar2 &rhs){ return lhs.apellidos > rhs.apellidos ; }
 bool sortByApelld(Auxiliar2 &lhs,Auxiliar2 &rhs){ return rhs.apellidos > lhs.apellidos ; }
 
-void BaseAlumnos::eliminarAlumno(){ //Felipe
+void BaseAlumnos::eliminarAlumno(){
 	string ap;
 	int cont=0, i;
 	cout << "Introduzca los apellidos del alumno a eliminar:"<< endl;
@@ -77,7 +77,7 @@ void BaseAlumnos::eliminarAlumno(){ //Felipe
 		}
 	}
 }
-struct Auxiliar
+struct Auxiliar // Estructura auxiliar que usamos en Identificar Profesor para que no de problemas los ficheros binarios
 {
 	char d[100];
 	char r[100];
@@ -312,7 +312,7 @@ void BaseAlumnos::setListaAlumno(list<Alumno> lista){
 		alumnos_.pop_back();
 	alumnos_=lista;
 }
-void Profesor::eliminarBaseAlumnos(){ //Felipe
+void Profesor::eliminarBaseAlumnos(){
 	int opcion=0;
 	list<Alumno> alumnos;
 	alumnos = base_.getListaAlumno();
@@ -985,7 +985,7 @@ bool BaseAlumnos::buscarAlumno() {
 	string apellido;
 	int contador = 0;//Se utilizara para ver el numero de alumnos que comparten apellido
 	string DNI;
-	
+
 	cout<<"Introduza el apellido del alumno que desea buscar: "<<endl;
 	getline(cin, apellido);
 	list<Alumno>::iterator it;
@@ -1029,6 +1029,10 @@ void BaseAlumnos::modificarAlumno(){
 	bool lider;
 	cout<<"Introduzca el DNI del alumno a buscar:"<<endl;
 	getline(cin, cadena);
+	if(alumnos_.size()==0){
+		cout << "No se encontro el alumno a modificar" << endl;
+		return;
+	}
     list<Alumno>::iterator it2, it;
     it2 = alumnos_.begin();
     do{

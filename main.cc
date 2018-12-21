@@ -2,9 +2,9 @@
 
 int main(int argc, char const *argv[])
 {
-	Profesor p;
-	int op = 0;
-	if(p.identificaProfesor()==true){
+	Profesor p; // Creamos un objeto de la clase profesor y hacemos su debida identificación en identificaProfesor() 
+	int op = 0; // Creamos está variable para hacer de seleccion del menú
+	if(p.identificaProfesor()==true){ // Si identificaProfesor() devuelve true es profesor Coordinador
 		while(op!=11){
 			cout << "Menu:" << endl;
 			cout << "1. Insertar Alumno" << endl;
@@ -52,7 +52,7 @@ int main(int argc, char const *argv[])
 			}
 		}
 	}
-	else{
+	else{				//Si identificaProfesor() devuelve false es profesor Ayudante
 		while(op!=8){
 			cout << "Menu:" << endl;
 			cout << "1. Insertar Alumno" << endl;

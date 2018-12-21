@@ -3,5 +3,3 @@ registrado mínimo, en el archivo de credenciales "credenciales.bin"
 habrá creado inicialmente un profesor con cuyos datos serán:
 DNI: "11111"
 Rol: "Coordinador"
-
-Para la entrega final si estará corregida la práctica 3.

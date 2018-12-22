@@ -23,6 +23,7 @@ void BaseAlumnos::eliminarAlumno(){
 	int cont=0, i;
 	cout << "Introduzca los apellidos del alumno a eliminar:"<< endl;
 	getline(cin, ap);
+	system("clear");
 	list<Alumno>::iterator it;
 	it=alumnos_.begin();
 	for(i=0; i < (int) alumnos_.size(); i++){
@@ -60,6 +61,7 @@ void BaseAlumnos::eliminarAlumno(){
 			cout << "Hay varios alumnos con los apellidos: '" << ap << "'." << endl;
 			cout << "Porfavor, introduzca el DNI del alumno a borrar:" << endl;
 			getline(cin, ap);
+			system("clear");
 			it=alumnos_.begin();
 			while(it != alumnos_.end()){
 				if(it->getDNI() == ap){
@@ -360,13 +362,14 @@ bool BaseAlumnos::insertarAlumno(){
 	
 	cout<<"Introduce el DNI del alumno"<<endl;
 	getline(cin, DNI);
+	system("clear");
 	it = alumnos_.begin();
 	while(it != alumnos_.end()){
 		if(it->getDNI()==DNI) {
 			cout << "ERROR.Este Alumno con este DNI ya existe" << endl;
 			opcion=0;
 			while(opcion!=1 && opcion !=2){
-				cout << "¿Que desea?\n1. No introducir el alumno\n2.Introducir de nuevo el DNI" << endl;
+				cout << "¿Que desea?\n1. No introducir el alumno\n2. Introducir de nuevo el DNI" << endl;
 				cin >> opcion;
 				cin.ignore();
 				system("clear");
@@ -392,17 +395,20 @@ bool BaseAlumnos::insertarAlumno(){
 	}
 	cout<<"Introduzca el nombre del alumno"<<endl;
 	getline(cin, nombre);
+	system("clear");
 	cout<<"Introduzca el apellido del alumno"<<endl;
 	getline(cin, apellidos);
+	system("clear");
 	cout<<"Introduzca el correo del alumno"<<endl;
 	getline(cin, correo);
+	system("clear");
 	it=alumnos_.begin();
 	while(it != alumnos_.end()){
 		if(it->getCorreo()==correo) {
 			cout << "ERROR.Este Alumno con este correo ya existe" << endl;
 			opcion=0;
 			while(opcion!=1 && opcion !=2){
-				cout << "¿Que desea?\n1. No introducir el alumno\n2.Introducir de nuevo el correo" << endl;
+				cout << "¿Que desea?\n1. No introducir el alumno\n2. Introducir de nuevo el correo" << endl;
 				cin >> opcion;
 				cin.ignore();
 				system("clear");
@@ -430,29 +436,37 @@ bool BaseAlumnos::insertarAlumno(){
 	cout<<"Introduzca el numero de telefono del alumno"<<endl;
 	cin>>telefono;
 	cin.ignore();
+	system("clear");
 	cout<<"Introduzca la direccion del alumno"<<endl;
 	getline(cin, direccion);
+	system("clear");
 	cout<<"Introduzca el curso mas alto en el que el alumno esta matriculado"<<endl;
 	cin>>cursoMasAlto;
 	cin.ignore();
+	system("clear");
 	cout<<"Introduzca el dia en el que el alumno nacio"<<endl;
 	cin>>diaNacimiento;
 	cin.ignore();
+	system("clear");
 	cout<<"Introduzca el mes de nacimiento del alumno"<<endl;
 	cin>>mesNacimiento;
 	cin.ignore();
+	system("clear");
 	cout<<"Introduzca el año de nacimiento del alumno"<<endl;
 	cin>>anoNacimiento;
 	cin.ignore();
+	system("clear");
 	cout<<"Introduzca el grupo del alumno"<<endl;
 	cin>>grupo;
 	cin.ignore();
+	system("clear");
 	cout<<"Introduzca si es lider o no de algun grupo"<<endl;
 	opcion=0;
 	while(opcion!=1 && opcion!=2){
-		cout << "1.Lider\n2.No Lider" << endl;
+		cout << "1. Lider\n2. No Lider" << endl;
 		cin>>opcion;
 		cin.ignore();
+		system("clear");
 		if(opcion!=1 && opcion!=2){
 			cout << "Error. Seleccione un número correcto" << endl;
 		}
@@ -476,10 +490,11 @@ bool BaseAlumnos::insertarAlumno(){
 		if(it->getGrupo()==grupo)
 			cont++;
 		if(cont == 3){
-			cout << "El grupo asignado ya esta lleno" << endl;
+			cout << "Error. El grupo asignado ya esta lleno" << endl;
 			cout << "Introduzca otro grupo: " << endl;
 			cin>>grupo;
 			cin.ignore();
+			system("clear");
 			cont=0;
 			it = alumnos_.begin();
 		}
@@ -528,101 +543,55 @@ void Alumno::setFechaNacimiento(int diaNacimiento, int mesNacimiento, int anoNac
 		cout << "Introduzca de nuevo el número del mes:" << endl;
 		cin >> mesNacimiento;
 		cin.ignore();
+		system("clear");
 	}
-	if(mesNacimiento == 1) {
+	if(mesNacimiento == 1 || mesNacimiento == 3 || mesNacimiento == 5 || mesNacimiento == 7 || mesNacimiento == 8 || mesNacimiento == 10 || mesNacimiento == 12) {
 		while(diaNacimiento <= 0 || diaNacimiento > 31) {
 			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
 			cout << "Introduzca de nuevo el día del mes:" << endl;
 			cin >> diaNacimiento;
 			cin.ignore();
+			system("clear");
 		}
 	}
 	if(mesNacimiento == 2) {
-		while(diaNacimiento <= 0 || diaNacimiento > 28) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
+		if(anoNacimiento%400==0){
+			while(diaNacimiento <= 0 || diaNacimiento > 29) {
+				cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<< " ya que el año "<<anoNacimiento<<" es bisiesto"<<endl;
+				cout << "Introduzca de nuevo el día del mes:" << endl;
+				cin >> diaNacimiento;
+				cin.ignore();
+				system("clear");
+			}
+		}
+		else{
+			if(anoNacimiento%4 == 0 && anoNacimiento%100 != 0){
+				while(diaNacimiento <= 0 || diaNacimiento > 29) {
+					cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<< " ya que el año "<<anoNacimiento<<" es bisiesto"<<endl;
+					cout << "Introduzca de nuevo el día del mes:" << endl;
+					cin >> diaNacimiento;
+					cin.ignore();
+					system("clear");
+				}
+			}
+			else{
+				while(diaNacimiento <= 0 || diaNacimiento > 28) {
+					cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<< " ya que el año "<<anoNacimiento<<" no es bisiesto"<<endl;
+					cout << "Introduzca de nuevo el día del mes:" << endl;
+					cin >> diaNacimiento;
+					cin.ignore();
+					system("clear");
+				}
+			}
 		}
 	}
-	if(mesNacimiento == 3) {
-		while(diaNacimiento <= 0 || diaNacimiento > 29) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 4) {
+	if(mesNacimiento == 4 || mesNacimiento == 6 || mesNacimiento == 9 || mesNacimiento == 11) {
 		while(diaNacimiento <= 0 || diaNacimiento > 30) {
 			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
 			cout << "Introduzca de nuevo el día del mes:" << endl;
 			cin >> diaNacimiento;
 			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 5) {
-		while(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 6) {
-		while(diaNacimiento <= 0 || diaNacimiento > 30) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 7) {
-		while(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 8) {
-		while(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 9) {
-		while(diaNacimiento <= 0 || diaNacimiento > 30) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 10) {
-		while(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 11) {
-		while(diaNacimiento <= 0 || diaNacimiento > 30) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
-		}
-	}
-	if(mesNacimiento == 12) {
-		while(diaNacimiento <= 0 || diaNacimiento > 31) {
-			cout<<"El dia "<<diaNacimiento<<" no esta en el mes "<<mesNacimiento<<endl;
-			cout << "Introduzca de nuevo el día del mes:" << endl;
-			cin >> diaNacimiento;
-			cin.ignore();
+			system("clear");
 		}
 	}
 	
@@ -822,6 +791,7 @@ void BaseAlumnos::guardarCopia(){ //Guardar copia de seguridad
 	string fechanam, nFichero;
 	cout << "Introduzca el nombre del Fichero para guardar:" << endl;
 	getline(cin, nFichero);
+	system("clear");
 	while(nFichero=="CopiaSeguridad.bin" || nFichero=="credenciales.bin" || nFichero=="Cuerpo.cc" || nFichero=="Clases.h" || nFichero=="main.cc"){
 		cout << "Error, el archivo no se puede llamar '"<<  nFichero << "', intentelo de nuevo" << endl;
 		getline(cin, nFichero);
@@ -850,10 +820,10 @@ void BaseAlumnos::guardarCopia(){ //Guardar copia de seguridad
 		for (i = 0; i < (int) v.size(); ++i)
 			fGuardar.write((char *)&v[i], sizeof(Auxiliar2));
 		fGuardar.close();
-		cout << "Guardado Correcto" << endl;
+		cout << "Guardado Correcto en el fichero "<< nFichero << endl;
 	}
 	else
-		cout << "Error al sobrescribir el fichero." << endl;
+		cout << "Error al sobrescribir el fichero "<< nFichero << endl;
 }
 void BaseAlumnos::guardar(){
 	Auxiliar2 aux;
@@ -898,7 +868,7 @@ void BaseAlumnos::cargarCopia(){
 	string fechanam, nFichero;
 	cout << "Introduzca el nombre del fichero binario a cargar: " << endl;
 	getline(cin, nFichero);
-
+	system("clear");
 	ifstream fichero(nFichero.c_str(), ios::in | ios::binary);
 	if (fichero.is_open()){
 		while(!fichero.eof() && fichero.read((char *)&aux, sizeof(Auxiliar2))){
@@ -929,7 +899,7 @@ void BaseAlumnos::cargarCopia(){
 		alum.setGrupo(v[i].grupo);
    		alumnos_.push_back(alum);
    		}
-   		cout << "Cargado Correcto" << endl;
+   		cout << "Cargado Correcto del fichero "<< nFichero << endl;
 	}
 	else{
 		cout << "Error al cargar '"<< nFichero <<"' porque no existe en el directorio." << endl;
@@ -988,6 +958,7 @@ bool BaseAlumnos::buscarAlumno() {
 
 	cout<<"Introduza el apellido del alumno que desea buscar: "<<endl;
 	getline(cin, apellido);
+	system("clear");
 	list<Alumno>::iterator it;
 	it = alumnos_.begin();
 	while(it != alumnos_.end()) {
@@ -1001,7 +972,7 @@ bool BaseAlumnos::buscarAlumno() {
 		return false;
 	}
 	if(contador == 1) {
-		cout<<"Alumno encontado"<<endl;
+		cout<<"Alumno encontrado"<<endl;
 		return true; 
 	}
 	if(contador != 1 && contador != 0) {
@@ -1029,6 +1000,7 @@ void BaseAlumnos::modificarAlumno(){
 	bool lider;
 	cout<<"Introduzca el DNI del alumno a buscar:"<<endl;
 	getline(cin, cadena);
+	system("clear");
 	if(alumnos_.size()==0){
 		cout << "No se encontro el alumno a modificar" << endl;
 		return;
@@ -1039,17 +1011,17 @@ void BaseAlumnos::modificarAlumno(){
     	if(it2->getDNI() == cadena) {
     		while(opcion != 11) {
 			cout<<"Seleccione el atributo a modificar:"<<endl;
-			cout<<"1.Nombre"<<endl;
-			cout<<"2.Apellidos"<<endl;
-			cout<<"3.DNI"<<endl;
-			cout<<"4.Correo"<<endl;
-			cout<<"5.Telefono"<<endl;
-			cout<<"6.Direccion"<<endl;
-			cout<<"7.cursoMasAlto"<<endl;
-			cout<<"8.getFechaNacimiento"<<endl;
-			cout<<"9.Liderazgo"<<endl;
-			cout<<"10.Grupo"<<endl;
-			cout<<"11.Salir"<<endl;
+			cout<<"1. Nombre"<<endl;
+			cout<<"2. Apellidos"<<endl;
+			cout<<"3. DNI"<<endl;
+			cout<<"4. Correo"<<endl;
+			cout<<"5. Telefono"<<endl;
+			cout<<"6. Direccion"<<endl;
+			cout<<"7. Curso más alto matriculado"<<endl;
+			cout<<"8. Fecha de Nacimiento"<<endl;
+			cout<<"9. Liderazgo"<<endl;
+			cout<<"10. Grupo"<<endl;
+			cout<<"11. Salir"<<endl;
 			cin>>opcion;
 			cin.ignore();
 			system("clear");
@@ -1057,6 +1029,7 @@ void BaseAlumnos::modificarAlumno(){
 				case 1: {
 					cout<<"Introduzca el nombre:"<<endl;
 					getline(cin, cadena);
+					system("clear");
 					it2->setNombre(cadena);
 					cout<<"Nombre modificado correctamente"<<endl;	
 					break;
@@ -1064,6 +1037,7 @@ void BaseAlumnos::modificarAlumno(){
 				case 2: {
 					cout<<"Introduzca el apellido:"<<endl;
 					getline(cin, cadena);
+					system("clear");
 					it2->setApellidos(cadena);
 					cout<<"Apellido modificado correctamente"<<endl;	
 					break;
@@ -1071,6 +1045,7 @@ void BaseAlumnos::modificarAlumno(){
 				case 3: {
 					cout<<"Introduzca el DNI:"<<endl;
 					getline(cin, cadena);
+					system("clear");
 					it = alumnos_.begin();
 					while(it != alumnos_.end()) {
 						if(it->getDNI() == cadena) {
@@ -1088,6 +1063,7 @@ void BaseAlumnos::modificarAlumno(){
 				case 4: {
 					cout<<"Introduzca el correo:"<<endl;
 					getline(cin, cadena);
+					system("clear");
 					it = alumnos_.begin();
 					while(it != alumnos_.end()) {
 						if(it->getCorreo() == cadena) {
@@ -1105,6 +1081,7 @@ void BaseAlumnos::modificarAlumno(){
 				case 5: {
 					cout<<"Introduza el telefono"<<endl;
 					getline(cin, cadena);
+					system("clear");
 					it2->setTelefono(cadena);
 					cout<<"Telefono modificado correctamente"<<endl;	
 					break;
@@ -1112,6 +1089,7 @@ void BaseAlumnos::modificarAlumno(){
 				case 6: {
 					cout<<"Introduza el direccion"<<endl;
 					getline(cin, cadena);
+					system("clear");
 					it2->setDireccion(cadena);
 					cout<<"Direccion modificada correctamente"<<endl;	
 					break;
@@ -1119,6 +1097,7 @@ void BaseAlumnos::modificarAlumno(){
 				case 7: {
 					cout<<"Introduza el curso mas alto en el que el alumno esta matriculado"<<endl;
 					cin >> curso;
+					system("clear");
 					it2->setCursoMasAlto(curso);
 					cout<<"Curso más alto modificado correctamente"<<endl;
 					break;
@@ -1133,6 +1112,7 @@ void BaseAlumnos::modificarAlumno(){
 					cout<<"Introduzca el año de nacimiento del alumno"<<endl;
 					cin>>anoNacimiento;
 					cin.ignore();
+					system("clear");
 					it2->setFechaNacimiento(diaNacimiento, mesNacimiento, anoNacimiento);
 					cout<<"Fecha de nacimiento modificada correctamente"<<endl;					
 					break;
@@ -1140,9 +1120,11 @@ void BaseAlumnos::modificarAlumno(){
 				case 9: {
 					opcion=0;
 					while(opcion!=1 && opcion!=2){
-						cout << "1.Lider\n2.No Lider" << endl;
+						cout << "Eliga una opción para el alumno" << endl;
+						cout << "1. Lider\n2. No Lider" << endl;
 						cin>>opcion;
 						cin.ignore();
+						system("clear");
 						if(opcion!=1 && opcion!=2){
 						cout << "Error. Seleccione un número correcto" << endl;
 						}else{
@@ -1152,7 +1134,7 @@ void BaseAlumnos::modificarAlumno(){
 						lider=false;
 						}
 					}
-					if(lider == true) {
+					if(lider == true && it2->getLider() != true) {
 						it=alumnos_.begin();
 						if((int) alumnos_.size()==1){
 							if(it->getGrupo() == it2->getGrupo() && it->getLider() == true) {//Si hay alumnos en el grupo del estudiante insertado y si hay un lider en dicho grupo
@@ -1178,6 +1160,7 @@ void BaseAlumnos::modificarAlumno(){
 				case 10: {
 					cout<<"Introduzca el grupo el cual el alumno pertenece"<<endl;
 					cin>>grupo;
+					system("clear");
 					it2->setGrupo(grupo);
 					cout<<"Grupo modificado correctamente"<<endl;
 					break;
@@ -1220,7 +1203,7 @@ void Alumno::setGrupo(int grupo) {
 			grupo_ = grupo;
 			control = 1;
 		} else {
-			cout<<"Numero de grupo fuera de rango (1-50)"<<endl;
+			cout<<"Numero de grupo fuera de rango [1-50]"<<endl;
 			cout<<"Intentalo de nuevo"<<endl;
 			cin>>grupo;
 			cin.ignore();
@@ -1236,9 +1219,11 @@ void Alumno::setCursoMasAlto(int curso) {
 			cursoMasAlto_ = curso;
 			control = 1;
 		} else {
-			cout<<"El curso introducido esta fuera de rango (1-4)"<<endl;
+			cout<<"El curso introducido esta fuera de rango [1-4]"<<endl;
 			cout<<"Intentalo de nuevo"<<endl;
 			cin>>curso;
+			cin.ignore();
+			system("clear");
 		}
 	}
 }

@@ -1,0 +1,205 @@
+Profesores y Alumnos
+
+Historia de usuario: Incluir un usuario
+
+
+
+
+
+APUNTAR!!!(ENTREVISTA(?)):
+
+Almacenar datos de los alumnos
+Gestionar los datos de los alumnos
+Insertar minimo DNI, NOMBRE, APELLIDOS
+DNI, NOMBRE, APELLIDOS, TLF, EMAIL CORPORATIVO(UCO), DIRECCION POSTAL, 
+CURSO MAS ALTO EN EL QUE ESTA MATRICULADO, FECHA DE NACIMIENTO.
+Opcional:(NUMERO DE EQUIPO, LIDER O NO DEL EQUIPO)
+Si ya existe el usuario (buscar por DNI o Correo) y parar la insetacción de ese alumno (ya que estaría entonces repetido)
+Esto: NUMERO DE EQUIPO, LIDER O NO DEL EQUIPO en modificar si o si
+Buscar un alumno: por su apellido(conflicto en el apellido(preguntar el DNI o mostrar todos los apellidos que sean iguales)) como por su DNI. (si no existe: Mensaje de Error preguntado si quieres realizar una nueva busqueda)
+Modificar un alumno.
+¿Quieres que te muestre los alumnos ordenados por grupo?
+¿Quieres que se muestre los alumnos por una forma determinada?
+Mostrar un alumno por su nº de equipo como por su DNI (?)
+Mostrar de forma resaltada si es lider o no
+Borrado de alúmno, buscar por su apellido(conflicto en el apellido(preguntar el DNI)) como por su DNI.
+Mostrar todos los alumnos de la base de datos(HTML O MARCKDOWN) PERMITIR ORDENAR DE FORMA ALFABÉTICA (TANTO NOMBRE POR APELLIDO, COMO NUMERO DE DNI, COMO CURSO MÁS ALTO MATRICULADO, Y TODAS ELLAS DE FORMA ASCENDENTE Y DESCENDENTE)<-- Esto en los alumnos de un grupo también.
+Mostrar todos los alumnos de un grupo
+Sistema Linux
+Nº de Alumnos por grupo no va a ser una restriccion
+Nº de Alumnos totales 150
+REQUISITO:En cada equipo solo puede haber 1 lider como MÁXIMO
+Funcionalidad para cambiar lider(si el alumno seleccionado ya es lider no puede ser lider, porque ya lo es)
+Borrar: lider de un grupo
+Asignar: Lider
+Borrar toda la base de datos de los alumnos.
+Poder cargar un fichero binario.(Cargar copia de seguridad en fichero binario)
+Hacer copia de seguridad.(Guardar) (Se guardaría en el fichero binario)
+
+
+Funcionalidad Opcional: El sistema puede estar en ingles o en español
+
+
+
+Dentro de gitHub crear 2 carpetas: Tutorial y Requisitos
+Dentro de requisitos: docuemtno de extraccion de requisitos, carpeta:historia de usuario, carpeta:casos de uso (dentro de este casos de usos y el diagrama final del sistema(pdf)).
+
+Actores
+Datos
+Prioridad:
+Depende de:
+
+
+
+
+
+
+
+Partes Interesadas/Actores: 
+	Actor Principal: Profesor
+	Actor Secundario: Alumnos
+
+Requisitos Funcionales:
+	001 Angel: Insertar Alumno. PRIORIDAD: 1
+	002 Ricardo: Modificar Alumno. PRIORIDAD: 4
+	003 Angel: Buscar Alumno. PRIORIDAD: 3
+	004 Ricardo: Mostrar Alumno. PRIORIDAD: 4
+	005 Angel: Eliminar Alumno. PRIORIDAD: 4
+	006 Ricardo:Eliminar base de datos de los alumnos. PRIORIDAD: 5
+	007 Felipe: Cargar en un fichero binario. PRIORIDAD: 2
+	008 Felipe: Guardar en un fichero binario. PRIORIDAD: 2
+	009 Felipe: Identificar Profesor Coordinador o Ayundante
+
+Requisitos No Funcionales:
+	Lenguaje C++
+	Documentación MarckDown
+	Uso de Commits
+	Linux
+	Máximo 150 alumnos
+	Máximo 1 lider por grupo
+	Al mostrar alumno: Forma Alfabetica (Ascendente y Descendente)
+	Al mostrar alumno: ordenados por grupo
+	Máximo 1 profesor coordinador
+	Máximo 5 profesores ayudantes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+git pull origin master
+git push -u origin master 
+git commit --no-verify -am "Nombre del cambio" 
+
+
+
+
+
+Identificar Profesor. PRIORIDAD: 1
+Insertar Alumno. PRIORIDAD: 1
+Cargar en un fichero binario. PRIORIDAD: 2
+Guardar en un fichero binario. PRIORIDAD: 2
+Buscar Alumno. PRIORIDAD: 3
+Mostrar Alumno. PRIORIDAD: 4
+Eliminar Alumno. PRIORIDAD: 4
+Modificar Alumno. PRIORIDAD: 4
+Eliminar base de datos de los alumnos. PRIORIDAD: 5
+
+
+
+PRIORIZACIÓN DE REQUISITOS:
+PRIORIDAD. REQUISITO
+1. Identificar Profesores
+1. Insertar Alumno
+2. Cargar copia de seguridad de un fichero binario
+2. Guardar copia de seguridad en un fichero binario
+3. Buscar Alumno
+4. Mostrar Alumno
+4. Eliminar Alumno
+4. Modificar Alumno
+5. Eliminar base de datos de los alumnos
+
+
+Diagramas de Secuencias:
+Felipe: Identificar Profesores |||||||
+Angel: Insertar Alumno |||||||
+Ricardo: Cargar copia de seguridad de un fichero binario  |||||||
+Ricardo: Guardar copia de seguridad en un fichero binario  |||||||
+Felipe: Buscar Alumno 
+Angel: Mostrar Alumno |||||||
+Felipe: Eliminar Alumno |||||||
+Ricardo: Modificar Alumno 
+Ricardo: Eliminar base de datos de los alumnos |||||||
+
+
+
+
+FALTAN:
+Felipe: Buscar Alumno ------ 
+Ricardo: Modificar Alumno ------
+
+
+
+
+
+
+
+
+
+
+
+
+
+PRACTICA 4:
+
+1. Historia de Usuario y prioridad el scrum master - PRODUCT BACKLOG - TXT - ENTREGA 1 SOLO
+2. SPRINT BACKLOG - 1 POR CADA ENTREGA - Distribucion que hace el scrum master entre los programadores
+3. AL MENOS 3 VERSIONES DISTINTAS (PROGRESIVAMENTE)DE Burndown chark
+4. Código
+
+
+
+
+
+Identificar Profesor. PRIORIDAD: 1
+Insertar Alumno. PRIORIDAD: 1
+Cargar en un fichero binario. PRIORIDAD: 2
+Guardar en un fichero binario. PRIORIDAD: 2
+Buscar Alumno. PRIORIDAD: 3
+Mostrar Alumno. PRIORIDAD: 4
+Eliminar Alumno. PRIORIDAD: 4
+Modificar Alumno. PRIORIDAD: 4
+Eliminar base de datos de los alumnos. PRIORIDAD: 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SUBIR ARCHIVO COMO BASE DE DATOS
+
+Indice
+Introduccion
+Requisitos
+Casos de Uso
+Diagrama de Clases
+Diagrama de Secuencias
+etc...
